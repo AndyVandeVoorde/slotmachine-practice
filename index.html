@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+  <title>Slot machine</title>
+</head>
+<body>
+  <div class="bgbig">
+    <div class="bg">
+      <div class="slot-title"></div>
+      <img src="images/background.png" alt="background">
+      <table class="reels">
+        <tr class="row1">
+          <td rowspan="3" class="filling"></td>
+          <td class="p1"></td>
+          <td rowspan="3" class="filling"></td>
+          <td class="p2"></td>
+          <td rowspan="3" class="filling"></td>
+          <td class="p3"></td>
+          <td rowspan="3" class="filling"></td>
+          <td class="p4"></td>
+          <td rowspan="3" class="filling"></td>
+          <td class="p5"></td>
+          <td rowspan="3" class="filling"></td>
+        </tr>
+        <tr class="row2">
+          <td class="p6"></td>
+          <td class="p7"></td>
+          <td class="p8"></td>
+          <td class="p9"></td>
+          <td class="p10"></td>
+        </tr>
+        <tr class="row3">
+          <td class="p11"></td>
+          <td class="p12"></td>
+          <td class="p13"></td>
+          <td class="p14"></td>
+          <td class="p15"></td>
+        </tr>
+      </table>
+      <div class="bottom-ui">
+        <img src="images/ui/bottomui.png" alt="bottom-ui">
+      </div>
+      <table class="bottom-ui-content">
+        <tr>
+          <td class="text1">Bet</td>
+          <td class="button-empty"></td>
+          <td class="text1">Level</td>
+          <td class="button-empty"></td>
+          <td class="auto-play" rowspan="2">
+            <input type="image" src="images/icons/auto-play-btn.png" class="auto-play-btn"></input>
+              <p id="auto-play-btn"  class="auto-play-text">Auto <br> Play</p>
+          </td>
+          <td class="spin-btn-td" rowspan="2">
+            <input type="image" src="images/ui/spin button.png" class="spin-btn"></input>
+          </td>
+          <td class="max-bet" rowspan="2">
+            <input type="image" src="images/icons/max-bet-btn.png" class="max-bet-btn">
+            <p class="max-bet-text">Max <br> Bet</p>
+          </input>
+          </td>
+          <td class="button-empty"></td>
+          <td class="text1">Coin value</td>
+          <td class="button-empty"></td>
+          <td class="text1">coins</td>
+        </tr>
+        <tr>
+          <td class="text2">15</td>
+          <td class="arrow-button-left">
+            <button class="left-arrow">
+              <!-- <img src="images/icons/left-arrow.png" alt="left-arrow"> -->
+            </button>
+          </td>
+          <td class="text2">1</td>
+          <td class="arrow-button-right">
+            <button class="right-arrow">
+              <!-- <img src="images/icons/right-arrow.png" alt="right-arrow"> -->
+            </button>
+          </td>
+          <td class="arrow-button-left">
+            <button class="left-arrow">
+              <!-- <img src="images/icons/left-arrow.png" alt="left-arrow"> -->
+            </button>
+          </td>
+          <td class="text2">0,02</td>
+          <td class="arrow-button-right">
+            <button class="right-arrow">
+              <!-- <img src="images/icons/right-arrow.png" alt="right-arrow"> -->
+            </button>
+          </td>
+          <td class="text2"><p>250000</p></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
