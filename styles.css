@@ -331,62 +331,62 @@ td.spacing {
 }
 
 /* images per position */
-.p1 {
-  background-image: url(images/icons/barrels.png);
-}
-
-.p2 {
+#p1 {
   background-image: url(images/icons/female\ cut.png);
 }
 
-.p3 {
-  background-image: url(images/icons/wild.png);
+#p2 {
+  background-image: url(images/icons/female\ cut.png);
 }
 
-.p4 {
+#p3 {
+  background-image: url(images/icons/Scatter.png);
+}
+
+#p4 {
   background-image: url(images/icons/boots.png);
 }
 
-.p5 {
+#p5 {
   background-image: url(images/icons/gas\ lamp.png);
 }
 
-.p6 {
+#p6 {
   background-image: url(images/icons/trolley.png);
 }
 
-.p7 {
-  background-image: url(images/icons/bag\ of\ gold.png);
-}
-
-.p8 {
-  background-image: url(images/icons/barrels.png);
-}
-
-.p9 {
-  background-image: url(images/icons/male\ cut.png);
-}
-
-.p10 {
+#p7 {
   background-image: url(images/icons/pile\ of\ gold.png);
 }
 
-.p11 {
+#p8 {
+  background-image: url(images/icons/barrels.png);
+}
+
+#p9 {
+  background-image: url(images/icons/male\ cut.png);
+}
+
+#p10 {
+  background-image: url(images/icons/Scatter2.png)
+}
+
+#p11 {
   background-image: url(images/icons/snake.png);
 }
 
-.p12 {
+#p12 {
   background-image: url(images/icons/gas\ lamp.png);
 }
 
-.p13 {
+#p13 {
   background-image: url(images/icons/dynamite\ crate.png);
 }
 
-.p14 {
+#p14 {
   background-image: url(images/icons/bag\ of\ gold.png);
 }
 
-.p15 {
+#p15 {
   background-image: url(images/icons/wild.png);
 }
