@@ -9,6 +9,9 @@ let currentValue = document.getElementById('coin-value').innerHTML
 let currentBetSize = document.getElementById('bet-size').innerHTML
 let currentCoins = document.getElementById('total-coins').innerHTML
 
+
+
+
 // declaring all image positions
 const p = []
 p[0] = document.getElementById('p1')
@@ -138,4 +141,6 @@ spinButton.onclick = function() {
   console.log(newCurrentCoins)
 }
 
+// randomize pictures on loading of screen
+window.onload = symbolPlacement();
 
