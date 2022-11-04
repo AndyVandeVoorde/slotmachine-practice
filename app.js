@@ -185,8 +185,10 @@ let BootsValue = [Bootsx3, Bootsx4, Bootsx5]
 // declarations for checkSymbol function
 let valueX = 0
 let columns = 0
+let winValueStorage = 0
 // let winValue = 0
 let winValue = []
+
 // let winValueFemale = 0
 // let winValueMale = 0
 // let winValueTrolley = 0
@@ -467,34 +469,49 @@ function symbolPlacement () {
 let arrayNum = 1
 function RotatingImages() {
   // Column 1
-  VisibleArray1[2].style.backgroundImage = "url('images/icons/dynamite crate.png')"
+  // VisibleArray1[2].style.backgroundImage = "url(images/icons/trolley.png)"
+  VisibleArray1[2].style.backgroundImage = "url('images/icons/female cut.png')"
   VisibleArray1[1].style.backgroundImage = "url('images/icons/dynamite crate.png')"
-  VisibleArray1[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  // VisibleArray1[1].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray1[0].style.backgroundImage = "url(images/icons/snake.png)"
+  // VisibleArray1[0].style.backgroundImage = "url('images/icons/female cut.png')"
 
   // BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
 
   // Column 2
-  VisibleArray2[2].style.backgroundImage = "url('images/icons/dynamite crate.png')"
-  VisibleArray2[1].style.backgroundImage = "url('images/icons/dynamite crate.png')"
-  VisibleArray2[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray2[2].style.backgroundImage = "url(images/icons/barrels.png)"
+  // VisibleArray2[2].style.backgroundImage = "url('images/icons/female cut.png')"
+  // VisibleArray2[1].style.backgroundImage = "url(images/icons/boots.png)"
+  VisibleArray2[1].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray2[0].style.backgroundImage = "url(images/icons/gas lamp.png)"
+  // VisibleArray2[0].style.backgroundImage = "url('images/icons/female cut.png')"
 
   // BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 3
-  VisibleArray3[2].style.backgroundImage = "url('images/icons/dynamite crate.png')"
+  VisibleArray3[2].style.backgroundImage = "url(images/icons/gas lamp.png)"
+  // VisibleArray3[2].style.backgroundImage = "url('images/icons/female cut.png')"
   VisibleArray3[1].style.backgroundImage = "url(images/icons/snake.png)"
+  // VisibleArray3[1].style.backgroundImage = "url('images/icons/female cut.png')"
+  // VisibleArray3[0].style.backgroundImage = "url('images/icons/dynamite crate.png')"
   VisibleArray3[0].style.backgroundImage = "url('images/icons/female cut.png')"
 
   // BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 4
   VisibleArray4[2].style.backgroundImage = "url(images/icons/snake.png)"
-  VisibleArray4[1].style.backgroundImage = "url(images/icons/snake.png)"
-  VisibleArray4[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  // VisibleArray4[2].style.backgroundImage = "url('images/icons/female cut.png')"
+  // VisibleArray4[1].style.backgroundImage = "url(images/icons/barrels.png)"
+  VisibleArray4[1].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray4[0].style.backgroundImage = "url(images/icons/snake.png)"
+  // VisibleArray4[0].style.backgroundImage = "url('images/icons/female cut.png')"
 
   // BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 5
   VisibleArray5[2].style.backgroundImage = "url(images/icons/snake.png)"
+  // VisibleArray5[2].style.backgroundImage = "url('images/icons/female cut.png')"
   VisibleArray5[1].style.backgroundImage = "url(images/icons/snake.png)"
-  VisibleArray5[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  // VisibleArray5[1].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray5[0].style.backgroundImage = "url(images/icons/barrels.png)"
+  // VisibleArray5[0].style.backgroundImage = "url('images/icons/female cut.png')"
 
   // BatchArray5[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
 
@@ -552,60 +569,760 @@ function Payline1to3() {
       VisibleArray3Url[i] == VisibleArray4Url[i] && 
       VisibleArray4Url[i] == VisibleArray5Url[i]){
         columns = i
+        winValueStorage = i
         valueX = 2
         checkSymbol()
-        console.log(winValue[i])
+        // console.log(winValue[i])
     } else if (
       VisibleArray1Url[i] === VisibleArray2Url[i] && 
       VisibleArray2Url[i] === VisibleArray3Url[i] &&
       VisibleArray3Url[i] === VisibleArray4Url[i]){
         columns = i
+        winValueStorage = i
         valueX = 1
         checkSymbol()
-        console.log(winValue[i])
+        // console.log(winValue[i])
     } else if (
       VisibleArray1Url[i] === VisibleArray2Url[i] && 
       VisibleArray2Url[i] === VisibleArray3Url[i]){
         columns = i
+        winValueStorage = i
         valueX = 0
         checkSymbol()
-        console.log(winValue[i])
+        // console.log(winValue[i])
     } else {
       winValue[i] = 0
-      console.log(winValue[i])
+      // console.log(winValue[i])
     }
   }
 }
+
+// function to simplify
+// function Test() {
+//   if (
+//     VisibleArray1Url[a] === VisibleArray2Url[b] &&
+//     VisibleArray2Url[b] === VisibleArray3Url[c] &&
+//     VisibleArray3Url[c] === VisibleArray4Url[d] &&
+//     VisibleArray4Url[d] === VisibleArray5Url[e] ){
+//       columns = f
+//       winValueStorage = g
+//       valueX = 2
+//       checkSymbol()
+//   } else if (
+//     VisibleArray1Url[a] === VisibleArray2Url[1] &&
+//     VisibleArray2Url[b] === VisibleArray3Url[2] &&
+//     VisibleArray3Url[c] === VisibleArray4Url[1] ){
+//       columns = 0
+//       winValueStorage = 3
+//       valueX = 1
+//       checkSymbol()
+//   } else if (
+//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
+//     VisibleArray2Url[1] === VisibleArray3Url[2] ){
+//       columns = 0
+//       winValueStorage = 3
+//       valueX = 0
+//       checkSymbol()
+//     } else {
+//     winValue[3] = 0
+//   }
+// }
+
+// Check Payline 4
+function Payline4() {
+  if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 3
+      valueX = 2
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] ){
+      columns = 0
+      winValueStorage = 3
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] ){
+      columns = 0
+      winValueStorage = 3
+      valueX = 0
+      checkSymbol()
+    } else {
+    winValue[3] = 0
+  }
+}
+
+function Payline5() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 4
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] ){
+      columns = 2
+      winValueStorage = 4
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] ){
+      columns = 2
+      winValueStorage = 4
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[4] = 0
+  }
+}
+
+function Payline6() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 5
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] ){
+      columns = 1
+      winValueStorage = 5
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] ){
+      columns = 1
+      winValueStorage = 5
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[5] = 0
+  }
+}
+
+function Payline7() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 6
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] ){
+      columns = 1
+      winValueStorage = 6
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] ){
+      columns = 1
+      winValueStorage = 6
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[6] = 0
+  }
+}
+
+function Payline8() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[2] ){
+      columns = 0
+      winValueStorage = 7
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] ){
+      columns = 0
+      winValueStorage = 7
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] ){
+      columns = 0
+      winValueStorage = 7
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[7] = 0
+  }
+}
+
+function Payline9() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[0] ){
+      columns = 2
+      winValueStorage = 8
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] ){
+      columns = 2
+      winValueStorage = 8
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] ){
+      columns = 2
+      winValueStorage = 8
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[8] = 0
+  }
+}
+
+function Payline10() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 9
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] ){
+      columns = 1
+      winValueStorage = 9
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] ){
+      columns = 1
+      winValueStorage = 9
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[9] = 0
+  }
+}
+
+function Payline11() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 10
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] ){
+      columns = 1
+      winValueStorage = 10
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] ){
+      columns = 1
+      winValueStorage = 10
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[10] = 0
+  }
+}
+
+function Payline12() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 11
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] ){
+      columns = 0
+      winValueStorage = 11
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] ){
+      columns = 0
+      winValueStorage = 11
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[11] = 0
+  }
+}
+
+function Payline13() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 12
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] ){
+      columns = 2
+      winValueStorage = 12
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] ){
+      columns = 2
+      winValueStorage = 12
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[12] = 0
+  }
+}
+
+function Payline14() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 13
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] ){
+      columns = 0
+      winValueStorage = 13
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] ){
+      columns = 0
+      winValueStorage = 13
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[13] = 0
+  }
+}
+
+function Payline15() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 14
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] ){
+      columns = 2
+      winValueStorage = 14
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] ){
+      columns = 2
+      winValueStorage = 14
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[14] = 0
+  }
+}
+
+function Payline16() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 15
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] ){
+      columns = 1
+      winValueStorage = 15
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] ){
+      columns = 1
+      winValueStorage = 15
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[15] = 0
+  }
+}
+
+function Payline17() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 16
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] ){
+      columns = 1
+      winValueStorage = 16
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] ){
+      columns = 1
+      winValueStorage = 16
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[16] = 0
+  }
+}
+
+function Payline18() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 17
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] ){
+      columns = 0
+      winValueStorage = 17
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] ){
+      columns = 0
+      winValueStorage = 17
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[17] = 0
+  }
+}
+
+function Payline19() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 18
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] ){
+      columns = 2
+      winValueStorage = 18
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] ){
+      columns = 2
+      winValueStorage = 18
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[18] = 0
+  }
+}
+
+function Payline20() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 19
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] ){
+      columns = 0
+      winValueStorage = 19
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] ){
+      columns = 0
+      winValueStorage = 19
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[19] = 0
+  }
+}
+
+function Payline21() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 20
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] ){
+      columns = 2
+      winValueStorage = 20
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] ){
+      columns = 2
+      winValueStorage = 20
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[20] = 0
+  }
+}
+
+function Payline22() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 21
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] ){
+      columns = 1
+      winValueStorage = 21
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] ){
+      columns = 1
+      winValueStorage = 21
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[21] = 0
+  }
+}
+
+function Payline23() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 22
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] ){
+      columns = 1
+      winValueStorage = 22
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] ){
+      columns = 1
+      winValueStorage = 22
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[22] = 0
+  }
+}
+
+function Payline24() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 23
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] ){
+      columns = 0
+      winValueStorage = 23
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] ){
+      columns = 0
+      winValueStorage = 23
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[23] = 0
+  }
+}
+
+function Payline25() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 24
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] ){
+      columns = 2
+      winValueStorage = 24
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] ){
+      columns = 2
+      winValueStorage = 24
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[24] = 0
+  }
+}
+
+
+
+
+
 
 // function to check for which symbol is aligned
 function checkSymbol() {
   switch(VisibleArray1Url[columns]) {
     case Female:
-      winValue[columns] = FemaleValue[valueX];
+      winValue[winValueStorage] = FemaleValue[valueX];
       break;
     case Male:
-      winValue[columns] = MaleValue[valueX];
+      winValue[winValueStorage] = MaleValue[valueX];
       break;
     case Trolley:
-      winValue[columns] = TrolleyValue[valueX];
+      winValue[winValueStorage] = TrolleyValue[valueX];
       break;
     case PileOfGold:
-      winValue[columns] = PileOfGoldValue[valueX];
+      winValue[winValueStorage] = PileOfGoldValue[valueX];
       break;
     case DynamiteCrate:
-      winValue[columns] = DynamiteCrateValue[valueX];
+      winValue[winValueStorage] = DynamiteCrateValue[valueX];
       break;
     case GasLamp:
-      winValue[columns] = GasLampValue[valueX];
+      winValue[winValueStorage] = GasLampValue[valueX];
       break;
     case Snake:
-      winValue[columns] = SnakeValue[valueX];
+      winValue[winValueStorage] = SnakeValue[valueX];
       break;
     case Barrels:
-      winValue[columns] = BarrelsValue[valueX];
+      winValue[winValueStorage] = BarrelsValue[valueX];
       break;
     case Boots:
-      winValue[columns] = BootsValue[valueX];
+      winValue[winValueStorage] = BootsValue[valueX];
       break;
   }
 }
@@ -624,6 +1341,29 @@ spinButton.onclick = function() {
   // Payline function HAS to be at the same delay as the spin function. Otherwise output will not be correct.
   setTimeout(function() {
     Payline1to3();
+    Payline4();
+    Payline5();
+    Payline6();
+    Payline7();
+    Payline8();
+    Payline9();
+    Payline10();
+    Payline11();
+    Payline12();
+    Payline13();
+    Payline14();
+    Payline15();
+    Payline16();
+    Payline17();
+    Payline18();
+    Payline19();
+    Payline20();
+    Payline21();
+    Payline22();
+    Payline23();
+    Payline24();
+    Payline25();
+    TotalWin(winValue);
   }, delay * i);
 
 
@@ -631,14 +1371,20 @@ spinButton.onclick = function() {
 
 }
 
-// total win
-let totalWin = 0;
+// total win (Sum of an array)
+let totalWin = 0
 
+function TotalWin(winValue) {
+  // clear the value from last win.
+  totalWin = 0;
 for(let i = 0; i < winValue.length; i++) {
+  // change all the array values to floats.
+  winValue[i] = parseFloat(winValue[i]);
+  // sum of all array items.
   totalWin += winValue[i]
 }
-
-console.log(totalWin)
+console.log("Amount won: " + totalWin)
+}
 
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();
