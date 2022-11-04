@@ -65,6 +65,7 @@ body,html {
   position: relative;
   background-color: rgba(27, 14, 52,0.8);
   border-collapse: collapse;
+  overflow: hidden;
 }
 
 td {
@@ -343,27 +344,27 @@ td.spacing {
 }
 
 #p2 {
-  background-image: url(images/icons/female\ cut.png);
+  background-image: url(images/icons/male\ cut.png);
 }
 
 #p3 {
-  background-image: url(images/icons/Scatter.png);
-}
-
-#p4 {
-  background-image: url(images/icons/boots.png);
-}
-
-#p5 {
-  background-image: url(images/icons/gas\ lamp.png);
-}
-
-#p6 {
   background-image: url(images/icons/trolley.png);
 }
 
-#p7 {
+#p4 {
   background-image: url(images/icons/pile\ of\ gold.png);
+}
+
+#p5 {
+  background-image: url(images/icons/dynamite\ crate.png);
+}
+
+#p6 {
+  background-image: url(images/icons/gas\ lamp.png);
+}
+
+#p7 {
+  background-image: url(images/icons/snake.png);
 }
 
 #p8 {
@@ -371,15 +372,20 @@ td.spacing {
 }
 
 #p9 {
-  background-image: url(images/icons/male\ cut.png);
+  background-image: url(images/icons/boots.png);
 }
 
 #p10 {
-  background-image: url(images/icons/Scatter2.png)
+  background-image: url(images/icons/wild.png)
 }
 
 #p11 {
-  background-image: url(images/icons/snake.png);
+  background-image: url(images/icons/bag\ of\ gold.png);
+}
+
+.slideDown {
+  animation: slideDown 1s 1;
+  animation-fill-mode: forwards;
 }
 
 #p12 {
@@ -396,4 +402,14 @@ td.spacing {
 
 #p15 {
   background-image: url(images/icons/wild.png);
+}
+
+/* slide-down animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(300%);
+  }
 }
