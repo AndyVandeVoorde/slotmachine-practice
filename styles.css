@@ -413,3 +413,14 @@ td.spacing {
     transform: translateY(300%);
   }
 }
+
+.win-amount {
+  position: absolute;
+  z-index: 1000;
+  font-size: 30px;
+  top: 40px;
+  left: 20px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+}

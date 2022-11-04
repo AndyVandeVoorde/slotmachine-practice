@@ -41,9 +41,9 @@ symbols[5] = "url('images/icons/gas lamp.png')";
 symbols[6] = "url('images/icons/snake.png')";
 symbols[7] = "url('images/icons/barrels.png')";
 symbols[8] = "url('images/icons/boots.png')";
-symbols[9] = "url('images/icons/wild.png')";
-symbols[10] = "url('images/icons/scatter2.png')";
-symbols[11] = "url('images/icons/scatter.png')";
+// symbols[9] = "url('images/icons/wild.png')";
+// symbols[10] = "url('images/icons/scatter2.png')";
+// symbols[11] = "url('images/icons/scatter.png')";
 
 // create const Matrix for items (protect against changes)
 const FemaleMatrix3 = 2
@@ -215,7 +215,7 @@ function betSize(){
   currentBetSize = currentBetSize.toFixed(2)
   document.getElementById('bet-size').innerHTML = currentBetSize.toString().replace(/[.]/, ",")
   currentBetSizeNumber = parseFloat(currentBetSize);
-
+  
   // updating item values
   Femalex3 = (currentBetSizeNumber * FemaleMatrix3).toFixed(2);
   Femalex4 = (currentBetSizeNumber * FemaleMatrix4).toFixed(2);
@@ -414,123 +414,123 @@ function symbolPlacement () {
 }
 
 // rotating images and switching invisible ones
-// let arrayNum = 1
-// function RotatingImages() {
-//   // Column 1
-//   VisibleArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
-//   VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
-//   VisibleArray1[0].style.backgroundImage = BatchArray1[(arrayNum + 2) % 5]
-
-//   BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
-
-//   // Column 2
-//   VisibleArray2[2].style.backgroundImage = BatchArray2[arrayNum % 5]
-//   VisibleArray2[1].style.backgroundImage = BatchArray2[(arrayNum + 1) % 5]
-//   VisibleArray2[0].style.backgroundImage = BatchArray2[(arrayNum + 2) % 5]
-
-//   BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
-//   // Column 3
-//   VisibleArray3[2].style.backgroundImage = BatchArray3[arrayNum % 5]
-//   VisibleArray3[1].style.backgroundImage = BatchArray3[(arrayNum + 1) % 5]
-//   VisibleArray3[0].style.backgroundImage = BatchArray3[(arrayNum + 2) % 5]
-
-//   BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
-//   // Column 4
-//   VisibleArray4[2].style.backgroundImage = BatchArray4[arrayNum % 5]
-//   VisibleArray4[1].style.backgroundImage = BatchArray4[(arrayNum + 1) % 5]
-//   VisibleArray4[0].style.backgroundImage = BatchArray4[(arrayNum + 2) % 5]
-
-//   BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
-//   // Column 5
-//   VisibleArray5[2].style.backgroundImage = BatchArray5[arrayNum % 5]
-//   VisibleArray5[1].style.backgroundImage = BatchArray5[(arrayNum + 1) % 5]
-//   VisibleArray5[0].style.backgroundImage = BatchArray5[(arrayNum + 2) % 5]
-
-//   BatchArray5[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
-
-//   // get style
-// VisibleArray1Style = [window.getComputedStyle(p[0]),window.getComputedStyle(p[5]),window.getComputedStyle(p[10])];
-// VisibleArray2Style = [window.getComputedStyle(p[1]),window.getComputedStyle(p[6]),window.getComputedStyle(p[11])];
-// VisibleArray3Style = [window.getComputedStyle(p[2]),window.getComputedStyle(p[7]),window.getComputedStyle(p[12])];
-// VisibleArray4Style = [window.getComputedStyle(p[3]),window.getComputedStyle(p[8]),window.getComputedStyle(p[13])];
-// VisibleArray5Style = [window.getComputedStyle(p[4]),window.getComputedStyle(p[9]),window.getComputedStyle(p[14])];
-
-// // get URL's
-// VisibleArray1Url = [VisibleArray1Style[0].backgroundImage, VisibleArray1Style[1].backgroundImage, VisibleArray1Style[2].backgroundImage]
-// VisibleArray2Url = [VisibleArray2Style[0].backgroundImage, VisibleArray2Style[1].backgroundImage, VisibleArray2Style[2].backgroundImage]
-// VisibleArray3Url = [VisibleArray3Style[0].backgroundImage, VisibleArray3Style[1].backgroundImage, VisibleArray3Style[2].backgroundImage]
-// VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
-// VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
-
-//   arrayNum += 1
-// }
-
-// fixed images for control testing
 let arrayNum = 1
 function RotatingImages() {
   // Column 1
-  // VisibleArray1[2].style.backgroundImage = "url(images/icons/trolley.png)"
-  VisibleArray1[2].style.backgroundImage = "url('images/icons/female cut.png')"
-  VisibleArray1[1].style.backgroundImage = "url('images/icons/dynamite crate.png')"
-  // VisibleArray1[1].style.backgroundImage = "url('images/icons/female cut.png')"
-  VisibleArray1[0].style.backgroundImage = "url(images/icons/snake.png)"
-  // VisibleArray1[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
+  VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
+  VisibleArray1[0].style.backgroundImage = BatchArray1[(arrayNum + 2) % 5]
 
-  // BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+  BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
 
   // Column 2
-  VisibleArray2[2].style.backgroundImage = "url(images/icons/barrels.png)"
-  // VisibleArray2[2].style.backgroundImage = "url('images/icons/female cut.png')"
-  // VisibleArray2[1].style.backgroundImage = "url(images/icons/boots.png)"
-  VisibleArray2[1].style.backgroundImage = "url('images/icons/female cut.png')"
-  VisibleArray2[0].style.backgroundImage = "url(images/icons/gas lamp.png)"
-  // VisibleArray2[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray2[2].style.backgroundImage = BatchArray2[arrayNum % 5]
+  VisibleArray2[1].style.backgroundImage = BatchArray2[(arrayNum + 1) % 5]
+  VisibleArray2[0].style.backgroundImage = BatchArray2[(arrayNum + 2) % 5]
 
-  // BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+  BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 3
-  VisibleArray3[2].style.backgroundImage = "url(images/icons/gas lamp.png)"
-  // VisibleArray3[2].style.backgroundImage = "url('images/icons/female cut.png')"
-  VisibleArray3[1].style.backgroundImage = "url(images/icons/snake.png)"
-  // VisibleArray3[1].style.backgroundImage = "url('images/icons/female cut.png')"
-  // VisibleArray3[0].style.backgroundImage = "url('images/icons/dynamite crate.png')"
-  VisibleArray3[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray3[2].style.backgroundImage = BatchArray3[arrayNum % 5]
+  VisibleArray3[1].style.backgroundImage = BatchArray3[(arrayNum + 1) % 5]
+  VisibleArray3[0].style.backgroundImage = BatchArray3[(arrayNum + 2) % 5]
 
-  // BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+  BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 4
-  VisibleArray4[2].style.backgroundImage = "url(images/icons/snake.png)"
-  // VisibleArray4[2].style.backgroundImage = "url('images/icons/female cut.png')"
-  // VisibleArray4[1].style.backgroundImage = "url(images/icons/barrels.png)"
-  VisibleArray4[1].style.backgroundImage = "url('images/icons/female cut.png')"
-  VisibleArray4[0].style.backgroundImage = "url(images/icons/snake.png)"
-  // VisibleArray4[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray4[2].style.backgroundImage = BatchArray4[arrayNum % 5]
+  VisibleArray4[1].style.backgroundImage = BatchArray4[(arrayNum + 1) % 5]
+  VisibleArray4[0].style.backgroundImage = BatchArray4[(arrayNum + 2) % 5]
 
-  // BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+  BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 5
-  VisibleArray5[2].style.backgroundImage = "url(images/icons/snake.png)"
-  // VisibleArray5[2].style.backgroundImage = "url('images/icons/female cut.png')"
-  VisibleArray5[1].style.backgroundImage = "url(images/icons/snake.png)"
-  // VisibleArray5[1].style.backgroundImage = "url('images/icons/female cut.png')"
-  VisibleArray5[0].style.backgroundImage = "url(images/icons/barrels.png)"
-  // VisibleArray5[0].style.backgroundImage = "url('images/icons/female cut.png')"
+  VisibleArray5[2].style.backgroundImage = BatchArray5[arrayNum % 5]
+  VisibleArray5[1].style.backgroundImage = BatchArray5[(arrayNum + 1) % 5]
+  VisibleArray5[0].style.backgroundImage = BatchArray5[(arrayNum + 2) % 5]
 
-  // BatchArray5[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+  BatchArray5[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
 
   // get style
-  VisibleArray1Style = [window.getComputedStyle(p[0]),window.getComputedStyle(p[5]),window.getComputedStyle(p[10])];
-  VisibleArray2Style = [window.getComputedStyle(p[1]),window.getComputedStyle(p[6]),window.getComputedStyle(p[11])];
-  VisibleArray3Style = [window.getComputedStyle(p[2]),window.getComputedStyle(p[7]),window.getComputedStyle(p[12])];
-  VisibleArray4Style = [window.getComputedStyle(p[3]),window.getComputedStyle(p[8]),window.getComputedStyle(p[13])];
-  VisibleArray5Style = [window.getComputedStyle(p[4]),window.getComputedStyle(p[9]),window.getComputedStyle(p[14])];
-  
-  // get URL's
-  VisibleArray1Url = [VisibleArray1Style[0].backgroundImage, VisibleArray1Style[1].backgroundImage, VisibleArray1Style[2].backgroundImage]
-  VisibleArray2Url = [VisibleArray2Style[0].backgroundImage, VisibleArray2Style[1].backgroundImage, VisibleArray2Style[2].backgroundImage]
-  VisibleArray3Url = [VisibleArray3Style[0].backgroundImage, VisibleArray3Style[1].backgroundImage, VisibleArray3Style[2].backgroundImage]
-  VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
-  VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
+VisibleArray1Style = [window.getComputedStyle(p[0]),window.getComputedStyle(p[5]),window.getComputedStyle(p[10])];
+VisibleArray2Style = [window.getComputedStyle(p[1]),window.getComputedStyle(p[6]),window.getComputedStyle(p[11])];
+VisibleArray3Style = [window.getComputedStyle(p[2]),window.getComputedStyle(p[7]),window.getComputedStyle(p[12])];
+VisibleArray4Style = [window.getComputedStyle(p[3]),window.getComputedStyle(p[8]),window.getComputedStyle(p[13])];
+VisibleArray5Style = [window.getComputedStyle(p[4]),window.getComputedStyle(p[9]),window.getComputedStyle(p[14])];
+
+// get URL's
+VisibleArray1Url = [VisibleArray1Style[0].backgroundImage, VisibleArray1Style[1].backgroundImage, VisibleArray1Style[2].backgroundImage]
+VisibleArray2Url = [VisibleArray2Style[0].backgroundImage, VisibleArray2Style[1].backgroundImage, VisibleArray2Style[2].backgroundImage]
+VisibleArray3Url = [VisibleArray3Style[0].backgroundImage, VisibleArray3Style[1].backgroundImage, VisibleArray3Style[2].backgroundImage]
+VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
+VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
 
   arrayNum += 1
 }
+
+// fixed images for control testing
+// let arrayNum = 1
+// function RotatingImages() {
+//   // Column 1
+//   // VisibleArray1[2].style.backgroundImage = "url(images/icons/trolley.png)"
+//   VisibleArray1[2].style.backgroundImage = "url('images/icons/female cut.png')"
+//   VisibleArray1[1].style.backgroundImage = "url('images/icons/dynamite crate.png')"
+//   // VisibleArray1[1].style.backgroundImage = "url('images/icons/female cut.png')"
+//   VisibleArray1[0].style.backgroundImage = "url(images/icons/snake.png)"
+//   // VisibleArray1[0].style.backgroundImage = "url('images/icons/female cut.png')"
+
+//   // BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
+//   // Column 2
+//   VisibleArray2[2].style.backgroundImage = "url(images/icons/barrels.png)"
+//   // VisibleArray2[2].style.backgroundImage = "url('images/icons/female cut.png')"
+//   // VisibleArray2[1].style.backgroundImage = "url(images/icons/boots.png)"
+//   VisibleArray2[1].style.backgroundImage = "url('images/icons/female cut.png')"
+//   VisibleArray2[0].style.backgroundImage = "url(images/icons/gas lamp.png)"
+//   // VisibleArray2[0].style.backgroundImage = "url('images/icons/female cut.png')"
+
+//   // BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+//   // Column 3
+//   VisibleArray3[2].style.backgroundImage = "url(images/icons/gas lamp.png)"
+//   // VisibleArray3[2].style.backgroundImage = "url('images/icons/female cut.png')"
+//   VisibleArray3[1].style.backgroundImage = "url(images/icons/snake.png)"
+//   // VisibleArray3[1].style.backgroundImage = "url('images/icons/female cut.png')"
+//   // VisibleArray3[0].style.backgroundImage = "url('images/icons/dynamite crate.png')"
+//   VisibleArray3[0].style.backgroundImage = "url('images/icons/female cut.png')"
+
+//   // BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+//   // Column 4
+//   VisibleArray4[2].style.backgroundImage = "url(images/icons/snake.png)"
+//   // VisibleArray4[2].style.backgroundImage = "url('images/icons/female cut.png')"
+//   // VisibleArray4[1].style.backgroundImage = "url(images/icons/barrels.png)"
+//   VisibleArray4[1].style.backgroundImage = "url('images/icons/female cut.png')"
+//   VisibleArray4[0].style.backgroundImage = "url(images/icons/snake.png)"
+//   // VisibleArray4[0].style.backgroundImage = "url('images/icons/female cut.png')"
+
+//   // BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+//   // Column 5
+//   VisibleArray5[2].style.backgroundImage = "url(images/icons/snake.png)"
+//   // VisibleArray5[2].style.backgroundImage = "url('images/icons/female cut.png')"
+//   VisibleArray5[1].style.backgroundImage = "url(images/icons/snake.png)"
+//   // VisibleArray5[1].style.backgroundImage = "url('images/icons/female cut.png')"
+//   VisibleArray5[0].style.backgroundImage = "url(images/icons/barrels.png)"
+//   // VisibleArray5[0].style.backgroundImage = "url('images/icons/female cut.png')"
+
+//   // BatchArray5[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
+//   // get style
+//   VisibleArray1Style = [window.getComputedStyle(p[0]),window.getComputedStyle(p[5]),window.getComputedStyle(p[10])];
+//   VisibleArray2Style = [window.getComputedStyle(p[1]),window.getComputedStyle(p[6]),window.getComputedStyle(p[11])];
+//   VisibleArray3Style = [window.getComputedStyle(p[2]),window.getComputedStyle(p[7]),window.getComputedStyle(p[12])];
+//   VisibleArray4Style = [window.getComputedStyle(p[3]),window.getComputedStyle(p[8]),window.getComputedStyle(p[13])];
+//   VisibleArray5Style = [window.getComputedStyle(p[4]),window.getComputedStyle(p[9]),window.getComputedStyle(p[14])];
+  
+//   // get URL's
+//   VisibleArray1Url = [VisibleArray1Style[0].backgroundImage, VisibleArray1Style[1].backgroundImage, VisibleArray1Style[2].backgroundImage]
+//   VisibleArray2Url = [VisibleArray2Style[0].backgroundImage, VisibleArray2Style[1].backgroundImage, VisibleArray2Style[2].backgroundImage]
+//   VisibleArray3Url = [VisibleArray3Style[0].backgroundImage, VisibleArray3Style[1].backgroundImage, VisibleArray3Style[2].backgroundImage]
+//   VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
+//   VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
+
+//   arrayNum += 1
+// }
 
 // Rotating images
 // function RotatingImages() {
@@ -597,37 +597,88 @@ function Payline1to3() {
   }
 }
 
-// function to simplify
-// function Test() {
+
+
+
+// function to simplify (INCOMPLETE)
+// function PayLines4to25(a, b, c, d, e, g) {
 //   if (
 //     VisibleArray1Url[a] === VisibleArray2Url[b] &&
 //     VisibleArray2Url[b] === VisibleArray3Url[c] &&
 //     VisibleArray3Url[c] === VisibleArray4Url[d] &&
 //     VisibleArray4Url[d] === VisibleArray5Url[e] ){
-//       columns = f
+//       columns = a
 //       winValueStorage = g
 //       valueX = 2
 //       checkSymbol()
 //   } else if (
-//     VisibleArray1Url[a] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[b] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[c] === VisibleArray4Url[1] ){
-//       columns = 0
-//       winValueStorage = 3
+//     VisibleArray1Url[a] === VisibleArray2Url[b] &&
+//     VisibleArray2Url[b] === VisibleArray3Url[c] &&
+//     VisibleArray3Url[c] === VisibleArray4Url[e] ){
+//       columns = a
+//       winValueStorage = g
 //       valueX = 1
 //       checkSymbol()
 //   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] ){
-//       columns = 0
-//       winValueStorage = 3
+//     VisibleArray1Url[a] === VisibleArray2Url[b] &&
+//     VisibleArray2Url[b] === VisibleArray3Url[c] ){
+//       columns = a
+//       winValueStorage = g
 //       valueX = 0
 //       checkSymbol()
 //     } else {
-//     winValue[3] = 0
+//     winValue[g] = 0
 //   }
 // }
 
+// function ExcecutePaylineCheck() {
+// // Payline 4
+//   PayLines4to25(a = 0, b = 1, c = 2, d = 1, e = 0, g = 3);
+// // Payline 5
+//   PayLines4to25(a = 2, b = 1, c = 0, d = 1, e = 2, g = 4);
+// // Payline 6
+//   PayLines4to25(a = 1, b = 0, c = 0, d = 0, e = 1, g = 5);
+// // Payline 7
+//   PayLines4to25(a = 1, b = 2, c = 2, d = 2, e = 1, g = 6);
+// // Payline 8
+//   PayLines4to25(a = 0, b = 0, c = 1, d = 2, e = 2, g = 7);
+// // Payline 9
+//   PayLines4to25(a = 2, b = 2, c = 1, d = 0, e = 0, g = 8);
+// // Payline 10
+//   PayLines4to25(a = 1, b = 2, c = 1, d = 0, e = 1, g = 9);
+// // Payline 11
+//   PayLines4to25(a = 1, b = 0, c = 1, d = 2, e = 1, g = 10);
+// // Payline 12
+//   PayLines4to25(a = 0, b = 1, c = 1, d = 1, e = 0, g = 11);
+// // Payline 13
+//   PayLines4to25(a = 2, b = 1, c = 1, d = 1, e = 2, g = 12);
+// // Payline 14
+//   PayLines4to25(a = 0, b = 1, c = 0, d = 1, e = 0, g = 13);
+// // Payline 15
+//   PayLines4to25(a = 2, b = 1, c = 2, d = 1, e = 2, g = 14);
+// // Payline 16
+//   PayLines4to25(a = 1, b = 1, c = 0, d = 1, e = 1, g = 15);
+// // Payline 17
+//   PayLines4to25(a = 1, b = 1, c = 2, d = 1, e = 1, g = 16);
+// // Payline 18
+//   PayLines4to25(a = 0, b = 0, c = 2, d = 0, e = 0, g = 17);
+// // Payline 19
+//   PayLines4to25(a = 2, b = 2, c = 0, d = 2, e = 2, g = 18);
+// // Payline 20
+//   PayLines4to25(a = 0, b = 2, c = 2, d = 2, e = 0, g = 19);
+// // Payline 21
+//   PayLines4to25(a = 2, b = 0, c = 0, d = 0, e = 2, g = 20);
+// // Payline 22
+//   PayLines4to25(a = 1, b = 2, c = 0, d = 2, e = 1, g = 21);
+// // Payline 23
+//   PayLines4to25(a = 1, b = 0, c = 2, d = 0, e = 1, g = 22);
+// // Payline 24
+//   PayLines4to25(a = 0, b = 2, c = 0, d = 2, e = 0, g = 23);
+// // Payline 25
+//   PayLines4to25(a = 2, b = 0, c = 2, d = 0, e = 2, g = 24);
+// }
+
+// Long version
 // Check Payline 4
 function Payline4() {
   if (
@@ -1363,10 +1414,12 @@ spinButton.onclick = function() {
     Payline23();
     Payline24();
     Payline25();
-    TotalWin(winValue);
-  }, delay * i);
-
-
+    TotalWin(winValue);  
+    // ExcecutePaylineCheck()
+    console.log("Amount won: " + totalWin)
+  
+  }, delay * i * 10);
+  
   // slideDown()
 
 }
@@ -1383,7 +1436,7 @@ for(let i = 0; i < winValue.length; i++) {
   // sum of all array items.
   totalWin += winValue[i]
 }
-console.log("Amount won: " + totalWin)
+document.getElementById('win-amount').innerHTML = "Last win: " + totalWin.toString().replace(/[.]/, ",")
 }
 
 // randomize pictures on loading of screen
