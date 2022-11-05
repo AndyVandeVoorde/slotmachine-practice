@@ -679,665 +679,665 @@ function ExcecutePaylineCheck() {
 
 // Long version
 // Check Payline 4
-// function Payline4() {
-//   if (
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[0] ){
-//       columns = 0
-//       winValueStorage = 3
-//       valueX = 2
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[1] ){
-//       columns = 0
-//       winValueStorage = 3
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] ){
-//       columns = 0
-//       winValueStorage = 3
-//       valueX = 0
-//       checkSymbol()
-//     } else {
-//     winValue[3] = 0
-//   }
-// }
+function Payline4() {
+  if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 3
+      valueX = 2
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] ){
+      columns = 0
+      winValueStorage = 3
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] ){
+      columns = 0
+      winValueStorage = 3
+      valueX = 0
+      checkSymbol()
+    } else {
+    winValue[3] = 0
+  }
+}
 
-// function Payline5() {
-//   if(
-//     VisibleArray1Url[2] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[2] ){
-//       columns = 2
-//       winValueStorage = 4
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[2] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[1] ){
-//       columns = 2
-//       winValueStorage = 4
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[2] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] ){
-//       columns = 2
-//       winValueStorage = 4
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[4] = 0
-//   }
-// }
+function Payline5() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 4
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] ){
+      columns = 2
+      winValueStorage = 4
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] ){
+      columns = 2
+      winValueStorage = 4
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[4] = 0
+  }
+}
 
-// function Payline6() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[0] &&
-//     VisibleArray4Url[0] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 5
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[0] ){
-//       columns = 1
-//       winValueStorage = 5
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[0] ){
-//       columns = 1
-//       winValueStorage = 5
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[5] = 0
-//   }
-// }
+function Payline6() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 5
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] ){
+      columns = 1
+      winValueStorage = 5
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] ){
+      columns = 1
+      winValueStorage = 5
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[5] = 0
+  }
+}
 
-// function Payline7() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[2] &&
-//     VisibleArray4Url[2] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 6
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[2] ){
-//       columns = 1
-//       winValueStorage = 6
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[2] ){
-//       columns = 1
-//       winValueStorage = 6
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[6] = 0
-//   }
-// }
+function Payline7() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 6
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] ){
+      columns = 1
+      winValueStorage = 6
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] ){
+      columns = 1
+      winValueStorage = 6
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[6] = 0
+  }
+}
 
-// function Payline8() {
-//   if(
-//     VisibleArray1Url[0] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[2] &&
-//     VisibleArray4Url[2] === VisibleArray5Url[2] ){
-//       columns = 0
-//       winValueStorage = 7
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[0] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[2] ){
-//       columns = 0
-//       winValueStorage = 7
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[1] ){
-//       columns = 0
-//       winValueStorage = 7
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[7] = 0
-//   }
-// }
+function Payline8() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[2] ){
+      columns = 0
+      winValueStorage = 7
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] ){
+      columns = 0
+      winValueStorage = 7
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] ){
+      columns = 0
+      winValueStorage = 7
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[7] = 0
+  }
+}
 
-// function Payline9() {
-//   if(
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[0] &&
-//     VisibleArray4Url[0] === VisibleArray5Url[0] ){
-//       columns = 2
-//       winValueStorage = 8
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[0] ){
-//       columns = 2
-//       winValueStorage = 8
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[1] ){
-//       columns = 2
-//       winValueStorage = 8
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[8] = 0
-//   }
-// }
+function Payline9() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[0] ){
+      columns = 2
+      winValueStorage = 8
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] ){
+      columns = 2
+      winValueStorage = 8
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] ){
+      columns = 2
+      winValueStorage = 8
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[8] = 0
+  }
+}
 
-// function Payline10() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[0] &&
-//     VisibleArray4Url[0] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 9
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[0] ){
-//       columns = 1
-//       winValueStorage = 9
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[1] ){
-//       columns = 1
-//       winValueStorage = 9
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[9] = 0
-//   }
-// }
+function Payline10() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 9
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[0] ){
+      columns = 1
+      winValueStorage = 9
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[1] ){
+      columns = 1
+      winValueStorage = 9
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[9] = 0
+  }
+}
 
-// function Payline11() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[2] &&
-//     VisibleArray4Url[2] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 10
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[2] ){
-//       columns = 1
-//       winValueStorage = 10
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[1] ){
-//       columns = 1
-//       winValueStorage = 10
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[10] = 0
-//   }
-// }
+function Payline11() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 10
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[2] ){
+      columns = 1
+      winValueStorage = 10
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[1] ){
+      columns = 1
+      winValueStorage = 10
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[10] = 0
+  }
+}
 
-// function Payline12() {
-//   if(
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[0] ){
-//       columns = 0
-//       winValueStorage = 11
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[1] ){
-//       columns = 0
-//       winValueStorage = 11
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[1] ){
-//       columns = 0
-//       winValueStorage = 11
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[11] = 0
-//   }
-// }
+function Payline12() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 11
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] ){
+      columns = 0
+      winValueStorage = 11
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] ){
+      columns = 0
+      winValueStorage = 11
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[11] = 0
+  }
+}
 
-// function Payline13() {
-//   if(
-//     VisibleArray1Url[2] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[2] ){
-//       columns = 2
-//       winValueStorage = 12
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[1] &&
-//     VisibleArray3Url[1] === VisibleArray4Url[1] ){
-//       columns = 2
-//       winValueStorage = 12
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[1] ){
-//       columns = 2
-//       winValueStorage = 12
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[12] = 0
-//   }
-// }
+function Payline13() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 12
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] &&
+    VisibleArray3Url[1] === VisibleArray4Url[1] ){
+      columns = 2
+      winValueStorage = 12
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[1] === VisibleArray3Url[1] ){
+      columns = 2
+      winValueStorage = 12
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[12] = 0
+  }
+}
 
-// function Payline14() {
-//   if(
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[0] ){
-//       columns = 0
-//       winValueStorage = 13
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[1] ){
-//       columns = 0
-//       winValueStorage = 13
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] ){
-//       columns = 0
-//       winValueStorage = 13
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[13] = 0
-//   }
-// }
+function Payline14() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 13
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] ){
+      columns = 0
+      winValueStorage = 13
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] ){
+      columns = 0
+      winValueStorage = 13
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[13] = 0
+  }
+}
 
-// function Payline15() {
-//   if(
-//     VisibleArray1Url[2] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[2] ){
-//       columns = 2
-//       winValueStorage = 14
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[2] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[1] ){
-//       columns = 2
-//       winValueStorage = 14
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[2] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] ){
-//       columns = 2
-//       winValueStorage = 14
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[14] = 0
-//   }
-// }
+function Payline15() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 14
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] ){
+      columns = 2
+      winValueStorage = 14
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] ){
+      columns = 2
+      winValueStorage = 14
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[14] = 0
+  }
+}
 
-// function Payline16() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 15
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[1] ){
-//       columns = 1
-//       winValueStorage = 15
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[0] ){
-//       columns = 1
-//       winValueStorage = 15
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[15] = 0
-//   }
-// }
+function Payline16() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 15
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[1] ){
+      columns = 1
+      winValueStorage = 15
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[0] ){
+      columns = 1
+      winValueStorage = 15
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[15] = 0
+  }
+}
 
-// function Payline17() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[1] &&
-//     VisibleArray4Url[1] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 16
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[1] ){
-//       columns = 1
-//       winValueStorage = 16
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[1] &&
-//     VisibleArray2Url[1] === VisibleArray3Url[2] ){
-//       columns = 1
-//       winValueStorage = 16
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[16] = 0
-//   }
-// }
+function Payline17() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] &&
+    VisibleArray4Url[1] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 16
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[1] ){
+      columns = 1
+      winValueStorage = 16
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[1] &&
+    VisibleArray2Url[1] === VisibleArray3Url[2] ){
+      columns = 1
+      winValueStorage = 16
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[16] = 0
+  }
+}
 
-// function Payline18() {
-//   if(
-//     VisibleArray1Url[0] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[0] &&
-//     VisibleArray4Url[0] === VisibleArray5Url[0] ){
-//       columns = 0
-//       winValueStorage = 17
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[0] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[0] ){
-//       columns = 0
-//       winValueStorage = 17
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] ){
-//       columns = 0
-//       winValueStorage = 17
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[17] = 0
-//   }
-// }
+function Payline18() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 17
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] ){
+      columns = 0
+      winValueStorage = 17
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] ){
+      columns = 0
+      winValueStorage = 17
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[17] = 0
+  }
+}
 
-// function Payline19() {
-//   if(
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[2] &&
-//     VisibleArray4Url[2] === VisibleArray5Url[2] ){
-//       columns = 2
-//       winValueStorage = 18
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[2] ){
-//       columns = 2
-//       winValueStorage = 18
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[2] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] ){
-//       columns = 2
-//       winValueStorage = 18
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[18] = 0
-//   }
-// }
+function Payline19() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 18
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] ){
+      columns = 2
+      winValueStorage = 18
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] ){
+      columns = 2
+      winValueStorage = 18
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[18] = 0
+  }
+}
 
-// function Payline20() {
-//   if(
-//     VisibleArray1Url[0] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[2] &&
-//     VisibleArray4Url[2] === VisibleArray5Url[0] ){
-//       columns = 0
-//       winValueStorage = 19
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[0] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[2] ){
-//       columns = 0
-//       winValueStorage = 19
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[2] ){
-//       columns = 0
-//       winValueStorage = 19
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[19] = 0
-//   }
-// }
+function Payline20() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 19
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[2] ){
+      columns = 0
+      winValueStorage = 19
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[2] ){
+      columns = 0
+      winValueStorage = 19
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[19] = 0
+  }
+}
 
-// function Payline21() {
-//   if(
-//     VisibleArray1Url[2] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[0] &&
-//     VisibleArray4Url[0] === VisibleArray5Url[2] ){
-//       columns = 2
-//       winValueStorage = 20
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[2] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[0] ){
-//       columns = 2
-//       winValueStorage = 20
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[2] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[0] ){
-//       columns = 2
-//       winValueStorage = 20
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[20] = 0
-//   }
-// }
+function Payline21() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 20
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[0] ){
+      columns = 2
+      winValueStorage = 20
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[0] ){
+      columns = 2
+      winValueStorage = 20
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[20] = 0
+  }
+}
 
-// function Payline22() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[2] &&
-//     VisibleArray4Url[2] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 21
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[2] ){
-//       columns = 1
-//       winValueStorage = 21
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] ){
-//       columns = 1
-//       winValueStorage = 21
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[21] = 0
-//   }
-// }
+function Payline22() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 21
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] ){
+      columns = 1
+      winValueStorage = 21
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] ){
+      columns = 1
+      winValueStorage = 21
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[21] = 0
+  }
+}
 
-// function Payline23() {
-//   if(
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[0] &&
-//     VisibleArray4Url[0] === VisibleArray5Url[1] ){
-//       columns = 1
-//       winValueStorage = 22
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[0] ){
-//       columns = 1
-//       winValueStorage = 22
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[1] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] ){
-//       columns = 1
-//       winValueStorage = 22
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[22] = 0
-//   }
-// }
+function Payline23() {
+  if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[1] ){
+      columns = 1
+      winValueStorage = 22
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] ){
+      columns = 1
+      winValueStorage = 22
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[1] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] ){
+      columns = 1
+      winValueStorage = 22
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[22] = 0
+  }
+}
 
-// function Payline24() {
-//   if(
-//     VisibleArray1Url[0] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[2] &&
-//     VisibleArray4Url[2] === VisibleArray5Url[0] ){
-//       columns = 0
-//       winValueStorage = 23
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[0] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] &&
-//     VisibleArray3Url[0] === VisibleArray4Url[2] ){
-//       columns = 0
-//       winValueStorage = 23
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[0] === VisibleArray2Url[2] &&
-//     VisibleArray2Url[2] === VisibleArray3Url[0] ){
-//       columns = 0
-//       winValueStorage = 23
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[23] = 0
-//   }
-// }
+function Payline24() {
+  if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] &&
+    VisibleArray4Url[2] === VisibleArray5Url[0] ){
+      columns = 0
+      winValueStorage = 23
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] &&
+    VisibleArray3Url[0] === VisibleArray4Url[2] ){
+      columns = 0
+      winValueStorage = 23
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[0] === VisibleArray2Url[2] &&
+    VisibleArray2Url[2] === VisibleArray3Url[0] ){
+      columns = 0
+      winValueStorage = 23
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[23] = 0
+  }
+}
 
-// function Payline25() {
-//   if(
-//     VisibleArray1Url[2] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[0] &&
-//     VisibleArray4Url[0] === VisibleArray5Url[2] ){
-//       columns = 2
-//       winValueStorage = 24
-//       valueX = 2
-//       checkSymbol()
-//   } else if(
-//     VisibleArray1Url[2] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] &&
-//     VisibleArray3Url[2] === VisibleArray4Url[0] ){
-//       columns = 2
-//       winValueStorage = 24
-//       valueX = 1
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[2] === VisibleArray2Url[0] &&
-//     VisibleArray2Url[0] === VisibleArray3Url[2] ){
-//       columns = 2
-//       winValueStorage = 24
-//       valueX = 0
-//       checkSymbol()
-//   } else {
-//     winValue[24] = 0
-//   }
-// }
+function Payline25() {
+  if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] &&
+    VisibleArray4Url[0] === VisibleArray5Url[2] ){
+      columns = 2
+      winValueStorage = 24
+      valueX = 2
+      checkSymbol()
+  } else if(
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] &&
+    VisibleArray3Url[2] === VisibleArray4Url[0] ){
+      columns = 2
+      winValueStorage = 24
+      valueX = 1
+      checkSymbol()
+  } else if (
+    VisibleArray1Url[2] === VisibleArray2Url[0] &&
+    VisibleArray2Url[0] === VisibleArray3Url[2] ){
+      columns = 2
+      winValueStorage = 24
+      valueX = 0
+      checkSymbol()
+  } else {
+    winValue[24] = 0
+  }
+}
 
 
 
