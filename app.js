@@ -609,5 +609,57 @@ document.getElementById('win-amount').innerHTML = "You win: " + totalWin.toFixed
 console.log("Amount won: " + totalWin.toFixed(2))
 }
 
+let ctx = document.getElementById('canvas').getContext("2d");
+ctx.lineWidth = 1
+
+let xdraw = [0, 30, 90, 150, 210, 270, 300]
+let ydraw = [25, 75, 125]
+
+function drawline1() {
+ctx.beginPath();
+ctx.strokeStyle="#FF0000";
+ctx.moveTo(xdraw[0], ydraw[0]);
+ctx.lineTo(xdraw[6], ydraw[0]);
+ctx.stroke();
+}
+
+function drawline2() {
+  ctx.beginPath();
+  ctx.strokeStyle="#FF0000";
+  ctx.moveTo(xdraw[0], ydraw[1]);
+  ctx.lineTo(xdraw[6], ydraw[1]);
+  ctx.stroke();
+  }
+
+function drawline3() {
+  ctx.beginPath();
+  ctx.strokeStyle="#FF0000";
+  ctx.moveTo(xdraw[0], ydraw[2]);
+  ctx.lineTo(xdraw[6], ydraw[2]);
+  ctx.stroke();
+  }
+
+function drawline4() {
+  ctx.beginPath();
+  ctx.strokeStyle="#FF0000";
+  ctx.moveTo(xdraw[0], ydraw[0]);
+  ctx.lineTo(xdraw[1], ydraw[0]);
+  ctx.lineTo(xdraw[2], ydraw[1]);
+  ctx.lineTo(xdraw[3], ydraw[2]);
+  ctx.lineTo(xdraw[4], ydraw[1]);
+  ctx.lineTo(xdraw[5], ydraw[0]);
+  ctx.lineTo(xdraw[6], ydraw[0]);
+  ctx.stroke();
+  }
+
+// function to show payline if you have a win on that line
+// function PaylineVisual() {
+//   if(winValue > 0) {
+
+//   }
+// }
+
+
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();
+window.onload = testline();

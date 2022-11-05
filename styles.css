@@ -424,3 +424,22 @@ td.spacing {
   color: white;
   padding: 5px;
 }
+
+/* .line1 {
+  position: absolute;
+  z-index: 2000;
+  left: 0;
+  height: 10px;
+  width: calc(100% / 5) ;
+  background-color: red;
+  transform: skew(45deg);
+} */
+
+#canvas {
+position: absolute;
+top: 100px;
+width: 70%;
+height: 70%;
+border: 1px solid red;
+z-index: 1000;
+}
