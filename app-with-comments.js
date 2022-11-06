@@ -1444,5 +1444,317 @@ document.getElementById('win-amount').innerHTML = "You win: " + totalWin.toFixed
 console.log("Amount won: " + totalWin.toFixed(2))
 }
 
+let ctx = document.getElementById('canvas').getContext("2d");
+let size = document.getElementById('reels')
+ctx.canvas.width = size.clientWidth;
+ctx.canvas.height = size.clientHeight;
+ctx.lineWidth = 10;
+let positionX = 0
+let positionY = 0
+ctx.lineJoin = "round"  // round, bevel, miter
+ctx.lineCap = "butt" // square, round, butt
+
+function pToPxHor(positionX){
+  return positionX * ctx.canvas.width / 100
+}
+
+function pToPxVer(positionY){
+  return positionY * ctx.canvas.height / 100
+}
+
+let xdraw = [pToPxHor(0), pToPxHor(10), pToPxHor(30), pToPxHor(50), pToPxHor(70), pToPxHor(90), pToPxHor(100)]
+let ydraw = [pToPxVer(16.66), pToPxVer(50), pToPxVer(83,3)]
+
+// async function drawline(a, b, c, d, e) {
+//   await RotatingImages();
+
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[a]);
+//   ctx.lineTo(xdraw[1], ydraw[a]);
+//   ctx.lineTo(xdraw[2], ydraw[b]);
+//   ctx.lineTo(xdraw[3], ydraw[c]);
+//   ctx.lineTo(xdraw[4], ydraw[d]);
+//   ctx.lineTo(xdraw[5], ydraw[e]);
+//   ctx.lineTo(xdraw[6], ydraw[e]);
+//   ctx.stroke();
+// }
+
+// async function drawline(l1, l2, l3, l4, l5) {
+//   await RotatingImages();
+
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[l1]);
+//   ctx.lineTo(xdraw[1], ydraw[l1]);
+//   ctx.lineTo(xdraw[2], ydraw[l2]);
+//   ctx.lineTo(xdraw[3], ydraw[l3]);
+//   ctx.lineTo(xdraw[4], ydraw[l4]);
+//   ctx.lineTo(xdraw[5], ydraw[l5]);
+//   ctx.lineTo(xdraw[6], ydraw[l5]);
+//   ctx.stroke();
+// }
+
+function drawline(l1, l2, l3, l4, l5) {
+
+  ctx.beginPath();
+  ctx.strokeStyle="#FF0000";
+  ctx.moveTo(xdraw[0], ydraw[l1]);
+  ctx.lineTo(xdraw[1], ydraw[l1]);
+  ctx.lineTo(xdraw[2], ydraw[l2]);
+  ctx.lineTo(xdraw[3], ydraw[l3]);
+  ctx.lineTo(xdraw[4], ydraw[l4]);
+  ctx.lineTo(xdraw[5], ydraw[l5]);
+  ctx.lineTo(xdraw[6], ydraw[l5]);
+  ctx.stroke();
+}
+
+  // let drawline1 = drawline(0, 0, 0, 0, 0);
+  // let drawline2 = drawline(1, 1, 1, 1, 1);
+  
+  // let drawline3 = drawline(2, 2, 2, 2, 2);
+
+  // let drawline4 = drawline(0, 1, 2, 1, 0);
+
+  // let drawline5 = drawline(2, 1, 0, 1, 2);
+
+  // let drawline6 = drawline(1, 0, 0, 0, 1);
+
+  // let drawline7 = drawline(1, 2, 2, 2, 1);
+
+  // let drawline8 = drawline(0, 0, 1, 2, 2);
+
+  // let drawline9 = drawline(2, 2, 1, 0, 0);
+
+  // let drawline10 = drawline(1, 2, 1, 0, 1);
+
+  // let drawline11 = drawline(1, 0, 1, 2, 1);
+
+  // let drawline12 = drawline(0, 1, 1, 1, 0);
+
+  // let drawline13 = drawline(2, 1, 1, 1, 2);
+
+  // let drawline14 = drawline(0, 1, 0, 1, 0);
+
+  // let drawline15 = drawline(2, 1, 2, 1, 2);
+
+  // let drawline16 = drawline(1, 1, 0, 1, 1);
+
+  // let drawline17 = drawline(1, 1, 2, 1, 1);
+
+  // let drawline18 = drawline(0, 0, 2, 0, 0);
+
+  // let drawline19 = drawline(2, 2, 0, 2, 2);
+
+  // let drawline20 = drawline(0, 2, 2, 2, 0);
+
+  // let drawline21 = drawline(2, 0, 0, 0, 2);
+
+  // let drawline22 = drawline(1, 2, 0, 2, 1);
+
+  // let drawline23 = drawline(1, 0, 2, 0, 1);
+
+  // let drawline24 = drawline(0, 2, 0, 2, 0);
+
+  // let drawline25 = drawline(2, 0, 2, 0, 2);
+  
+
+// function drawline1() {
+// drawline(0, 0, 0, 0, 0);
+// }
+
+// function drawline2() {
+// drawline(1, 1, 1, 1, 1);
+// }
+
+// function drawline3() {
+// drawline(2, 2, 2, 2, 2);
+// }
+
+// function drawline4() {
+// drawline(0, 1, 2, 1, 0);
+// }
+
+// function drawline5() {
+// drawline(2, 1, 0, 1, 2);
+// }
+
+// function drawline6() {
+// drawline(1, 0, 0, 0, 1);
+// }
+
+// function drawline7() {
+// drawline(1, 2, 2, 2, 1);
+// }
+
+// function drawline8() {
+// drawline(0, 0, 1, 2, 2);
+// }
+
+// function drawline9() {
+// drawline(2, 2, 1, 0, 0);
+// }
+
+// function drawline10() {
+// drawline(1, 2, 1, 0, 1);
+// }
+
+// function drawline11() {
+// drawline(1, 0, 1, 2, 1);
+// }
+
+// function drawline12() {
+// drawline(0, 1, 1, 1, 0);
+// }
+
+// function drawline13() {
+// drawline(2, 1, 1, 1, 2);
+// }
+
+// function drawline14() {
+// drawline(0, 1, 0, 1, 0);
+// }
+
+// function drawline15() {
+// drawline(2, 1, 2, 1, 2);
+// }
+
+// function drawline16() {
+// drawline(1, 1, 0, 1, 1);
+// }
+
+// function drawline17() {
+// drawline(1, 1, 2, 1, 1);
+// }
+
+// function drawline18() {
+// drawline(0, 0, 2, 0, 0);
+// }
+
+// function drawline19() {
+// drawline(2, 2, 0, 2, 2);
+// }
+
+// function drawline20() {
+// drawline(0, 2, 2, 2, 0);
+// }
+
+// function drawline21() {
+// drawline(2, 0, 0, 0, 2);
+// }
+
+// function drawline22() {
+// drawline(1, 2, 0, 2, 1);
+// }
+
+// function drawline23() {
+// drawline(1, 0, 2, 0, 1);
+// }
+
+// function drawline24() {
+// drawline(0, 2, 0, 2, 0);
+// }
+
+// function drawline25() {
+// drawline(2, 0, 2, 0, 2);
+// }
+
+
+// function drawline1() {
+// ctx.beginPath();
+// ctx.strokeStyle="#FF0000";
+// ctx.moveTo(xdraw[0], ydraw[0]);
+// ctx.lineTo(xdraw[6], ydraw[0]);
+// ctx.stroke();
+// }
+
+// function drawline2() {
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[1]);
+//   ctx.lineTo(xdraw[6], ydraw[1]);
+//   ctx.stroke();
+//   }
+
+// function drawline3() {
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[2]);
+//   ctx.lineTo(xdraw[6], ydraw[2]);
+//   ctx.stroke();
+//   }
+
+// function drawline4() {
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[0]);
+//   ctx.lineTo(xdraw[1], ydraw[0]);
+//   // ctx.lineTo(xdraw[2], ydraw[1]);
+//   ctx.lineTo(xdraw[3], ydraw[2]);
+//   // ctx.lineTo(xdraw[4], ydraw[1]);
+//   ctx.lineTo(xdraw[5], ydraw[0]);
+//   ctx.lineTo(xdraw[6], ydraw[0]);
+//   ctx.stroke();
+//   }
+
+// function drawline5() {
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[2]);
+//   ctx.lineTo(xdraw[1], ydraw[2]);
+//   // ctx.lineTo(xdraw[2], ydraw[1]);
+//   ctx.lineTo(xdraw[3], ydraw[0]);
+//   // ctx.lineTo(xdraw[4], ydraw[1]);
+//   ctx.lineTo(xdraw[5], ydraw[2]);
+//   ctx.lineTo(xdraw[6], ydraw[2]);
+//   ctx.stroke();
+//   }
+
+// function drawline6() {
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[1]);
+//   ctx.lineTo(xdraw[1], ydraw[1]);
+//   ctx.lineTo(xdraw[2], ydraw[0]);
+//   // ctx.lineTo(xdraw[3], ydraw[0]);
+//   ctx.lineTo(xdraw[4], ydraw[0]);
+//   ctx.lineTo(xdraw[5], ydraw[1]);
+//   ctx.lineTo(xdraw[6], ydraw[1]);
+//   ctx.stroke();
+//   }
+
+// function drawline7() {
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[1]);
+//   ctx.lineTo(xdraw[1], ydraw[1]);
+//   ctx.lineTo(xdraw[2], ydraw[2]);
+//   // ctx.lineTo(xdraw[3], ydraw[2]);
+//   ctx.lineTo(xdraw[4], ydraw[2]);
+//   ctx.lineTo(xdraw[5], ydraw[1]);
+//   ctx.lineTo(xdraw[6], ydraw[1]);
+//   ctx.stroke();
+//   }
+
+// function drawline8() {
+//   ctx.beginPath();
+//   ctx.strokeStyle="#FF0000";
+//   ctx.moveTo(xdraw[0], ydraw[0]);
+//   // ctx.lineTo(xdraw[1], ydraw[0]);
+//   ctx.lineTo(xdraw[2], ydraw[0]);
+//   ctx.lineTo(xdraw[3], ydraw[1]);
+//   ctx.lineTo(xdraw[4], ydraw[2]);
+//   // ctx.lineTo(xdraw[5], ydraw[2]);
+//   ctx.lineTo(xdraw[6], ydraw[2]);
+//   ctx.stroke();
+//   }
+
+// function to show payline if you have a win on that line
+// function PaylineVisual() {
+//   if(winValue > 0) {
+
+//   }
+// }
+
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();

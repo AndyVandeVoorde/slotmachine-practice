@@ -461,7 +461,7 @@ async function Payline1to3() {
 }
 
 // function to simplify (INCOMPLETE)
-async function PayLines4to25(a, b, c, d, e, g) {
+async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
   await RotatingImages();
   if (
     VisibleArray1Url[a] === VisibleArray2Url[b] &&
@@ -471,6 +471,7 @@ async function PayLines4to25(a, b, c, d, e, g) {
       columns = a
       winValueStorage = g
       valueX = 2
+      drawline(l1, l2, l3, l4, l5)
       checkSymbol()
   } else if (
     VisibleArray1Url[a] === VisibleArray2Url[b] &&
@@ -479,6 +480,7 @@ async function PayLines4to25(a, b, c, d, e, g) {
       columns = a
       winValueStorage = g
       valueX = 1
+      drawline(l1, l2, l3, l4, l5)
       checkSymbol()
   } else if (
     VisibleArray1Url[a] === VisibleArray2Url[b] &&
@@ -486,6 +488,7 @@ async function PayLines4to25(a, b, c, d, e, g) {
       columns = a
       winValueStorage = g
       valueX = 0
+      drawline(l1, l2, l3, l4, l5)
       checkSymbol()
     } else {
     winValue[g] = 0
@@ -494,49 +497,49 @@ async function PayLines4to25(a, b, c, d, e, g) {
 
 function ExcecutePaylineCheck() {
   // Payline 4
-    PayLines4to25(a = 0, b = 1, c = 2, d = 1, e = 0, g = 3);
+    PayLines4to25(0, 1, 2, 1, 0, 3, 0, 1, 2, 1, 0);
   // Payline 5
-    PayLines4to25(a = 2, b = 1, c = 0, d = 1, e = 2, g = 4);
+    PayLines4to25(2, 1, 0, 1, 2, 4, 2, 1, 0, 1, 2);
   // Payline 6
-    PayLines4to25(a = 1, b = 0, c = 0, d = 0, e = 1, g = 5);
+    PayLines4to25(1, 0, 0, 0, 1, 5, 1, 0, 0, 0, 1);
   // Payline 7
-    PayLines4to25(a = 1, b = 2, c = 2, d = 2, e = 1, g = 6);
+    PayLines4to25(1, 2, 2, 2, 1, 6, 1, 2, 2, 2, 1);
   // Payline 8
-    PayLines4to25(a = 0, b = 0, c = 1, d = 2, e = 2, g = 7);
+    PayLines4to25(0, 0, 1, 2, 2, 7, 0, 0, 1, 2, 2);
   // Payline 9
-    PayLines4to25(a = 2, b = 2, c = 1, d = 0, e = 0, g = 8);
+    PayLines4to25(2, 2, 1, 0, 0, 8, 2, 2, 1, 0, 0);
   // Payline 10
-    PayLines4to25(a = 1, b = 2, c = 1, d = 0, e = 1, g = 9);
+    PayLines4to25(1, 2, 1, 0, 1, 9, 1, 2, 1, 0, 1);
   // Payline 11
-    PayLines4to25(a = 1, b = 0, c = 1, d = 2, e = 1, g = 10);
+    PayLines4to25(1, 0, 1, 2, 1, 10, 1, 0, 1, 2, 1);
   // Payline 12
-    PayLines4to25(a = 0, b = 1, c = 1, d = 1, e = 0, g = 11);
+    PayLines4to25(0, 1, 1, 1, 0, 11, 0, 1, 1, 1, 0);
   // Payline 13
-    PayLines4to25(a = 2, b = 1, c = 1, d = 1, e = 2, g = 12);
+    PayLines4to25(2, 1, 1, 1, 2, 12, 2, 1, 1, 1, 2);
   // Payline 14
-    PayLines4to25(a = 0, b = 1, c = 0, d = 1, e = 0, g = 13);
+    PayLines4to25(0, 1, 0, 1, 0, 13, 0, 1, 0, 1, 0);
   // Payline 15
-    PayLines4to25(a = 2, b = 1, c = 2, d = 1, e = 2, g = 14);
+    PayLines4to25(2, 1, 2, 1, 2, 14, 2, 1, 2, 1, 2);
   // Payline 16
-    PayLines4to25(a = 1, b = 1, c = 0, d = 1, e = 1, g = 15);
+    PayLines4to25(1, 1, 0, 1, 1, 15, 1, 1, 0, 1, 1);
   // Payline 17
-    PayLines4to25(a = 1, b = 1, c = 2, d = 1, e = 1, g = 16);
+    PayLines4to25(1, 1, 2, 1, 1, 16, 1, 1, 2, 1, 1);
   // Payline 18
-    PayLines4to25(a = 0, b = 0, c = 2, d = 0, e = 0, g = 17);
+    PayLines4to25(0, 0, 2, 0, 0, 17, 0, 0, 2, 0, 0);
   // Payline 19
-    PayLines4to25(a = 2, b = 2, c = 0, d = 2, e = 2, g = 18);
+    PayLines4to25(2, 2, 0, 2, 2, 18, 2, 2, 0, 2, 2);
   // Payline 20
-    PayLines4to25(a = 0, b = 2, c = 2, d = 2, e = 0, g = 19);
+    PayLines4to25(0, 2, 2, 2, 0, 19, 0, 2, 2, 2, 0);
   // Payline 21
-    PayLines4to25(a = 2, b = 0, c = 0, d = 0, e = 2, g = 20);
+    PayLines4to25(2, 0, 0, 0, 2, 20, 2, 0, 0, 0, 2);
   // Payline 22
-    PayLines4to25(a = 1, b = 2, c = 0, d = 2, e = 1, g = 21);
+    PayLines4to25(1, 2, 0, 2, 1, 21, 1, 2, 0, 2, 1);
   // Payline 23
-    PayLines4to25(a = 1, b = 0, c = 2, d = 0, e = 1, g = 22);
+    PayLines4to25(1, 0, 2, 0, 1, 22, 1, 0, 2, 0, 1);
   // Payline 24
-    PayLines4to25(a = 0, b = 2, c = 0, d = 2, e = 0, g = 23);
+    PayLines4to25(0, 2, 0, 2, 0, 23, 0, 2, 0, 2, 0);
   // Payline 25
-    PayLines4to25(a = 2, b = 0, c = 2, d = 0, e = 2, g = 24);
+    PayLines4to25(2, 0, 2, 0, 2, 24, 2, 0, 2, 0, 2);
   }
 
 // function to check for which symbol is aligned
@@ -572,11 +575,9 @@ function checkSymbol() {
   }
 }
 
-
-
-
 // on click spin button
 spinButton.onclick = function() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < 10; i++) {
     // setTimeout(function() {
       RotatingImages();
@@ -610,56 +611,62 @@ console.log("Amount won: " + totalWin.toFixed(2))
 }
 
 let ctx = document.getElementById('canvas').getContext("2d");
-ctx.lineWidth = 1
+let size = document.getElementById('reels')
 
-let xdraw = [0, 30, 90, 150, 210, 270, 300]
-let ydraw = [25, 75, 125]
+function SetCanvasSize() {
+  ctx = document.getElementById('canvas').getContext("2d");
+  size = document.getElementById('reels')
 
-function drawline1() {
-ctx.beginPath();
-ctx.strokeStyle="#FF0000";
-ctx.moveTo(xdraw[0], ydraw[0]);
-ctx.lineTo(xdraw[6], ydraw[0]);
-ctx.stroke();
+  ctx.canvas.width = size.clientWidth;
+  ctx.canvas.height = size.clientHeight;
+  ctx.lineWidth = 10;
+
+  ctx.lineJoin = "round"  // round, bevel, miter
+  ctx.lineCap = "butt" // square, round, butt
+
+  pToPxHor()
+  pToPxVer()
+
+  xdraw = [pToPxHor(0), pToPxHor(10), pToPxHor(30), pToPxHor(50), pToPxHor(70), pToPxHor(90), pToPxHor(100)]
+  ydraw = [pToPxVer(16.66), pToPxVer(50), pToPxVer(83,3)]
 }
 
-function drawline2() {
+ctx.canvas.width = size.clientWidth;
+ctx.canvas.height = size.clientHeight;
+ctx.lineWidth = 10;
+let positionX = 0
+let positionY = 0
+ctx.lineJoin = "round"  // round, bevel, miter
+ctx.lineCap = "butt" // square, round, butt
+
+function pToPxHor(positionX){
+  return positionX * ctx.canvas.width / 100
+}
+
+function pToPxVer(positionY){
+  return positionY * ctx.canvas.height / 100
+}
+
+let xdraw = [pToPxHor(0), pToPxHor(10), pToPxHor(30), pToPxHor(50), pToPxHor(70), pToPxHor(90), pToPxHor(100)]
+let ydraw = [pToPxVer(16.66), pToPxVer(50), pToPxVer(83,3)]
+
+function drawline(l1, l2, l3, l4, l5) {
+
   ctx.beginPath();
   ctx.strokeStyle="#FF0000";
-  ctx.moveTo(xdraw[0], ydraw[1]);
-  ctx.lineTo(xdraw[6], ydraw[1]);
+  ctx.moveTo(xdraw[0], ydraw[l1]);
+  ctx.lineTo(xdraw[1], ydraw[l1]);
+  ctx.lineTo(xdraw[2], ydraw[l2]);
+  ctx.lineTo(xdraw[3], ydraw[l3]);
+  ctx.lineTo(xdraw[4], ydraw[l4]);
+  ctx.lineTo(xdraw[5], ydraw[l5]);
+  ctx.lineTo(xdraw[6], ydraw[l5]);
   ctx.stroke();
-  }
-
-function drawline3() {
-  ctx.beginPath();
-  ctx.strokeStyle="#FF0000";
-  ctx.moveTo(xdraw[0], ydraw[2]);
-  ctx.lineTo(xdraw[6], ydraw[2]);
-  ctx.stroke();
-  }
-
-function drawline4() {
-  ctx.beginPath();
-  ctx.strokeStyle="#FF0000";
-  ctx.moveTo(xdraw[0], ydraw[0]);
-  ctx.lineTo(xdraw[1], ydraw[0]);
-  ctx.lineTo(xdraw[2], ydraw[1]);
-  ctx.lineTo(xdraw[3], ydraw[2]);
-  ctx.lineTo(xdraw[4], ydraw[1]);
-  ctx.lineTo(xdraw[5], ydraw[0]);
-  ctx.lineTo(xdraw[6], ydraw[0]);
-  ctx.stroke();
-  }
-
-// function to show payline if you have a win on that line
-// function PaylineVisual() {
-//   if(winValue > 0) {
-
-//   }
-// }
-
+}
 
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();
-window.onload = testline();
+window.onload = SetCanvasSize()
+onresize = SetCanvasSize;
+
+addEventListener('resize', SetCanvasSize())

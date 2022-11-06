@@ -436,10 +436,10 @@ td.spacing {
 } */
 
 #canvas {
-position: absolute;
-top: 100px;
-width: 70%;
-height: 70%;
-border: 1px solid red;
-z-index: 1000;
-}
+  position: absolute;
+  top: 100px;
+  /* width: 70%;
+  height: 70%; */
+  border: 1px solid red;
+  z-index: 1000;
+  }
