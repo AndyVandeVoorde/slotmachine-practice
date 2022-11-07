@@ -105,7 +105,7 @@ let Bootsx3 = 0
 let Bootsx4 = 0
 let Bootsx5 = 0
 
-let Wild = 0
+// let Wild = 0
 let BagOfGold = 0
 let Scatter = 0
 
@@ -145,6 +145,8 @@ let BarrelsStyle = window.getComputedStyle(p[7]);
 let Barrels = BarrelsStyle.backgroundImage;
 let BootsStyle = window.getComputedStyle(p[8]);
 let Boots = BootsStyle.backgroundImage;
+let WildStyle = window.getComputedStyle(p[9]);
+let Wild = WildStyle.backgroundImage;
 
 // create value array per item
 let FemaleValue = [Femalex3, Femalex4, Femalex5]
@@ -434,6 +436,7 @@ async function Payline1to3() {
         columns = i
         winValueStorage = i
         valueX = 2
+        drawline(i, i, i, i, i)
         checkSymbol()
         // console.log(winValue[i])
     } else if (
@@ -443,6 +446,7 @@ async function Payline1to3() {
         columns = i
         winValueStorage = i
         valueX = 1
+        drawline(i, i, i, i, i)
         checkSymbol()
         // console.log(winValue[i])
     } else if (
@@ -451,6 +455,7 @@ async function Payline1to3() {
         columns = i
         winValueStorage = i
         valueX = 0
+        drawline(i, i, i, i, i)
         checkSymbol()
         // console.log(winValue[i])
     } else {
@@ -575,23 +580,7 @@ function checkSymbol() {
   }
 }
 
-// on click spin button
-spinButton.onclick = function() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < 10; i++) {
-    // setTimeout(function() {
-      RotatingImages();
-    // }, delay * i);
-  }
 
-  ExcecutePaylineCheck()
-  Payline1to3();
-  // ExcecutePaylineCheck()
-  // Payline1to3();
-  CoinsUpdate()
-  TotalWin(winValue);  
-
-}
 
 // total win (Sum of an array)
 let totalWin = 0
@@ -651,7 +640,6 @@ let xdraw = [pToPxHor(0), pToPxHor(10), pToPxHor(30), pToPxHor(50), pToPxHor(70)
 let ydraw = [pToPxVer(16.66), pToPxVer(50), pToPxVer(83,3)]
 
 function drawline(l1, l2, l3, l4, l5) {
-
   ctx.beginPath();
   ctx.strokeStyle="#FF0000";
   ctx.moveTo(xdraw[0], ydraw[l1]);
@@ -661,7 +649,25 @@ function drawline(l1, l2, l3, l4, l5) {
   ctx.lineTo(xdraw[4], ydraw[l4]);
   ctx.lineTo(xdraw[5], ydraw[l5]);
   ctx.lineTo(xdraw[6], ydraw[l5]);
+
   ctx.stroke();
+}
+
+// on click spin button
+spinButton.onclick = function() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < 10; i++) {
+    // setTimeout(function() {
+      RotatingImages();
+    // }, delay * i);
+  }
+
+  ExcecutePaylineCheck()
+  Payline1to3();
+  // ExcecutePaylineCheck()
+  // Payline1to3();
+  CoinsUpdate()
+  TotalWin(winValue);  
 }
 
 // randomize pictures on loading of screen
