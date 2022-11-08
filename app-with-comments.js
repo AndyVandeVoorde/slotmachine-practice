@@ -1758,3 +1758,83 @@ function drawline(l1, l2, l3, l4, l5) {
 
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();
+// -----------------------------------------------------------------------------
+// back-up working codes
+
+// async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
+//   await RotatingImages();
+//   if (
+//     VisibleArray1Url[a] === VisibleArray2Url[b] &&
+//     VisibleArray2Url[b] === VisibleArray3Url[c] &&
+//     VisibleArray3Url[c] === VisibleArray4Url[d] &&
+//     VisibleArray4Url[d] === VisibleArray5Url[e] ){
+//       columns = a
+//       winValueStorage = g
+//       valueX = 2
+//       drawline(l1, l2, l3, l4, l5)
+//       checkSymbol()
+//   } else if (
+//     VisibleArray1Url[a] === VisibleArray2Url[b] &&
+//     VisibleArray2Url[b] === VisibleArray3Url[c] &&
+//     VisibleArray3Url[c] === VisibleArray4Url[d] ){
+//       columns = a
+//       winValueStorage = g
+//       valueX = 1
+//       drawline(l1, l2, l3, l4, l5)
+//       checkSymbol()
+//   } else if (
+//     VisibleArray1Url[a] === VisibleArray2Url[b] &&
+//     VisibleArray2Url[b] === VisibleArray3Url[c] ){
+//       columns = a
+//       winValueStorage = g
+//       valueX = 0
+//       drawline(l1, l2, l3, l4, l5)
+//       checkSymbol()
+//     } else {
+//     winValue[g] = 0
+//   }
+// }
+
+// ----------------------------------------------------------------------
+
+// // Check for win per Payline
+// // Check Payline 1 to 3
+// async function Payline1to3() {
+//   await RotatingImages();
+//   for(let i = 0; i < 3; i++) {
+//     if(
+//       VisibleArray1Url[i] === VisibleArray2Url[i] && 
+//       VisibleArray2Url[i] === VisibleArray3Url[i] &&
+//       VisibleArray3Url[i] === VisibleArray4Url[i] && 
+//       VisibleArray4Url[i] === VisibleArray5Url[i]){
+//         columns = i
+//         winValueStorage = i
+//         valueX = 2
+//         drawline(i, i, i, i, i)
+//         checkSymbol()
+//         // console.log(winValue[i])
+//     } else if (
+//       VisibleArray1Url[i] === VisibleArray2Url[i] && 
+//       VisibleArray2Url[i] === VisibleArray3Url[i] &&
+//       VisibleArray3Url[i] === VisibleArray4Url[i]){
+//         columns = i
+//         winValueStorage = i
+//         valueX = 1
+//         drawline(i, i, i, i, i)
+//         checkSymbol()
+//         // console.log(winValue[i])
+//     } else if (
+//       VisibleArray1Url[i] === VisibleArray2Url[i] && 
+//       VisibleArray2Url[i] === VisibleArray3Url[i]){
+//         columns = i
+//         winValueStorage = i
+//         valueX = 0
+//         drawline(i, i, i, i, i)
+//         checkSymbol()
+//         // console.log(winValue[i])
+//     } else {
+//       winValue[i] = 0
+//       // console.log(winValue[i])
+//     }
+//   }
+// }

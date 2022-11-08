@@ -27,7 +27,7 @@ symbols[5] = "url('images/icons/gas lamp.png')";
 symbols[6] = "url('images/icons/snake.png')";
 symbols[7] = "url('images/icons/barrels.png')";
 symbols[8] = "url('images/icons/boots.png')";
-// symbols[9] = "url('images/icons/wild.png')";
+symbols[9] = "url('images/icons/wild.png')";
 // symbols[10] = "url('images/icons/scatter2.png')";
 // symbols[11] = "url('images/icons/scatter.png')";
 
@@ -322,7 +322,7 @@ let randomNum4 = 0
 let randomNum5 = 0
 
 function randomArrNum() {
-randomNum1 = symbols[Math.floor(Math.random() * symbols.length)];
+randomNum1 = symbols[Math.floor(Math.random() * (symbols.length - 1))];
 randomNum2 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum3 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum4 = symbols[Math.floor(Math.random() * symbols.length)];
@@ -365,7 +365,7 @@ function RotatingImages() {
   VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
   VisibleArray1[0].style.backgroundImage = BatchArray1[(arrayNum + 2) % 5]
 
-  BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+  BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length - 1)]
 
   // Column 2
   VisibleArray2[2].style.backgroundImage = BatchArray2[arrayNum % 5]
@@ -423,16 +423,20 @@ function resetSlideDown() {
     }
 }
 
-// Check for win per Payline
+// Check for win per Payline || uncluding wilds
 // Check Payline 1 to 3
 async function Payline1to3() {
   await RotatingImages();
   for(let i = 0; i < 3; i++) {
     if(
-      VisibleArray1Url[i] === VisibleArray2Url[i] && 
-      VisibleArray2Url[i] === VisibleArray3Url[i] &&
-      VisibleArray3Url[i] === VisibleArray4Url[i] && 
-      VisibleArray4Url[i] === VisibleArray5Url[i]){
+      (VisibleArray1Url[i] === VisibleArray2Url[i] ||
+        VisibleArray2Url[i] === Wild) &&
+        (VisibleArray2Url[i] === VisibleArray3Url[i] ||
+        VisibleArray3Url[i] === Wild) &&
+        (VisibleArray3Url[i] === VisibleArray4Url[i] ||
+        VisibleArray4Url[i] === Wild) &&
+        (VisibleArray4Url[i] === VisibleArray5Url[i] ||
+        VisibleArray5Url[i] === Wild)){
         columns = i
         winValueStorage = i
         valueX = 2
@@ -440,9 +444,12 @@ async function Payline1to3() {
         checkSymbol()
         // console.log(winValue[i])
     } else if (
-      VisibleArray1Url[i] === VisibleArray2Url[i] && 
-      VisibleArray2Url[i] === VisibleArray3Url[i] &&
-      VisibleArray3Url[i] === VisibleArray4Url[i]){
+      (VisibleArray1Url[i] === VisibleArray2Url[i] ||
+        VisibleArray2Url[i] === Wild) &&
+        (VisibleArray2Url[i] === VisibleArray3Url[i] ||
+        VisibleArray3Url[i] === Wild) &&
+        (VisibleArray3Url[i] === VisibleArray4Url[i] ||
+        VisibleArray4Url[i] === Wild)){
         columns = i
         winValueStorage = i
         valueX = 1
@@ -450,8 +457,10 @@ async function Payline1to3() {
         checkSymbol()
         // console.log(winValue[i])
     } else if (
-      VisibleArray1Url[i] === VisibleArray2Url[i] && 
-      VisibleArray2Url[i] === VisibleArray3Url[i]){
+      (VisibleArray1Url[i] === VisibleArray2Url[i] ||
+        VisibleArray2Url[i] === Wild) &&
+        (VisibleArray2Url[i] === VisibleArray3Url[i] ||
+        VisibleArray3Url[i] === Wild)){
         columns = i
         winValueStorage = i
         valueX = 0
@@ -465,31 +474,40 @@ async function Payline1to3() {
   }
 }
 
-// function to simplify
+// Check is payline 4 to 25 is true function \\ simplified + Wilds added
 async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
   await RotatingImages();
   if (
-    VisibleArray1Url[a] === VisibleArray2Url[b] &&
-    VisibleArray2Url[b] === VisibleArray3Url[c] &&
-    VisibleArray3Url[c] === VisibleArray4Url[d] &&
-    VisibleArray4Url[d] === VisibleArray5Url[e] ){
+    (VisibleArray1Url[a] === VisibleArray2Url[b] ||
+    VisibleArray2Url[b] === Wild) &&
+    (VisibleArray2Url[b] === VisibleArray3Url[c] ||
+    VisibleArray3Url[c] === Wild) &&
+    (VisibleArray3Url[c] === VisibleArray4Url[d] ||
+    VisibleArray4Url[d] === Wild) &&
+    (VisibleArray4Url[d] === VisibleArray5Url[e] ||
+    VisibleArray5Url[e] === Wild) ){
       columns = a
       winValueStorage = g
       valueX = 2
       drawline(l1, l2, l3, l4, l5)
       checkSymbol()
   } else if (
-    VisibleArray1Url[a] === VisibleArray2Url[b] &&
-    VisibleArray2Url[b] === VisibleArray3Url[c] &&
-    VisibleArray3Url[c] === VisibleArray4Url[d] ){
+    (VisibleArray1Url[a] === VisibleArray2Url[b] ||
+    VisibleArray2Url[b] === Wild) &&
+    (VisibleArray2Url[b] === VisibleArray3Url[c] ||
+    VisibleArray3Url[c] === Wild) &&
+    (VisibleArray3Url[c] === VisibleArray4Url[d] ||
+    VisibleArray4Url[d] === Wild)){
       columns = a
       winValueStorage = g
       valueX = 1
       drawline(l1, l2, l3, l4, l5)
       checkSymbol()
   } else if (
-    VisibleArray1Url[a] === VisibleArray2Url[b] &&
-    VisibleArray2Url[b] === VisibleArray3Url[c] ){
+    (VisibleArray1Url[a] === VisibleArray2Url[b] ||
+    VisibleArray2Url[b] === Wild) &&
+    (VisibleArray2Url[b] === VisibleArray3Url[c] ||
+    VisibleArray3Url[c] === Wild)){
       columns = a
       winValueStorage = g
       valueX = 0
@@ -499,50 +517,6 @@ async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
     winValue[g] = 0
   }
 }
-
-// // including wild test
-// async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
-//   await RotatingImages();
-//   if (
-//     VisibleArray1Url[a] === VisibleArray2Url[b] ||
-//     VisibleArray2Url[b] === Wild &&
-//     VisibleArray2Url[b] === VisibleArray3Url[c] ||
-//     VisibleArray3Url[c] === Wild &&
-//     VisibleArray3Url[c] === VisibleArray4Url[d] ||
-//     VisibleArray4Url[d] === Wild &&
-//     VisibleArray4Url[d] === VisibleArray5Url[e] ||
-//     VisibleArray5Url[e] === Wild ){
-//       columns = a
-//       winValueStorage = g
-//       valueX = 2
-//       drawline(l1, l2, l3, l4, l5)
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[a] === VisibleArray2Url[b] ||
-//     VisibleArray2Url[b] === Wild &&
-//     VisibleArray2Url[b] === VisibleArray3Url[c] ||
-//     VisibleArray3Url[c] === Wild &&
-//     VisibleArray3Url[c] === VisibleArray4Url[d] ||
-//     VisibleArray4Url[d] === Wild){
-//       columns = a
-//       winValueStorage = g
-//       valueX = 1
-//       drawline(l1, l2, l3, l4, l5)
-//       checkSymbol()
-//   } else if (
-//     VisibleArray1Url[a] === VisibleArray2Url[b] ||
-//     VisibleArray2Url[b] === Wild &&
-//     VisibleArray2Url[b] === VisibleArray3Url[c] ||
-//     VisibleArray3Url[c] === Wild){
-//       columns = a
-//       winValueStorage = g
-//       valueX = 0
-//       drawline(l1, l2, l3, l4, l5)
-//       checkSymbol()
-//     } else {
-//     winValue[g] = 0
-//   }
-// }
 
 function ExcecutePaylineCheck() {
   // Payline 4
