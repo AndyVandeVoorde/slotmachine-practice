@@ -12,7 +12,8 @@ let currentCoins = document.getElementById('total-coins').innerHTML
 let currentBetSizeNumber = parseFloat(document.getElementById('bet-size').innerHTML.replace(/[,]/, "."))
 
 // delay variable for delay at button click
-const delay = 100
+const delayMoveDown = 1000
+const delayOthers = 1000
 
 // create an array with each unique image
 const symbols = [];
@@ -363,7 +364,8 @@ function symbolPlacement () {
 // rotating images and switching invisible ones
 let arrayNum = 1
 async function RotatingImages() {
-  await moveDown();
+  await symbolPlacement();
+  console.log('start code in RotatingImages')
   // Column 1
   VisibleArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
   VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
@@ -411,7 +413,7 @@ async function RotatingImages() {
   VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
 
   arrayNum += 1
-  console.log('rotatingImages function executed')
+  console.log('rotatingImages function finished')
 }
 
 
@@ -430,8 +432,9 @@ async function RotatingImages() {
 
 // Check for win per Payline || uncluding wilds
 // Check Payline 1 to 3
-async function Payline1to3() {
-  await RotatingImages();
+function Payline1to3() {
+  // await RotatingImages();
+  // await moveDown();
   for(let i = 0; i < 3; i++) {
     if(
       (VisibleArray1Url[i] === VisibleArray2Url[i] ||
@@ -477,12 +480,12 @@ async function Payline1to3() {
       // console.log(winValue[i])
     }
   }
-  console.log('Payline1to3 function executed')
 }
 
 // Check is payline 4 to 25 is true function \\ simplified + Wilds added
-async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
-  await RotatingImages();
+function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
+  // await RotatingImages();
+  // await moveDown();
   if (
     (VisibleArray1Url[a] === VisibleArray2Url[b] ||
     VisibleArray2Url[b] === Wild) &&
@@ -522,11 +525,11 @@ async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
     } else {
     winValue[g] = 0
   }
-  console.log('Paylines4to25 function executed')
 }
 
-async function ExcecutePaylineCheck() {
-  await RotatingImages();
+function ExcecutePaylineCheck() {
+  // Payline 1 to 3
+    Payline1to3()
   // Payline 4
     PayLines4to25(0, 1, 2, 1, 0, 3, 0, 1, 2, 1, 0);
   // Payline 5
@@ -611,8 +614,9 @@ function checkSymbol() {
 // total win (Sum of an array)
 let totalWin = 0
 
-async function TotalWin(winValue) {
-  await RotatingImages();
+function TotalWin(winValue) {
+  // await RotatingImages();
+  // await moveDown();
   // clear the value from last win.
   totalWin = 0;
 for(let i = 0; i < winValue.length; i++) {
@@ -681,33 +685,119 @@ function drawline(l1, l2, l3, l4, l5) {
   ctx.stroke();
 }
 
-function moveDown() {
 
-  document.getElementById('reels').style.transition = "all 1s";
+
+function moveDown() {
+  document.getElementById('reels').style.transition  = "all 1s";
   document.getElementById('reels2').style.transition = "all 1s";
-  
-  document.getElementById('reels').style.transform = "translateY(0%)";
-  document.getElementById('reels2').style.transform = "translateY(0%)";
-  console.log('moveDown function executed')
+
+  document.getElementById('reels').style.transform  = "translate(0, 0)";
+  document.getElementById('reels2').style.transform = "translate(0, 0)";
+    console.log('moveDown function completed');
 }
 
-// on click spin button
+function ResetPosition() {
+setTimeout(() => {
+  document.getElementById('reels2').style.transition = "none";
+  // document.getElementById('reels2').style.transform = "translate(-100%, 0)";
+  // }, 1000)
+  // setTimeout(() => {
+  //   document.getElementById('reels2').style.transform = "translate(-100%, -200%)";
+  // }, 1200)
+  // setTimeout(() => {
+    document.getElementById('reels2').style.transform = "translate(0 , -200%)";
+  }, 1000)
+}
+
+function moveDown2() {
+  document.getElementById('reels').style.transition  = "all 1s linear";
+  document.getElementById('reels2').style.transition = "all 1s linear";
+
+  document.getElementById('reels').style.transform  = "translate(0, 100%)";
+  document.getElementById('reels2').style.transform = "translate(0, -100%)";
+
+  setTimeout(() => {
+    document.getElementById('reels').style.transition  = "none";
+    document.getElementById('reels').style.transform  = "translate(0, -100%)";
+  }, 1000)
+  setTimeout(() => {
+  document.getElementById('reels').style.transition  = "all 1s linear";
+  document.getElementById('reels2').style.transition = "all 1s linear";
+  document.getElementById('reels').style.transform  = "translate(0, 0)";
+  document.getElementById('reels2').style.transform = "translate(0, 0)";
+}, 1001)
+}
+
+
+// // on click spin button
+// spinButton.onclick = function() {
+//   ctx.clearRect(0, 0, canvas.width, canvas.height);
+//   moveDown()
+//   RotatingImages();
+//   ResetPosition();
+
+//   setTimeout (() => {
+//     ExcecutePaylineCheck()
+//     Payline1to3();
+//     CoinsUpdate()
+//     TotalWin(winValue);
+//     }, 1500)
+//   }
+//   // for (let i = 0; i < 10; i++) {
+//     // setTimeout(function() {
+ 
+//     // }, delay * i);
+//   // }
+
+//   // ExcecutePaylineCheck()
+//   // Payline1to3();
+//   // // ExcecutePaylineCheck()
+//   // // Payline1to3();
+//   // CoinsUpdate()
+//   // TotalWin(winValue);  
+// // }
+
+let start = 0;
+
+// click spin second
 spinButton.onclick = function() {
+    if(start === 0) FirstStage();
+    else SecondStage();
+    start = 1;
+  }
+
+function FirstStage(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   moveDown()
-  // for (let i = 0; i < 10; i++) {
-    // setTimeout(function() {
-      RotatingImages();
-    // }, delay * i);
-  // }
+  RotatingImages();
+  ResetPosition();
 
-  ExcecutePaylineCheck()
-  Payline1to3();
-  // ExcecutePaylineCheck()
-  // Payline1to3();
-  CoinsUpdate()
-  TotalWin(winValue);  
+  setTimeout (() => {
+    ExcecutePaylineCheck()
+    Payline1to3();
+    CoinsUpdate()
+    TotalWin(winValue);
+    }, 1500)
 }
+
+function SecondStage(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  moveDown2()
+
+  setTimeout (() => {
+    RotatingImages();
+    ResetPosition();
+    }, 1000)
+
+  setTimeout (() => {
+    ExcecutePaylineCheck()
+    // Payline1to3();
+    CoinsUpdate()
+    TotalWin(winValue);
+    }, 2000)
+}
+
+
 
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();

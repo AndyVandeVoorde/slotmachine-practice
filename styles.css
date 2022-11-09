@@ -412,7 +412,7 @@ td.spacing {
   width: 100%;
   height: 100%;
   border-collapse: collapse;
-  transform: translateY(-100%)
+  transform: translate(0, -100%);
 }
 
 .reels {
@@ -422,7 +422,7 @@ td.spacing {
   position: relative;
   border-collapse: collapse;
   overflow: hidden;
-  transform: translateY(-100%)
+  transform: translate(0, -100%);
 }
 
 .Varea {
