@@ -230,6 +230,7 @@ function betSize(){
   SnakeValue = [Snakex3, Snakex4, Snakex5]
   BarrelsValue = [Barrelsx3, Barrelsx4, Barrelsx5]
   BootsValue = [Bootsx3, Bootsx4, Bootsx5]
+  console.log('betSize function executed')
 }
 
 // increment and decrement level on click
@@ -327,6 +328,7 @@ randomNum2 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum3 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum4 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum5 = symbols[Math.floor(Math.random() * symbols.length)];
+// console.log('randomArrNum function executed')
 }
 
 // making a function to create random images in each position (New)
@@ -354,12 +356,14 @@ function symbolPlacement () {
     BatchArray3[i] = randomNum3
     BatchArray4[i] = randomNum4
     BatchArray5[i] = randomNum5
+    // console.log('symbolPlacement function executed')
   }
 }
 
 // rotating images and switching invisible ones
 let arrayNum = 1
-function RotatingImages() {
+async function RotatingImages() {
+  await moveDown();
   // Column 1
   VisibleArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
   VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
@@ -407,21 +411,22 @@ function RotatingImages() {
   VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
 
   arrayNum += 1
+  console.log('rotatingImages function executed')
 }
 
 
 // add class for slide-down animation on button click
-function slideDown() {
-  for(let a = 0; a < p.length; a++) {
-  p[a].classList.add('slideDown');
-  }
-}
+// function slideDown() {
+//   for(let a = 0; a < p.length; a++) {
+//   p[a].classList.add('slideDown');
+//   }
+// }
 
-function resetSlideDown() {
-  for(let a = 0; a < p.length; a++) {
-    p[a].classList.remove('slideDown');
-    }
-}
+// function resetSlideDown() {
+//   for(let a = 0; a < p.length; a++) {
+//     p[a].classList.remove('slideDown');
+//     }
+// }
 
 // Check for win per Payline || uncluding wilds
 // Check Payline 1 to 3
@@ -472,6 +477,7 @@ async function Payline1to3() {
       // console.log(winValue[i])
     }
   }
+  console.log('Payline1to3 function executed')
 }
 
 // Check is payline 4 to 25 is true function \\ simplified + Wilds added
@@ -516,9 +522,11 @@ async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
     } else {
     winValue[g] = 0
   }
+  console.log('Paylines4to25 function executed')
 }
 
-function ExcecutePaylineCheck() {
+async function ExcecutePaylineCheck() {
+  await RotatingImages();
   // Payline 4
     PayLines4to25(0, 1, 2, 1, 0, 3, 0, 1, 2, 1, 0);
   // Payline 5
@@ -563,6 +571,7 @@ function ExcecutePaylineCheck() {
     PayLines4to25(0, 2, 0, 2, 0, 23, 0, 2, 0, 2, 0);
   // Payline 25
     PayLines4to25(2, 0, 2, 0, 2, 24, 2, 0, 2, 0, 2);
+    console.log('ExecutePaylineCheck function executed')
   }
 
 // function to check for which symbol is aligned
@@ -596,6 +605,7 @@ function checkSymbol() {
       winValue[winValueStorage] = BootsValue[valueX];
       break;
   }
+  console.log('checkSymbol function executed')
 }
 
 // total win (Sum of an array)
@@ -613,6 +623,7 @@ for(let i = 0; i < winValue.length; i++) {
 }
 document.getElementById('win-amount').innerHTML = "You win: " + totalWin.toFixed(2).toString().replace(/[.]/, ",")
 console.log("Amount won: " + totalWin.toFixed(2))
+console.log('TotalWin function executed')
 }
 
 let ctx = document.getElementById('canvas').getContext("2d");
@@ -634,6 +645,7 @@ function SetCanvasSize() {
 
   xdraw = [pToPxHor(0), pToPxHor(10), pToPxHor(30), pToPxHor(50), pToPxHor(70), pToPxHor(90), pToPxHor(100)]
   ydraw = [pToPxVer(16.66), pToPxVer(50), pToPxVer(83,3)]
+  // console.log('SetCanvasSize function executed')
 }
 
 ctx.canvas.width = size.clientWidth;
@@ -669,14 +681,25 @@ function drawline(l1, l2, l3, l4, l5) {
   ctx.stroke();
 }
 
+function moveDown() {
+
+  document.getElementById('reels').style.transition = "all 1s";
+  document.getElementById('reels2').style.transition = "all 1s";
+  
+  document.getElementById('reels').style.transform = "translateY(0%)";
+  document.getElementById('reels2').style.transform = "translateY(0%)";
+  console.log('moveDown function executed')
+}
+
 // on click spin button
 spinButton.onclick = function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < 10; i++) {
+  moveDown()
+  // for (let i = 0; i < 10; i++) {
     // setTimeout(function() {
       RotatingImages();
     // }, delay * i);
-  }
+  // }
 
   ExcecutePaylineCheck()
   Payline1to3();
@@ -693,45 +716,45 @@ onresize = SetCanvasSize;
 
 addEventListener('resize', SetCanvasSize())
 
-console.log('Made by Andy Vande Voorde')
-console.log(`
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#BGP5555555YJ?YP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&BPYY5PB#&&@@@&G5J?JYG#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&GYJ5B&@@@@@@@&GYJ5B&@@@@@@@@@@@7?J@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@&P?YB@@@@@@@@@&P?YB@@@@@@@@@@@@@@&#~5P~#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@B?J#@@@@@@@@@@B?J#@@@@@@&&&@@@@@@@&.PG!7#^P@@@#J~:.!#@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@P75@@@@@@@@@@@P75@@@@@#?:  .G@@@@@@@@PJ5&&P@^P@^    ?@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@G!P@@@@@@@@@@@G!P@@@@@@?    ~@@@@@@@@@@@@&J!#@@:Y^!^?&@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@&!J@@@@@@@@@@@&!J@@@@@&&@~7~!#@@@!JY@@@@GJB@@&^P@?!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@B^#@@@@@@@@@@@G^#@@@@@&^G~P#5J&@@77@^B&@@G   .P@.#G~@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@5 &@@@@@@@@@@@Y~@@@@@@@@.&GPP&@@@&.@G7Y:?@@&~.. Y5^B^@&#BB&@@@@@@@&@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@5 Y@@@@@@@@@@@Y~@@@@@@@@5~G?&@@@@@??@BJ?&@@@@@@&&&J^G.GBBGY.B@@@&! ^@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@G  @@@@@@@@@@@P^@@@@@@@@?!B!@@@@@@@^G@!?@@B@@@@@@@@^Y@JPYYPB&@@@&.  ~@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@&  :@@@@@@@@@@&.&@@@@@@@P:@~&@@.?@@@^G&.@@B  J@@@@@P.@P7#@@@@@@@@G: .#@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@7  :@@@@@@@@@@!Y@@@@@@@@^Y@:&@#  .&@J7&.@@#   7@@@Y:&&:&@@@@@@G7YB!J@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@&   .@@@@@@@@@&.@@@&#&&@@7!@J?@Y   !@@.&^Y@@5 .!@G^J@&J5BP7B@@@&~G^BB~@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@P    P@@@@@@@@5~@@Y.   ^Y#.#@!Y&~^ G@@#^B^Y@@@P?!?@@BYPP5P?G@@@@&?#B~&@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@7    .@@@@@@@@!J@@@@P~::^5Y.#@Y7#J@@@@@&!Y?!B#!?&&5JP#&@@@@@@#:JG7@5!@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@!     ^@@@@@@@YB@@@@@@@@#JY5PG#B77#@@@@@@P?YYJ&&?J&@@&.B@@@@@@G~5~@7?@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@7      ^@@@@@@@@@@@@@@@@P^JPBBG5?!7?5#@@@@@:Y@P~&@@@7  ^@@@@@@@Y7@#.&@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@P       .G@@@@@@@@@@@@@@@@@@@@@@@#!7PY?5&@?7@5~@@@@:   J@@@@@@#^#@^P@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@&         :G@@@@@@@@@@@@@@@@@@@@Y?YYG##P?7.@@.@@@@@~:.J@@@&#GJJ&#!P@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@!          .!G&@@@@@@@@@@@@@@@@JJPGBGGPY^:@G^@#GPY~7YPYJJJYG#GJ7J:  .~G@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@&              .^!?5GB&@@@@@@@@@@@@@@@@@^5@G.555PB@@GPGGGGGY~J?&@7:    :&@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@G                      .^?G&@@@@@@@@@&!J@@@.!5GBP?JP5G@@@@@#~~5@@@@&&&B#@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@Y                          .!P#&&#PJ?#@@@@G:@@@@@&J7^#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@Y                   .~5B#&&#BBGGB#@@@@@@@@B^B@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@G                !B@@@@@@&##&@@@@@@@@@@@@@@J7B@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@&~      ~YGBGB&@@@@@@&.     #@@@&B#@@@@@@@@@GJJ5B&@@@@@@&#57&@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@G.  ?@@#G#@@B5?:~@@#    :B@@@B   .~5&@@@@@@@@B?^::...   ^#@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@P#@Y.  .@@    P@@~  ~#@@@#!        !@@@Y!7JB@@&##   ^B@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@&^    #@. ?@@G:  5@@&?.           J@@&~   &@?:@P7&@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@&5^!@5 B@J.    @@&               .?B@@P ^@G~&@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&!7@7      J@@.                  !@&?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#J~:    P@G              .:!5#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#G#@@?!~~~!!7?YPB#&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-`)
+// console.log('Made by Andy Vande Voorde')
+// console.log(`
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#BGP5555555YJ?YP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&BPYY5PB#&&@@@&G5J?JYG#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&GYJ5B&@@@@@@@&GYJ5B&@@@@@@@@@@@7?J@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@&P?YB@@@@@@@@@&P?YB@@@@@@@@@@@@@@&#~5P~#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@B?J#@@@@@@@@@@B?J#@@@@@@&&&@@@@@@@&.PG!7#^P@@@#J~:.!#@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@P75@@@@@@@@@@@P75@@@@@#?:  .G@@@@@@@@PJ5&&P@^P@^    ?@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@G!P@@@@@@@@@@@G!P@@@@@@?    ~@@@@@@@@@@@@&J!#@@:Y^!^?&@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@&!J@@@@@@@@@@@&!J@@@@@&&@~7~!#@@@!JY@@@@GJB@@&^P@?!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@B^#@@@@@@@@@@@G^#@@@@@&^G~P#5J&@@77@^B&@@G   .P@.#G~@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@5 &@@@@@@@@@@@Y~@@@@@@@@.&GPP&@@@&.@G7Y:?@@&~.. Y5^B^@&#BB&@@@@@@@&@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@5 Y@@@@@@@@@@@Y~@@@@@@@@5~G?&@@@@@??@BJ?&@@@@@@&&&J^G.GBBGY.B@@@&! ^@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@G  @@@@@@@@@@@P^@@@@@@@@?!B!@@@@@@@^G@!?@@B@@@@@@@@^Y@JPYYPB&@@@&.  ~@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@&  :@@@@@@@@@@&.&@@@@@@@P:@~&@@.?@@@^G&.@@B  J@@@@@P.@P7#@@@@@@@@G: .#@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@7  :@@@@@@@@@@!Y@@@@@@@@^Y@:&@#  .&@J7&.@@#   7@@@Y:&&:&@@@@@@G7YB!J@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@&   .@@@@@@@@@&.@@@&#&&@@7!@J?@Y   !@@.&^Y@@5 .!@G^J@&J5BP7B@@@&~G^BB~@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@P    P@@@@@@@@5~@@Y.   ^Y#.#@!Y&~^ G@@#^B^Y@@@P?!?@@BYPP5P?G@@@@&?#B~&@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@7    .@@@@@@@@!J@@@@P~::^5Y.#@Y7#J@@@@@&!Y?!B#!?&&5JP#&@@@@@@#:JG7@5!@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@!     ^@@@@@@@YB@@@@@@@@#JY5PG#B77#@@@@@@P?YYJ&&?J&@@&.B@@@@@@G~5~@7?@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@7      ^@@@@@@@@@@@@@@@@P^JPBBG5?!7?5#@@@@@:Y@P~&@@@7  ^@@@@@@@Y7@#.&@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@P       .G@@@@@@@@@@@@@@@@@@@@@@@#!7PY?5&@?7@5~@@@@:   J@@@@@@#^#@^P@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@&         :G@@@@@@@@@@@@@@@@@@@@Y?YYG##P?7.@@.@@@@@~:.J@@@&#GJJ&#!P@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@!          .!G&@@@@@@@@@@@@@@@@JJPGBGGPY^:@G^@#GPY~7YPYJJJYG#GJ7J:  .~G@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@&              .^!?5GB&@@@@@@@@@@@@@@@@@^5@G.555PB@@GPGGGGGY~J?&@7:    :&@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@G                      .^?G&@@@@@@@@@&!J@@@.!5GBP?JP5G@@@@@#~~5@@@@&&&B#@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@Y                          .!P#&&#PJ?#@@@@G:@@@@@&J7^#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@Y                   .~5B#&&#BBGGB#@@@@@@@@B^B@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@G                !B@@@@@@&##&@@@@@@@@@@@@@@J7B@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@&~      ~YGBGB&@@@@@@&.     #@@@&B#@@@@@@@@@GJJ5B&@@@@@@&#57&@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@G.  ?@@#G#@@B5?:~@@#    :B@@@B   .~5&@@@@@@@@B?^::...   ^#@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@P#@Y.  .@@    P@@~  ~#@@@#!        !@@@Y!7JB@@&##   ^B@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@&^    #@. ?@@G:  5@@&?.           J@@&~   &@?:@P7&@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@&5^!@5 B@J.    @@&               .?B@@P ^@G~&@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&!7@7      J@@.                  !@&?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#J~:    P@G              .:!5#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#G#@@?!~~~!!7?YPB#&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// `)
