@@ -731,6 +731,7 @@ function moveDown2() {
 
 // on click spin button
 spinButton.onclick = function() {
+  CreateDivs();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // moveDown()
   RotatingImages();
@@ -797,8 +798,254 @@ let start = 0;
 //     }, 2000)
 // }
 
+// translate positions
+let posV = "translate(0, 0)"
+let pos1 = "translate(0, -100%)"
+let pos2 = "translate(0, -200%)"
+let pos3 = "translate(0, -300%)"
+let pos4 = "translate(0, -400%)"
+let pos5 = "translate(0, -500%)"
+let pos6 = "translate(0, -600%)"
+let pos7 = "translate(0, -700%)"
+let pos8 = "translate(0, -800%)"
+let pos9 = "translate(0, -900%)"
+let pos10 = "translate(0, -1000%)"
+// let pos11 = "translate(0, -1100%)"
+// let pos12 = "translate(0, -1200%)"
 
+// Getting Varea
+const Varea = document.getElementById('Varea');
 
+// // creating a reel
+// const ReelPH = document.createElement('div');
+// ReelPH.setAttribute("id", "reels2")
+// ReelPH.setAttribute("class", "reels2")
+// ReelPH.style.display = "grid";
+// ReelPH.style.gridTemplateColumns = "7px auto 7px auto 7px auto 7px auto 7px auto 7px";
+// ReelPH.style.alignSelf = "center";
+// ReelPH.style.width = "100%";
+// ReelPH.style.height = "100%";
+
+// // creating filling divs (add to for loop)
+// const F1 = document.createElement('div');
+// const F2 = document.createElement('div');
+// const F3 = document.createElement('div');
+// const F4 = document.createElement('div');
+// const F5 = document.createElement('div');
+// const F6 = document.createElement('div');
+
+// // setting filling class to filling divs (add to for loop)
+// F1.setAttribute("class", "filling")
+// F2.setAttribute("class", "filling")
+// F3.setAttribute("class", "filling")
+// F4.setAttribute("class", "filling")
+// F5.setAttribute("class", "filling")
+// F6.setAttribute("class", "filling")
+
+// // creating columns divs (add to for loop)
+// const C1 = document.createElement('div');
+// const C2 = document.createElement('div');
+// const C3 = document.createElement('div');
+// const C4 = document.createElement('div');
+// const C5 = document.createElement('div');
+
+// // setting ID and Class for columns divs (add to for loop)
+// C1.setAttribute("id", "column1");
+// C1.setAttribute("class", "column-container");
+// C2.setAttribute("id", "column2");
+// C2.setAttribute("class", "column-container");
+// C3.setAttribute("id", "column3");
+// C3.setAttribute("class", "column-container");
+// C4.setAttribute("id", "column4");
+// C4.setAttribute("class", "column-container");
+// C5.setAttribute("id", "column5");
+// C5.setAttribute("class", "column-container");
+
+// // creating image contianers (3 per columns) (ad to for loop)
+// const R2P1 = document.createElement("div");
+// const R2P2 = document.createElement("div");
+// const R2P3 = document.createElement("div");
+// const R2P4 = document.createElement("div");
+// const R2P5 = document.createElement("div");
+// const R2P6 = document.createElement("div");
+// const R2P7 = document.createElement("div");
+// const R2P8 = document.createElement("div");
+// const R2P9 = document.createElement("div");
+// const R2P10 = document.createElement("div");
+// const R2P11 = document.createElement("div");
+// const R2P12 = document.createElement("div");
+// const R2P13 = document.createElement("div");
+// const R2P14 = document.createElement("div");
+// const R2P15 = document.createElement("div");
+
+// // setting Id's for image containers (ad to for loop)
+// R2P1.setAttribute("id", "r2p1");
+// R2P2.setAttribute("id", "r2p2");
+// R2P3.setAttribute("id", "r2p3");
+// R2P4.setAttribute("id", "r2p4");
+// R2P5.setAttribute("id", "r2p5");
+// R2P6.setAttribute("id", "r2p6");
+// R2P7.setAttribute("id", "r2p7");
+// R2P8.setAttribute("id", "r2p8");
+// R2P9.setAttribute("id", "r2p9");
+// R2P10.setAttribute("id", "r2p10");
+// R2P11.setAttribute("id", "r2p11");
+// R2P12.setAttribute("id", "r2p12");
+// R2P13.setAttribute("id", "r2p13");
+// R2P14.setAttribute("id", "r2p14");
+// R2P15.setAttribute("id", "r2p15");
+
+// // positioning
+// ReelPH.style.transform = pos1;
+
+// // appending everything
+// Varea.insertBefore(ReelPH, reels);
+// ReelPH.appendChild(F1)
+// ReelPH.appendChild(C1)
+// ReelPH.appendChild(F2)
+// ReelPH.appendChild(C2)
+// ReelPH.appendChild(F3)
+// ReelPH.appendChild(C3)
+// ReelPH.appendChild(F4)
+// ReelPH.appendChild(C4)
+// ReelPH.appendChild(F5)
+// ReelPH.appendChild(C5)
+// ReelPH.appendChild(F6)
+// C1.appendChild(R2P1)
+// C1.appendChild(R2P6)
+// C1.appendChild(R2P11)
+
+// C2.appendChild(R2P2)
+// C2.appendChild(R2P7)
+// C2.appendChild(R2P12)
+
+// C3.appendChild(R2P3)
+// C3.appendChild(R2P8)
+// C3.appendChild(R2P13)
+
+// C4.appendChild(R2P4)
+// C4.appendChild(R2P9)
+// C4.appendChild(R2P14)
+
+// C5.appendChild(R2P5)
+// C5.appendChild(R2P10)
+// C5.appendChild(R2P15)
+
+// creating 10 divs with for loop
+function CreateDivs(){
+  for(let i = 10; i > 1; i--){
+    const ReelPH = document.createElement('div');
+    ReelPH.id = "reels"+i;
+    ReelPH.className = "reels"+i;
+    ReelPH.style.display = "grid";
+    ReelPH.style.gridTemplateColumns = "7px auto 7px auto 7px auto 7px auto 7px auto 7px";
+    ReelPH.style.alignSelf = "center";
+    ReelPH.style.width = "100%";
+    ReelPH.style.height = "100%";
+    ReelPH.style.transform = "translate(0, -900%)";
+
+    // creating filling divs (add to for loop)
+    const F1 = document.createElement('div');
+    const F2 = document.createElement('div');
+    const F3 = document.createElement('div');
+    const F4 = document.createElement('div');
+    const F5 = document.createElement('div');
+    const F6 = document.createElement('div');
+
+    // setting filling class to filling divs (add to for loop)
+    F1.setAttribute("class", "filling")
+    F2.setAttribute("class", "filling")
+    F3.setAttribute("class", "filling")
+    F4.setAttribute("class", "filling")
+    F5.setAttribute("class", "filling")
+    F6.setAttribute("class", "filling")
+
+    // creating columns divs (add to for loop)
+    const C1 = document.createElement('div');
+    const C2 = document.createElement('div');
+    const C3 = document.createElement('div');
+    const C4 = document.createElement('div');
+    const C5 = document.createElement('div');
+
+    // setting ID and Class for columns divs (add to for loop)
+    C1.setAttribute("id", "column1");
+    C1.setAttribute("class", "column-container");
+    C2.setAttribute("id", "column2");
+    C2.setAttribute("class", "column-container");
+    C3.setAttribute("id", "column3");
+    C3.setAttribute("class", "column-container");
+    C4.setAttribute("id", "column4");
+    C4.setAttribute("class", "column-container");
+    C5.setAttribute("id", "column5");
+    C5.setAttribute("class", "column-container");
+
+    // creating image contianers (3 per columns) (ad to for loop)
+    const R2P1 = document.createElement("div");
+    const R2P2 = document.createElement("div");
+    const R2P3 = document.createElement("div");
+    const R2P4 = document.createElement("div");
+    const R2P5 = document.createElement("div");
+    const R2P6 = document.createElement("div");
+    const R2P7 = document.createElement("div");
+    const R2P8 = document.createElement("div");
+    const R2P9 = document.createElement("div");
+    const R2P10 = document.createElement("div");
+    const R2P11 = document.createElement("div");
+    const R2P12 = document.createElement("div");
+    const R2P13 = document.createElement("div");
+    const R2P14 = document.createElement("div");
+    const R2P15 = document.createElement("div");
+
+    // setting Id's for image containers (ad to for loop)
+    R2P1.setAttribute("id", "r2p1");
+    R2P2.setAttribute("id", "r2p2");
+    R2P3.setAttribute("id", "r2p3");
+    R2P4.setAttribute("id", "r2p4");
+    R2P5.setAttribute("id", "r2p5");
+    R2P6.setAttribute("id", "r2p6");
+    R2P7.setAttribute("id", "r2p7");
+    R2P8.setAttribute("id", "r2p8");
+    R2P9.setAttribute("id", "r2p9");
+    R2P10.setAttribute("id", "r2p10");
+    R2P11.setAttribute("id", "r2p11");
+    R2P12.setAttribute("id", "r2p12");
+    R2P13.setAttribute("id", "r2p13");
+    R2P14.setAttribute("id", "r2p14");
+    R2P15.setAttribute("id", "r2p15");
+
+    Varea.insertBefore(ReelPH, reels);
+    ReelPH.appendChild(F1)
+    ReelPH.appendChild(C1)
+    ReelPH.appendChild(F2)
+    ReelPH.appendChild(C2)
+    ReelPH.appendChild(F3)
+    ReelPH.appendChild(C3)
+    ReelPH.appendChild(F4)
+    ReelPH.appendChild(C4)
+    ReelPH.appendChild(F5)
+    ReelPH.appendChild(C5)
+    ReelPH.appendChild(F6)
+    C1.appendChild(R2P1)
+    C1.appendChild(R2P6)
+    C1.appendChild(R2P11)
+
+    C2.appendChild(R2P2)
+    C2.appendChild(R2P7)
+    C2.appendChild(R2P12)
+
+    C3.appendChild(R2P3)
+    C3.appendChild(R2P8)
+    C3.appendChild(R2P13)
+
+    C4.appendChild(R2P4)
+    C4.appendChild(R2P9)
+    C4.appendChild(R2P14)
+
+    C5.appendChild(R2P5)
+    C5.appendChild(R2P10)
+    C5.appendChild(R2P15)
+  }
+}
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();
 window.onload = SetCanvasSize()
