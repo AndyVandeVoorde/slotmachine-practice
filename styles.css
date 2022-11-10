@@ -68,8 +68,21 @@ body,html {
   overflow: hidden;
 } */
 
-td {
-  /* border: 1px solid red; */
+/* .reels div {
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.reels2 div {
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.Varea div {
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -84,9 +97,14 @@ td {
   height: 156px;
 }
 
-td.filling {
-  width: 7px;
+.filling {
+  width: 100%;
+  height: 100%;
   background-image: linear-gradient(rgba(71, 79, 102, 0), rgba(124, 158, 218, 1), rgba(71, 79, 102,0));
+}
+
+.f1 {
+  grid-column: 1;
 }
 
 .bottom-ui-content {
@@ -271,6 +289,10 @@ td.spacing {
   height: 100%;
 }
 
+td {
+  text-align: center;
+}
+
 .slot-title {
   position: absolute;
   background-image: url(images/slot-title.png);
@@ -330,6 +352,8 @@ td.spacing {
 
 /* images per position */
 #p1 {
+  width: 100%;
+  height: 100%;
   background-image: url(images/icons/female\ cut.png);
 }
 
@@ -407,23 +431,44 @@ td.spacing {
   }
 
 .reels2 {
+  display: grid;
+  grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
   align-self: center;
-  position: relative;
   width: 100%;
   height: 100%;
-  border-collapse: collapse;
-  transform: translate(0, -100%);
+  transform: translate(0, -200%);
+}
+
+.reels3 {
+  display: grid;
+  grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, -400%);
 }
 
 .reels {
+  display: grid;
+  grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
   align-self: center;
   width: 100%;
   height: 100%;
-  position: relative;
-  border-collapse: collapse;
-  overflow: hidden;
-  transform: translate(0, -100%);
+  /* overflow: hidden; */
 }
+
+.column-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#column1 {
+  /* transform: translateY(150%); */
+}
+
+/* .column-container div{
+  display: inline-block
+} */
 
 .Varea {
   align-self: center;

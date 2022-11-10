@@ -729,8 +729,44 @@ function moveDown2() {
 }
 
 
-// // on click spin button
+// on click spin button
+spinButton.onclick = function() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // moveDown()
+  RotatingImages();
+  // ResetPosition();
+
+  setTimeout (() => {
+    ExcecutePaylineCheck()
+    Payline1to3();
+    CoinsUpdate()
+    TotalWin(winValue);
+    }, 1500)
+  }
+  // for (let i = 0; i < 10; i++) {
+    // setTimeout(function() {
+ 
+    // }, delay * i);
+  // }
+
+  // ExcecutePaylineCheck()
+  // Payline1to3();
+  // // ExcecutePaylineCheck()
+  // // Payline1to3();
+  // CoinsUpdate()
+  // TotalWin(winValue);  
+// }
+
+let start = 0;
+
+// click spin second
 // spinButton.onclick = function() {
+//     if(start === 0) FirstStage();
+//     else SecondStage();
+//     start = 1;
+//   }
+
+// function FirstStage(){
 //   ctx.clearRect(0, 0, canvas.width, canvas.height);
 //   moveDown()
 //   RotatingImages();
@@ -742,60 +778,24 @@ function moveDown2() {
 //     CoinsUpdate()
 //     TotalWin(winValue);
 //     }, 1500)
-//   }
-//   // for (let i = 0; i < 10; i++) {
-//     // setTimeout(function() {
- 
-//     // }, delay * i);
-//   // }
+// }
 
-//   // ExcecutePaylineCheck()
-//   // Payline1to3();
-//   // // ExcecutePaylineCheck()
-//   // // Payline1to3();
-//   // CoinsUpdate()
-//   // TotalWin(winValue);  
-// // }
+// function SecondStage(){
+//   ctx.clearRect(0, 0, canvas.width, canvas.height);
+//   moveDown2()
 
-let start = 0;
+//   setTimeout (() => {
+//     RotatingImages();
+//     ResetPosition();
+//     }, 1000)
 
-// click spin second
-spinButton.onclick = function() {
-    if(start === 0) FirstStage();
-    else SecondStage();
-    start = 1;
-  }
-
-function FirstStage(){
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  moveDown()
-  RotatingImages();
-  ResetPosition();
-
-  setTimeout (() => {
-    ExcecutePaylineCheck()
-    Payline1to3();
-    CoinsUpdate()
-    TotalWin(winValue);
-    }, 1500)
-}
-
-function SecondStage(){
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  moveDown2()
-
-  setTimeout (() => {
-    RotatingImages();
-    ResetPosition();
-    }, 1000)
-
-  setTimeout (() => {
-    ExcecutePaylineCheck()
-    // Payline1to3();
-    CoinsUpdate()
-    TotalWin(winValue);
-    }, 2000)
-}
+//   setTimeout (() => {
+//     ExcecutePaylineCheck()
+//     // Payline1to3();
+//     CoinsUpdate()
+//     TotalWin(winValue);
+//     }, 2000)
+// }
 
 
 
