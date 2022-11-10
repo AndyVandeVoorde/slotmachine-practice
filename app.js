@@ -18,6 +18,9 @@ const delayOthers = 1000
 // create an array with each unique image
 const symbols = [];
 
+// lenght of 
+let NumDivs = 20
+
 // symbols
 symbols[0] = "url('images/icons/female cut.png')";
 symbols[1] = "url('images/icons/male cut.png')";
@@ -315,6 +318,45 @@ let VisibleArray3Url = [VisibleArray3Style[0].backgroundImage, VisibleArray3Styl
 let VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
 let VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
 
+//Declaring CloneArray's
+let CloneArray1Url = []
+let CloneArray2Url = []
+let CloneArray3Url = []
+let CloneArray4Url = []
+let CloneArray5Url = []
+
+//creating function for CloneArray's
+function CloneArray(){
+  CloneArray1Url = [
+    window.getComputedStyle(document.getElementById("r"+NumDivs+"p1")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+NumDivs+"p6")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+NumDivs+"p11")).backgroundImage]
+  CloneArray2Url = [
+    window.getComputedStyle(document.getElementById("r"+(NumDivs-4)+"p2")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs-4)+"p7")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs-4)+"p12")).backgroundImage]
+  CloneArray3Url = [
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 8)+"p3")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 8)+"p8")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 8)+"p13")).backgroundImage]
+  CloneArray4Url = [
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 12)+"p4")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 12)+"p9")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 12)+"p14")).backgroundImage]
+  CloneArray5Url = [
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 16)+"p5")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 16)+"p10")).backgroundImage,
+    window.getComputedStyle(document.getElementById("r"+(NumDivs- 16)+"p15")).backgroundImage]
+  console.log("CloneArray executed")
+}
+
+// create CloneArray's
+let CloneArray1 = [document.getElementById("r"+NumDivs+"p1"),document.getElementById("r"+NumDivs+"p6"),document.getElementById("r"+NumDivs+"p11")];
+let CloneArray2 = [document.getElementById("r"+(NumDivs-4)+"p2"),document.getElementById("r"+(NumDivs-4)+"p7"),document.getElementById("r"+(NumDivs-4)+"p12")];
+let CloneArray3 = [document.getElementById("r"+(NumDivs- 8)+"p3"),document.getElementById("r"+(NumDivs- 8)+"p8"),document.getElementById("r"+(NumDivs- 8)+"p13")];
+let CloneArray4 = [document.getElementById("r"+(NumDivs- 12)+"p4"),document.getElementById("r"+(NumDivs- 12)+"p9"),document.getElementById("r"+(NumDivs- 12)+"p14")];
+let CloneArray5 = [document.getElementById("r"+(NumDivs- 16)+"p5"),document.getElementById("r"+(NumDivs- 16)+"p10"),document.getElementById("r"+(NumDivs- 16)+"p15")];
+
 // randomizer (This works while declaration is commented out?)
 let randomNum = 0
 let randomNum1 = 0
@@ -365,11 +407,16 @@ function symbolPlacement () {
 let arrayNum = 1
 async function RotatingImages() {
   await symbolPlacement();
+  CloneArray();
   console.log('start code in RotatingImages')
   // Column 1
   VisibleArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
   VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
   VisibleArray1[0].style.backgroundImage = BatchArray1[(arrayNum + 2) % 5]
+
+  CloneArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
+  CloneArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
+  CloneArray1[0].style.backgroundImage = BatchArray1[(arrayNum + 2) % 5]
 
   BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length - 1)]
 
@@ -378,11 +425,19 @@ async function RotatingImages() {
   VisibleArray2[1].style.backgroundImage = BatchArray2[(arrayNum + 1) % 5]
   VisibleArray2[0].style.backgroundImage = BatchArray2[(arrayNum + 2) % 5]
 
+  CloneArray2[2].style.backgroundImage = BatchArray2[arrayNum % 5]
+  CloneArray2[1].style.backgroundImage = BatchArray2[(arrayNum + 1) % 5]
+  CloneArray2[0].style.backgroundImage = BatchArray2[(arrayNum + 2) % 5]
+
   BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 3
   VisibleArray3[2].style.backgroundImage = BatchArray3[arrayNum % 5]
   VisibleArray3[1].style.backgroundImage = BatchArray3[(arrayNum + 1) % 5]
   VisibleArray3[0].style.backgroundImage = BatchArray3[(arrayNum + 2) % 5]
+
+  CloneArray3[2].style.backgroundImage = BatchArray3[arrayNum % 5]
+  CloneArray3[1].style.backgroundImage = BatchArray3[(arrayNum + 1) % 5]
+  CloneArray3[0].style.backgroundImage = BatchArray3[(arrayNum + 2) % 5]
 
   BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 4
@@ -390,11 +445,19 @@ async function RotatingImages() {
   VisibleArray4[1].style.backgroundImage = BatchArray4[(arrayNum + 1) % 5]
   VisibleArray4[0].style.backgroundImage = BatchArray4[(arrayNum + 2) % 5]
 
+  CloneArray4[2].style.backgroundImage = BatchArray4[arrayNum % 5]
+  CloneArray4[1].style.backgroundImage = BatchArray4[(arrayNum + 1) % 5]
+  CloneArray4[0].style.backgroundImage = BatchArray4[(arrayNum + 2) % 5]
+
   BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
   // Column 5
   VisibleArray5[2].style.backgroundImage = BatchArray5[arrayNum % 5]
   VisibleArray5[1].style.backgroundImage = BatchArray5[(arrayNum + 1) % 5]
   VisibleArray5[0].style.backgroundImage = BatchArray5[(arrayNum + 2) % 5]
+
+  CloneArray5[2].style.backgroundImage = BatchArray5[arrayNum % 5]
+  CloneArray5[1].style.backgroundImage = BatchArray5[(arrayNum + 1) % 5]
+  CloneArray5[0].style.backgroundImage = BatchArray5[(arrayNum + 2) % 5]
 
   BatchArray5[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
 
@@ -411,6 +474,19 @@ async function RotatingImages() {
   VisibleArray3Url = [VisibleArray3Style[0].backgroundImage, VisibleArray3Style[1].backgroundImage, VisibleArray3Style[2].backgroundImage]
   VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
   VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
+
+  console.log('rotatingImages before cloning')
+
+  // Update CloneArray URL's
+  for(let i = 0; i < VisibleArray1Url.length; i++){
+    CloneArray1Url[i] = VisibleArray1Url[i]
+    CloneArray2Url[i] = VisibleArray2Url[i]
+    CloneArray3Url[i] = VisibleArray3Url[i]
+    CloneArray4Url[i] = VisibleArray4Url[i]
+    CloneArray5Url[i] = VisibleArray5Url[i]
+    }
+
+  document.getElementById("r"+NumDivs+"p1").backgroundImage = CloneArray1Url[0]
 
   arrayNum += 1
   console.log('rotatingImages function finished')
@@ -931,9 +1007,12 @@ const Varea = document.getElementById('Varea');
 // C5.appendChild(R2P10)
 // C5.appendChild(R2P15)
 
+
+
 // creating 10 divs with for loop
 function CreateDivs(){
-  for(let i = 10; i > 1; i--){
+  // document.getElementById('reels').style.transform  = "translate(0, -"+ (NumDivs-1)*100 + "%)";
+  for(let i = NumDivs; i > 1; i--){
     const ReelPH = document.createElement('div');
     ReelPH.id = "reels"+i;
     ReelPH.className = "reels"+i;
@@ -942,7 +1021,7 @@ function CreateDivs(){
     ReelPH.style.alignSelf = "center";
     ReelPH.style.width = "100%";
     ReelPH.style.height = "100%";
-    ReelPH.style.transform = "translate(0, -900%)";
+    // ReelPH.style.transform = "translate(0, -"+ (NumDivs-1)*100 + "%)";
 
     // creating filling divs (add to for loop)
     const F1 = document.createElement('div');
@@ -953,12 +1032,12 @@ function CreateDivs(){
     const F6 = document.createElement('div');
 
     // setting filling class to filling divs (add to for loop)
-    F1.setAttribute("class", "filling")
-    F2.setAttribute("class", "filling")
-    F3.setAttribute("class", "filling")
-    F4.setAttribute("class", "filling")
-    F5.setAttribute("class", "filling")
-    F6.setAttribute("class", "filling")
+    F1.className = "filling"
+    F2.className = "filling"
+    F3.className = "filling"
+    F4.className = "filling"
+    F5.className = "filling"
+    F6.className = "filling"
 
     // creating columns divs (add to for loop)
     const C1 = document.createElement('div');
@@ -968,16 +1047,16 @@ function CreateDivs(){
     const C5 = document.createElement('div');
 
     // setting ID and Class for columns divs (add to for loop)
-    C1.setAttribute("id", "column1");
-    C1.setAttribute("class", "column-container");
-    C2.setAttribute("id", "column2");
-    C2.setAttribute("class", "column-container");
-    C3.setAttribute("id", "column3");
-    C3.setAttribute("class", "column-container");
-    C4.setAttribute("id", "column4");
-    C4.setAttribute("class", "column-container");
-    C5.setAttribute("id", "column5");
-    C5.setAttribute("class", "column-container");
+    // C1.id = "R" + i + "column1";
+    C1.className = "column-container column1";
+    // C2.id = "R" + i + "column2";
+    C2.className = "column-container column2";
+    // C3.id = "R" + i + "column3";
+    C3.className = "column-container column3";
+    // C4.id = "R" + i + "column4";
+    C4.className = "column-container column4";
+    // C5.id = "R" + i + "column5";
+    C5.className = "column-container column5";
 
     // creating image contianers (3 per columns) (ad to for loop)
     const R2P1 = document.createElement("div");
@@ -997,21 +1076,21 @@ function CreateDivs(){
     const R2P15 = document.createElement("div");
 
     // setting Id's for image containers (ad to for loop)
-    R2P1.setAttribute("id", "r2p1");
-    R2P2.setAttribute("id", "r2p2");
-    R2P3.setAttribute("id", "r2p3");
-    R2P4.setAttribute("id", "r2p4");
-    R2P5.setAttribute("id", "r2p5");
-    R2P6.setAttribute("id", "r2p6");
-    R2P7.setAttribute("id", "r2p7");
-    R2P8.setAttribute("id", "r2p8");
-    R2P9.setAttribute("id", "r2p9");
-    R2P10.setAttribute("id", "r2p10");
-    R2P11.setAttribute("id", "r2p11");
-    R2P12.setAttribute("id", "r2p12");
-    R2P13.setAttribute("id", "r2p13");
-    R2P14.setAttribute("id", "r2p14");
-    R2P15.setAttribute("id", "r2p15");
+    R2P1.id = "r"+i+"p1";
+    R2P2.id = "r"+i+"p2";
+    R2P3.id = "r"+i+"p3";
+    R2P4.id = "r"+i+"p4";
+    R2P5.id = "r"+i+"p5";
+    R2P6.id = "r"+i+"p6";
+    R2P7.id = "r"+i+"p7";
+    R2P8.id = "r"+i+"p8";
+    R2P9.id = "r"+i+"p9";
+    R2P10.id = "r"+i+"p10";
+    R2P11.id = "r"+i+"p11";
+    R2P12.id = "r"+i+"p12";
+    R2P13.id = "r"+i+"p13";
+    R2P14.id = "r"+i+"p14";
+    R2P15.id = "r"+i+"p15";
 
     Varea.insertBefore(ReelPH, reels);
     ReelPH.appendChild(F1)
@@ -1045,7 +1124,9 @@ function CreateDivs(){
     C5.appendChild(R2P10)
     C5.appendChild(R2P15)
   }
+  console.log('cloning done')
 }
+
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();
 window.onload = SetCanvasSize()

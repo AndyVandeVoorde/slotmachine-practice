@@ -430,23 +430,14 @@ td {
   z-index: 1000;
   }
 
-.reels2 {
+/* .reels2 {
   display: grid;
   grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
   align-self: center;
   width: 100%;
   height: 100%;
-  /* transform: translate(0, -100%); */
-}
-
-.reels3 {
-  display: grid;
-  grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
-  align-self: center;
-  width: 100%;
-  height: 100%;
-  /* transform: translate(0, -200%); */
-}
+  transform: translate(0, -100%);
+} */
 
 .reels {
   display: grid;
@@ -465,6 +456,8 @@ td {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
+
+
 
 /* #column1 {
   transform: translate(0, 100%);
@@ -548,41 +541,9 @@ td {
 
 /* transform: translates */
 .reels {
-  transform: translate(0, -900%)
+  transform: translate(0, 0)
 }
 
-/* .reels2 {
-  transform: translate(0, -900%)
-}
-
-.reels3 {
-  transform: translate(0, -900%)
-}
-
-.reels4 {
-  transform: translate(0, -900%)
-}
-
-.reels5 {
-  transform: translate(0, -900%)
-}
-
-.reels6 {
-  transform: translate(0, -900%)
-}
-
-.reels7 {
-  transform: translate(0, -900%)
-}
-
-.reels8 {
-  transform: translate(0, -900%)
-}
-
-.reels9 {
-  transform: translate(0, -900%)
-}
-
-.reels10 {
-  transform: translate(0, -900%)
+/* .reels20 {
+  transform: translate(0, 1900%);
 } */
