@@ -439,7 +439,7 @@ td {
   transform: translate(0, -100%);
 } */
 
-.reels {
+.reels1 {
   display: grid;
   grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
   align-self: center;
@@ -538,12 +538,3 @@ td {
 #r2p15 {
   background-image: url(images/icons/wild.png);
 }
-
-/* transform: translates */
-.reels {
-  transform: translate(0, 0)
-}
-
-/* .reels20 {
-  transform: translate(0, 1900%);
-} */
