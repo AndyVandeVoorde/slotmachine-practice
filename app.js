@@ -306,6 +306,12 @@ document.getElementById('total-coins').innerHTML = currentCoins.toString().repla
 currentBetSizeNumber = parseFloat(currentBetSize.replace(/[,]/, "."));
 }
 
+function CoinsUpdate2() {
+  newCurrentCoins = totalWin + newCurrentCoins
+  currentCoins = newCurrentCoins.toFixed(2)
+  document.getElementById('total-coins').innerHTML = currentCoins.toString().replace(/[.]/, ",")
+}
+
 // Creating a ghost array for each row
 let BatchArray1 = [];
 let BatchArray2 = [];
@@ -804,8 +810,11 @@ spinButton.onclick = function() {
     ExcecutePaylineCheck()
     // Payline1to3();
     TotalWin(winValue);
-    }, AwaitSpeed)
-  }
+    setTimeout (() => {
+      CoinsUpdate2();
+    }, 100)
+  }, AwaitSpeed)
+}
 
 // translate positions
 let posV = "translate(0, 0)"
