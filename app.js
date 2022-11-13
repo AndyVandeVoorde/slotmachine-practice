@@ -12,10 +12,30 @@ let currentCoins = document.getElementById('total-coins').innerHTML
 let currentBetSizeNumber = parseFloat(document.getElementById('bet-size').innerHTML.replace(/[,]/, "."))
 
 // delay variable for delay at button click
-const delay = 100
+const delayMoveDown = 1000
+const delayOthers = 1000
+
+// rotating speed (in Miliseconds)
+let RotatingSpeed = 5000
+// Interval between columns (in Miliseconds)
+let RotatingInterval = 100
+// AnimationSpeed (For CSS)
+let AnimationSpeed = RotatingSpeed / 1000
+// AwaitSpeed (setting await function times)
+let AwaitSpeed = RotatingSpeed + (RotatingInterval*5)
 
 // create an array with each unique image
 const symbols = [];
+
+// lenght of 
+let NumDivs = 20
+
+// all column classes
+const column1 = document.querySelectorAll('.column1');
+const column2 = document.querySelectorAll('.column2');
+const column3 = document.querySelectorAll('.column3');
+const column4 = document.querySelectorAll('.column4');
+const column5 = document.querySelectorAll('.column5');
 
 // symbols
 symbols[0] = "url('images/icons/female cut.png')";
@@ -230,6 +250,7 @@ function betSize(){
   SnakeValue = [Snakex3, Snakex4, Snakex5]
   BarrelsValue = [Barrelsx3, Barrelsx4, Barrelsx5]
   BootsValue = [Bootsx3, Bootsx4, Bootsx5]
+  console.log('betSize function executed')
 }
 
 // increment and decrement level on click
@@ -327,6 +348,7 @@ randomNum2 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum3 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum4 = symbols[Math.floor(Math.random() * symbols.length)];
 randomNum5 = symbols[Math.floor(Math.random() * symbols.length)];
+// console.log('randomArrNum function executed')
 }
 
 // making a function to create random images in each position (New)
@@ -338,6 +360,7 @@ function symbolPlacement () {
     VisibleArray3[i].style.backgroundImage = randomNum3
     VisibleArray4[i].style.backgroundImage = randomNum4
     VisibleArray5[i].style.backgroundImage = randomNum5
+
   }
   for (let i = 0; i < 3; ++i) {
     randomArrNum()
@@ -346,6 +369,7 @@ function symbolPlacement () {
     BatchArray3[i] = VisibleArray3[i]
     BatchArray4[i] = VisibleArray4[i]
     BatchArray5[i] = VisibleArray5[i]
+
   }
   for (let i = 3; i < 5; ++i) {
     randomArrNum()
@@ -354,12 +378,15 @@ function symbolPlacement () {
     BatchArray3[i] = randomNum3
     BatchArray4[i] = randomNum4
     BatchArray5[i] = randomNum5
+    // console.log('symbolPlacement function executed')
   }
 }
 
 // rotating images and switching invisible ones
 let arrayNum = 1
-function RotatingImages() {
+async function RotatingImages() {
+  await symbolPlacement();
+  console.log('start code in RotatingImages')
   // Column 1
   VisibleArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
   VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
@@ -373,18 +400,21 @@ function RotatingImages() {
   VisibleArray2[0].style.backgroundImage = BatchArray2[(arrayNum + 2) % 5]
 
   BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
   // Column 3
   VisibleArray3[2].style.backgroundImage = BatchArray3[arrayNum % 5]
   VisibleArray3[1].style.backgroundImage = BatchArray3[(arrayNum + 1) % 5]
   VisibleArray3[0].style.backgroundImage = BatchArray3[(arrayNum + 2) % 5]
 
   BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
   // Column 4
   VisibleArray4[2].style.backgroundImage = BatchArray4[arrayNum % 5]
   VisibleArray4[1].style.backgroundImage = BatchArray4[(arrayNum + 1) % 5]
   VisibleArray4[0].style.backgroundImage = BatchArray4[(arrayNum + 2) % 5]
 
   BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
   // Column 5
   VisibleArray5[2].style.backgroundImage = BatchArray5[arrayNum % 5]
   VisibleArray5[1].style.backgroundImage = BatchArray5[(arrayNum + 1) % 5]
@@ -406,27 +436,16 @@ function RotatingImages() {
   VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
   VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
 
+  addCloneBg();
   arrayNum += 1
-}
-
-
-// add class for slide-down animation on button click
-function slideDown() {
-  for(let a = 0; a < p.length; a++) {
-  p[a].classList.add('slideDown');
-  }
-}
-
-function resetSlideDown() {
-  for(let a = 0; a < p.length; a++) {
-    p[a].classList.remove('slideDown');
-    }
+  console.log('rotatingImages function finished')
 }
 
 // Check for win per Payline || uncluding wilds
 // Check Payline 1 to 3
-async function Payline1to3() {
-  await RotatingImages();
+function Payline1to3() {
+  // await RotatingImages();
+  // await moveDown();
   for(let i = 0; i < 3; i++) {
     if(
       (VisibleArray1Url[i] === VisibleArray2Url[i] ||
@@ -475,8 +494,9 @@ async function Payline1to3() {
 }
 
 // Check is payline 4 to 25 is true function \\ simplified + Wilds added
-async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
-  await RotatingImages();
+function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
+  // await RotatingImages();
+  // await moveDown();
   if (
     (VisibleArray1Url[a] === VisibleArray2Url[b] ||
     VisibleArray2Url[b] === Wild) &&
@@ -519,6 +539,8 @@ async function PayLines4to25(a, b, c, d, e, g, l1, l2, l3, l4, l5) {
 }
 
 function ExcecutePaylineCheck() {
+  // Payline 1 to 3
+    Payline1to3()
   // Payline 4
     PayLines4to25(0, 1, 2, 1, 0, 3, 0, 1, 2, 1, 0);
   // Payline 5
@@ -563,6 +585,7 @@ function ExcecutePaylineCheck() {
     PayLines4to25(0, 2, 0, 2, 0, 23, 0, 2, 0, 2, 0);
   // Payline 25
     PayLines4to25(2, 0, 2, 0, 2, 24, 2, 0, 2, 0, 2);
+    console.log('ExecutePaylineCheck function executed')
   }
 
 // function to check for which symbol is aligned
@@ -596,13 +619,15 @@ function checkSymbol() {
       winValue[winValueStorage] = BootsValue[valueX];
       break;
   }
+  console.log('checkSymbol function executed')
 }
 
 // total win (Sum of an array)
 let totalWin = 0
 
-async function TotalWin(winValue) {
-  await RotatingImages();
+function TotalWin(winValue) {
+  // await RotatingImages();
+  // await moveDown();
   // clear the value from last win.
   totalWin = 0;
 for(let i = 0; i < winValue.length; i++) {
@@ -613,14 +638,15 @@ for(let i = 0; i < winValue.length; i++) {
 }
 document.getElementById('win-amount').innerHTML = "You win: " + totalWin.toFixed(2).toString().replace(/[.]/, ",")
 console.log("Amount won: " + totalWin.toFixed(2))
+console.log('TotalWin function executed')
 }
 
 let ctx = document.getElementById('canvas').getContext("2d");
-let size = document.getElementById('reels')
+let size = document.getElementById('reels1')
 
 function SetCanvasSize() {
   ctx = document.getElementById('canvas').getContext("2d");
-  size = document.getElementById('reels')
+  size = document.getElementById('reels1')
 
   ctx.canvas.width = size.clientWidth;
   ctx.canvas.height = size.clientHeight;
@@ -634,6 +660,9 @@ function SetCanvasSize() {
 
   xdraw = [pToPxHor(0), pToPxHor(10), pToPxHor(30), pToPxHor(50), pToPxHor(70), pToPxHor(90), pToPxHor(100)]
   ydraw = [pToPxVer(16.66), pToPxVer(50), pToPxVer(83,3)]
+  // console.log('SetCanvasSize function executed')
+
+
 }
 
 ctx.canvas.width = size.clientWidth;
@@ -669,69 +698,343 @@ function drawline(l1, l2, l3, l4, l5) {
   ctx.stroke();
 }
 
-// on click spin button
+
+
+async function moveDown() {
+  const column1 = document.querySelectorAll('.column1');
+  const column2 = document.querySelectorAll('.column2');
+  const column3 = document.querySelectorAll('.column3');
+  const column4 = document.querySelectorAll('.column4');
+  const column5 = document.querySelectorAll('.column5');
+
+  column1.forEach(column => {
+    column.style.transition = "all "+ AnimationSpeed +"s"
+    column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+  })
+ 
+  setTimeout(() => {
+    column2.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval)
+
+  setTimeout(() => {
+    column3.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval*2)
+
+  setTimeout(() => {
+    column4.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval*3)
+
+  setTimeout(() => {
+    column5.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval*4)
+
+  console.log('moveDown function completed');
+
+  const result = await Reset1();
+}
+
+function Reset1() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const column1 = document.querySelectorAll('.column1');
+      const column2 = document.querySelectorAll('.column2');
+      const column3 = document.querySelectorAll('.column3');
+      const column4 = document.querySelectorAll('.column4');
+      const column5 = document.querySelectorAll('.column5');
+    
+      column1.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+     
+      column2.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+  
+      column3.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+  
+      column4.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+  
+      column5.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+    
+      console.log('Reset1 function completed');
+      resolve('resolved')
+
+    }, AwaitSpeed);
+  })
+}
+
+let start = 0;
+
+// click spin second
 spinButton.onclick = function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < 10; i++) {
-    // setTimeout(function() {
-      RotatingImages();
-    // }, delay * i);
+  moveDown()
+  Reset1()
+
+  setTimeout (() => {
+    RotatingImages();
+    // ResetPosition();
+    }, 1000)
+
+  setTimeout (() => {
+    ExcecutePaylineCheck()
+    // Payline1to3();
+    CoinsUpdate()
+    TotalWin(winValue);
+    }, AwaitSpeed)
   }
 
-  ExcecutePaylineCheck()
-  Payline1to3();
-  // ExcecutePaylineCheck()
-  // Payline1to3();
-  CoinsUpdate()
-  TotalWin(winValue);  
+// translate positions
+let posV = "translate(0, 0)"
+let pos1 = "translate(0, -100%)"
+let pos2 = "translate(0, -200%)"
+let pos3 = "translate(0, -300%)"
+let pos4 = "translate(0, -400%)"
+let pos5 = "translate(0, -500%)"
+let pos6 = "translate(0, -600%)"
+let pos7 = "translate(0, -700%)"
+let pos8 = "translate(0, -800%)"
+let pos9 = "translate(0, -900%)"
+let pos10 = "translate(0, -1000%)"
+
+// Getting Varea
+const Varea = document.getElementById('Varea');
+
+// creating 10 divs with for loop
+function CreateDivs(){
+  document.getElementById('reels1').style.transform  = "translate(0, -"+ (NumDivs-1)*100 + "%)";
+  for(let i = NumDivs; i > 1; i--){
+    const ReelPH = document.createElement('div');
+    ReelPH.id = "reels"+i;
+    ReelPH.className = "reels"+i;
+    ReelPH.style.display = "grid";
+    ReelPH.style.gridTemplateColumns = "7px auto 7px auto 7px auto 7px auto 7px auto 7px";
+    ReelPH.style.alignSelf = "center";
+    ReelPH.style.width = "100%";
+    ReelPH.style.height = "100%";
+    ReelPH.style.transform = "translate(0, -"+ (NumDivs-1)*100 + "%)";
+
+    // creating filling divs (add to for loop)
+    const F1 = document.createElement('div');
+    const F2 = document.createElement('div');
+    const F3 = document.createElement('div');
+    const F4 = document.createElement('div');
+    const F5 = document.createElement('div');
+    const F6 = document.createElement('div');
+
+    // setting filling class to filling divs
+    F1.className = "filling"
+    F2.className = "filling"
+    F3.className = "filling"
+    F4.className = "filling"
+    F5.className = "filling"
+    F6.className = "filling"
+
+    // creating columns divs
+    const C1 = document.createElement('div');
+    const C2 = document.createElement('div');
+    const C3 = document.createElement('div');
+    const C4 = document.createElement('div');
+    const C5 = document.createElement('div');
+
+    // setting ID and Class for columns divs
+    // C1.id = "R" + i + "column1";
+    C1.id = "column1R"+i;
+    C1.className = "column-container column1";
+    C2.id = "column2R"+i;
+    C2.className = "column-container column2";
+    C3.id = "column3R"+i;
+    C3.className = "column-container column3";
+    C4.id = "column4R"+i;
+    C4.className = "column-container column4";
+    C5.id = "column5R"+i;
+    C5.className = "column-container column5";
+
+    // creating image contianers (3 per columns)
+    const R2P1 = document.createElement("div");
+    const R2P2 = document.createElement("div");
+    const R2P3 = document.createElement("div");
+    const R2P4 = document.createElement("div");
+    const R2P5 = document.createElement("div");
+    const R2P6 = document.createElement("div");
+    const R2P7 = document.createElement("div");
+    const R2P8 = document.createElement("div");
+    const R2P9 = document.createElement("div");
+    const R2P10 = document.createElement("div");
+    const R2P11 = document.createElement("div");
+    const R2P12 = document.createElement("div");
+    const R2P13 = document.createElement("div");
+    const R2P14 = document.createElement("div");
+    const R2P15 = document.createElement("div");
+
+    // setting Id's for image containers
+    R2P1.id = "r"+i+"p1";
+    R2P2.id = "r"+i+"p2";
+    R2P3.id = "r"+i+"p3";
+    R2P4.id = "r"+i+"p4";
+    R2P5.id = "r"+i+"p5";
+    R2P6.id = "r"+i+"p6";
+    R2P7.id = "r"+i+"p7";
+    R2P8.id = "r"+i+"p8";
+    R2P9.id = "r"+i+"p9";
+    R2P10.id = "r"+i+"p10";
+    R2P11.id = "r"+i+"p11";
+    R2P12.id = "r"+i+"p12";
+    R2P13.id = "r"+i+"p13";
+    R2P14.id = "r"+i+"p14";
+    R2P15.id = "r"+i+"p15";
+
+    Varea.insertBefore(ReelPH, reels1);
+    ReelPH.appendChild(F1)
+    ReelPH.appendChild(C1)
+    ReelPH.appendChild(F2)
+    ReelPH.appendChild(C2)
+    ReelPH.appendChild(F3)
+    ReelPH.appendChild(C3)
+    ReelPH.appendChild(F4)
+    ReelPH.appendChild(C4)
+    ReelPH.appendChild(F5)
+    ReelPH.appendChild(C5)
+    ReelPH.appendChild(F6)
+    C1.appendChild(R2P1)
+    C1.appendChild(R2P6)
+    C1.appendChild(R2P11)
+
+    C2.appendChild(R2P2)
+    C2.appendChild(R2P7)
+    C2.appendChild(R2P12)
+
+    C3.appendChild(R2P3)
+    C3.appendChild(R2P8)
+    C3.appendChild(R2P13)
+
+    C4.appendChild(R2P4)
+    C4.appendChild(R2P9)
+    C4.appendChild(R2P14)
+
+    C5.appendChild(R2P5)
+    C5.appendChild(R2P10)
+    C5.appendChild(R2P15)
+
+    FillBg(i)
+    // document.getElementById('reels1').style.transform = "translate(0, -"+ (NumDivs-1)*100 + "%)"
+    setTimeout(addCloneBg, 11);
+  }
+
+  console.log('cloning done')
+}
+
+function FillBg(i){
+  // setting last reel to VisibleArray images same.
+  randomArrNum()
+  document.getElementById('r'+i+"p1").style.backgroundImage = randomNum1
+  document.getElementById('r'+i+"p2").style.backgroundImage = randomNum2
+  document.getElementById('r'+i+"p3").style.backgroundImage = randomNum3
+  document.getElementById('r'+i+"p4").style.backgroundImage = randomNum4
+  document.getElementById('r'+i+"p5").style.backgroundImage = randomNum5
+  randomArrNum()
+  document.getElementById('r'+i+"p6").style.backgroundImage = randomNum1
+  document.getElementById('r'+i+"p7").style.backgroundImage = randomNum2
+  document.getElementById('r'+i+"p8").style.backgroundImage = randomNum3
+  document.getElementById('r'+i+"p9").style.backgroundImage = randomNum4
+  document.getElementById('r'+i+"p10").style.backgroundImage = randomNum5
+  randomArrNum()
+  document.getElementById('r'+i+"p11").style.backgroundImage = randomNum1
+  document.getElementById('r'+i+"p12").style.backgroundImage = randomNum2
+  document.getElementById('r'+i+"p13").style.backgroundImage = randomNum3
+  document.getElementById('r'+i+"p14").style.backgroundImage = randomNum4
+  document.getElementById('r'+i+"p15").style.backgroundImage = randomNum5
+}
+
+function addCloneBg(){
+  // setting last reel to VisibleArray images same.
+  document.getElementById('r'+NumDivs+"p1").style.backgroundImage = VisibleArray1Url[0];
+  document.getElementById('r'+NumDivs+"p2").style.backgroundImage = VisibleArray2Url[0];
+  document.getElementById('r'+NumDivs+"p3").style.backgroundImage = VisibleArray3Url[0];
+  document.getElementById('r'+NumDivs+"p4").style.backgroundImage = VisibleArray4Url[0];
+  document.getElementById('r'+NumDivs+"p5").style.backgroundImage = VisibleArray5Url[0];
+  document.getElementById('r'+NumDivs+"p6").style.backgroundImage = VisibleArray1Url[1];
+  document.getElementById('r'+NumDivs+"p7").style.backgroundImage = VisibleArray2Url[1];
+  document.getElementById('r'+NumDivs+"p8").style.backgroundImage = VisibleArray3Url[1];
+  document.getElementById('r'+NumDivs+"p9").style.backgroundImage = VisibleArray4Url[1];
+  document.getElementById('r'+NumDivs+"p10").style.backgroundImage = VisibleArray5Url[1];
+  document.getElementById('r'+NumDivs+"p11").style.backgroundImage = VisibleArray1Url[2];
+  document.getElementById('r'+NumDivs+"p12").style.backgroundImage = VisibleArray2Url[2];
+  document.getElementById('r'+NumDivs+"p13").style.backgroundImage = VisibleArray3Url[2];
+  document.getElementById('r'+NumDivs+"p14").style.backgroundImage = VisibleArray4Url[2];
+  document.getElementById('r'+NumDivs+"p15").style.backgroundImage = VisibleArray5Url[2];
 }
 
 // randomize pictures on loading of screen
 window.onload = symbolPlacement();
-window.onload = SetCanvasSize()
+window.onload = SetCanvasSize();
+window.onload = CreateDivs();
 onresize = SetCanvasSize;
 
 addEventListener('resize', SetCanvasSize())
 
-console.log('Made by Andy Vande Voorde')
-console.log(`
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#BGP5555555YJ?YP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&BPYY5PB#&&@@@&G5J?JYG#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&GYJ5B&@@@@@@@&GYJ5B&@@@@@@@@@@@7?J@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@&P?YB@@@@@@@@@&P?YB@@@@@@@@@@@@@@&#~5P~#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@B?J#@@@@@@@@@@B?J#@@@@@@&&&@@@@@@@&.PG!7#^P@@@#J~:.!#@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@P75@@@@@@@@@@@P75@@@@@#?:  .G@@@@@@@@PJ5&&P@^P@^    ?@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@G!P@@@@@@@@@@@G!P@@@@@@?    ~@@@@@@@@@@@@&J!#@@:Y^!^?&@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@&!J@@@@@@@@@@@&!J@@@@@&&@~7~!#@@@!JY@@@@GJB@@&^P@?!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@B^#@@@@@@@@@@@G^#@@@@@&^G~P#5J&@@77@^B&@@G   .P@.#G~@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@5 &@@@@@@@@@@@Y~@@@@@@@@.&GPP&@@@&.@G7Y:?@@&~.. Y5^B^@&#BB&@@@@@@@&@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@5 Y@@@@@@@@@@@Y~@@@@@@@@5~G?&@@@@@??@BJ?&@@@@@@&&&J^G.GBBGY.B@@@&! ^@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@G  @@@@@@@@@@@P^@@@@@@@@?!B!@@@@@@@^G@!?@@B@@@@@@@@^Y@JPYYPB&@@@&.  ~@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@&  :@@@@@@@@@@&.&@@@@@@@P:@~&@@.?@@@^G&.@@B  J@@@@@P.@P7#@@@@@@@@G: .#@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@7  :@@@@@@@@@@!Y@@@@@@@@^Y@:&@#  .&@J7&.@@#   7@@@Y:&&:&@@@@@@G7YB!J@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@&   .@@@@@@@@@&.@@@&#&&@@7!@J?@Y   !@@.&^Y@@5 .!@G^J@&J5BP7B@@@&~G^BB~@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@P    P@@@@@@@@5~@@Y.   ^Y#.#@!Y&~^ G@@#^B^Y@@@P?!?@@BYPP5P?G@@@@&?#B~&@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@7    .@@@@@@@@!J@@@@P~::^5Y.#@Y7#J@@@@@&!Y?!B#!?&&5JP#&@@@@@@#:JG7@5!@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@!     ^@@@@@@@YB@@@@@@@@#JY5PG#B77#@@@@@@P?YYJ&&?J&@@&.B@@@@@@G~5~@7?@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@7      ^@@@@@@@@@@@@@@@@P^JPBBG5?!7?5#@@@@@:Y@P~&@@@7  ^@@@@@@@Y7@#.&@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@P       .G@@@@@@@@@@@@@@@@@@@@@@@#!7PY?5&@?7@5~@@@@:   J@@@@@@#^#@^P@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@&         :G@@@@@@@@@@@@@@@@@@@@Y?YYG##P?7.@@.@@@@@~:.J@@@&#GJJ&#!P@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@!          .!G&@@@@@@@@@@@@@@@@JJPGBGGPY^:@G^@#GPY~7YPYJJJYG#GJ7J:  .~G@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@&              .^!?5GB&@@@@@@@@@@@@@@@@@^5@G.555PB@@GPGGGGGY~J?&@7:    :&@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@G                      .^?G&@@@@@@@@@&!J@@@.!5GBP?JP5G@@@@@#~~5@@@@&&&B#@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@Y                          .!P#&&#PJ?#@@@@G:@@@@@&J7^#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@Y                   .~5B#&&#BBGGB#@@@@@@@@B^B@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@G                !B@@@@@@&##&@@@@@@@@@@@@@@J7B@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@&~      ~YGBGB&@@@@@@&.     #@@@&B#@@@@@@@@@GJJ5B&@@@@@@&#57&@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@G.  ?@@#G#@@B5?:~@@#    :B@@@B   .~5&@@@@@@@@B?^::...   ^#@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@P#@Y.  .@@    P@@~  ~#@@@#!        !@@@Y!7JB@@&##   ^B@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@&^    #@. ?@@G:  5@@&?.           J@@&~   &@?:@P7&@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@&5^!@5 B@J.    @@&               .?B@@P ^@G~&@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&!7@7      J@@.                  !@&?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#J~:    P@G              .:!5#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#G#@@?!~~~!!7?YPB#&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-`)
+// console.log('Made by Andy Vande Voorde')
+// console.log(`
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#BGP5555555YJ?YP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&BPYY5PB#&&@@@&G5J?JYG#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&GYJ5B&@@@@@@@&GYJ5B&@@@@@@@@@@@7?J@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@&P?YB@@@@@@@@@&P?YB@@@@@@@@@@@@@@&#~5P~#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@B?J#@@@@@@@@@@B?J#@@@@@@&&&@@@@@@@&.PG!7#^P@@@#J~:.!#@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@P75@@@@@@@@@@@P75@@@@@#?:  .G@@@@@@@@PJ5&&P@^P@^    ?@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@G!P@@@@@@@@@@@G!P@@@@@@?    ~@@@@@@@@@@@@&J!#@@:Y^!^?&@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@&!J@@@@@@@@@@@&!J@@@@@&&@~7~!#@@@!JY@@@@GJB@@&^P@?!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@B^#@@@@@@@@@@@G^#@@@@@&^G~P#5J&@@77@^B&@@G   .P@.#G~@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@5 &@@@@@@@@@@@Y~@@@@@@@@.&GPP&@@@&.@G7Y:?@@&~.. Y5^B^@&#BB&@@@@@@@&@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@5 Y@@@@@@@@@@@Y~@@@@@@@@5~G?&@@@@@??@BJ?&@@@@@@&&&J^G.GBBGY.B@@@&! ^@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@G  @@@@@@@@@@@P^@@@@@@@@?!B!@@@@@@@^G@!?@@B@@@@@@@@^Y@JPYYPB&@@@&.  ~@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@&  :@@@@@@@@@@&.&@@@@@@@P:@~&@@.?@@@^G&.@@B  J@@@@@P.@P7#@@@@@@@@G: .#@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@7  :@@@@@@@@@@!Y@@@@@@@@^Y@:&@#  .&@J7&.@@#   7@@@Y:&&:&@@@@@@G7YB!J@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@&   .@@@@@@@@@&.@@@&#&&@@7!@J?@Y   !@@.&^Y@@5 .!@G^J@&J5BP7B@@@&~G^BB~@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@P    P@@@@@@@@5~@@Y.   ^Y#.#@!Y&~^ G@@#^B^Y@@@P?!?@@BYPP5P?G@@@@&?#B~&@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@7    .@@@@@@@@!J@@@@P~::^5Y.#@Y7#J@@@@@&!Y?!B#!?&&5JP#&@@@@@@#:JG7@5!@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@!     ^@@@@@@@YB@@@@@@@@#JY5PG#B77#@@@@@@P?YYJ&&?J&@@&.B@@@@@@G~5~@7?@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@7      ^@@@@@@@@@@@@@@@@P^JPBBG5?!7?5#@@@@@:Y@P~&@@@7  ^@@@@@@@Y7@#.&@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@P       .G@@@@@@@@@@@@@@@@@@@@@@@#!7PY?5&@?7@5~@@@@:   J@@@@@@#^#@^P@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@&         :G@@@@@@@@@@@@@@@@@@@@Y?YYG##P?7.@@.@@@@@~:.J@@@&#GJJ&#!P@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@!          .!G&@@@@@@@@@@@@@@@@JJPGBGGPY^:@G^@#GPY~7YPYJJJYG#GJ7J:  .~G@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@&              .^!?5GB&@@@@@@@@@@@@@@@@@^5@G.555PB@@GPGGGGGY~J?&@7:    :&@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@G                      .^?G&@@@@@@@@@&!J@@@.!5GBP?JP5G@@@@@#~~5@@@@&&&B#@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@Y                          .!P#&&#PJ?#@@@@G:@@@@@&J7^#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@Y                   .~5B#&&#BBGGB#@@@@@@@@B^B@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@G                !B@@@@@@&##&@@@@@@@@@@@@@@J7B@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@&~      ~YGBGB&@@@@@@&.     #@@@&B#@@@@@@@@@GJJ5B&@@@@@@&#57&@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@G.  ?@@#G#@@B5?:~@@#    :B@@@B   .~5&@@@@@@@@B?^::...   ^#@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@P#@Y.  .@@    P@@~  ~#@@@#!        !@@@Y!7JB@@&##   ^B@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@&^    #@. ?@@G:  5@@&?.           J@@&~   &@?:@P7&@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@&5^!@5 B@J.    @@&               .?B@@P ^@G~&@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&!7@7      J@@.                  !@&?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#J~:    P@G              .:!5#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#G#@@?!~~~!!7?YPB#&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// `)

@@ -57,7 +57,7 @@ body,html {
   z-index: -100;
 }
 
-.reels {
+/* .reels {
   align-self: center;
   top: -30px;
   width: 70%;
@@ -66,10 +66,23 @@ body,html {
   background-color: rgba(27, 14, 52,0.8);
   border-collapse: collapse;
   overflow: hidden;
+} */
+
+/* .reels div {
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-td {
-  /* border: 1px solid red; */
+.reels2 div {
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+} */
+
+.Varea div {
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -84,10 +97,15 @@ td {
   height: 156px;
 }
 
-td.filling {
-  width: 7px;
+.filling {
+  width: 100%;
+  height: 100%;
   background-image: linear-gradient(rgba(71, 79, 102, 0), rgba(124, 158, 218, 1), rgba(71, 79, 102,0));
 }
+
+/* .f1 {
+  grid-column: 1;
+} */
 
 .bottom-ui-content {
   /* background: aqua; */
@@ -271,6 +289,10 @@ td.spacing {
   height: 100%;
 }
 
+td {
+  text-align: center;
+}
+
 .slot-title {
   position: absolute;
   background-image: url(images/slot-title.png);
@@ -330,6 +352,8 @@ td.spacing {
 
 /* images per position */
 #p1 {
+  width: 100%;
+  height: 100%;
   background-image: url(images/icons/female\ cut.png);
 }
 
@@ -373,11 +397,6 @@ td.spacing {
   background-image: url(images/icons/bag\ of\ gold.png);
 }
 
-.slideDown {
-  animation: slideDown 1s 1;
-  animation-fill-mode: forwards;
-}
-
 #p12 {
   background-image: url(images/icons/gas\ lamp.png);
 }
@@ -392,16 +411,6 @@ td.spacing {
 
 #p15 {
   background-image: url(images/icons/wild.png);
-}
-
-/* slide-down animation */
-@keyframes slideDown {
-  from {
-    transform: translateY(0%);
-  }
-  to {
-    transform: translateY(300%);
-  }
 }
 
 .win-amount {
@@ -420,3 +429,112 @@ td.spacing {
   top: 100px;
   z-index: 1000;
   }
+
+/* .reels2 {
+  display: grid;
+  grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, -100%);
+} */
+
+.reels1 {
+  display: grid;
+  grid-template-columns: 7px auto 7px auto 7px auto 7px auto 7px auto 7px;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  /* transform: translate(0, 0); */
+}
+
+/* .reels10 {
+  transform: translate(0, -100%);
+} */
+
+.column-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+
+
+/* #column1 {
+  transform: translate(0, 100%);
+} */
+
+/* .column-container div{
+  display: inline-block
+} */
+
+.Varea {
+  align-self: center;
+  top: -30px;
+  width: 70%;
+  height: 70%;
+  position: relative;
+  background-color: rgba(27, 14, 52,0.8);
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+/* images per position reel2 */
+#r2p1 {
+  background-image: url(images/icons/female\ cut.png);
+}
+
+#r2p2 {
+  background-image: url(images/icons/male\ cut.png);
+}
+
+#r2p3 {
+  background-image: url(images/icons/trolley.png);
+}
+
+#r2p4 {
+  background-image: url(images/icons/pile\ of\ gold.png);
+}
+
+#r2p5 {
+  background-image: url(images/icons/dynamite\ crate.png);
+}
+
+#r2p6 {
+  background-image: url(images/icons/gas\ lamp.png);
+}
+
+#r2p7 {
+  background-image: url(images/icons/snake.png);
+}
+
+#r2p8 {
+  background-image: url(images/icons/barrels.png);
+}
+
+#r2p9 {
+  background-image: url(images/icons/boots.png);
+}
+
+#r2p10 {
+  background-image: url(images/icons/wild.png)
+}
+
+#r2p11 {
+  background-image: url(images/icons/bag\ of\ gold.png);
+}
+
+#r2p12 {
+  background-image: url(images/icons/gas\ lamp.png);
+}
+
+#r2p13 {
+  background-image: url(images/icons/dynamite\ crate.png);
+}
+
+#r2p14 {
+  background-image: url(images/icons/bag\ of\ gold.png);
+}
+
+#r2p15 {
+  background-image: url(images/icons/wild.png);
+}
