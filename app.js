@@ -793,6 +793,7 @@ spinButton.onclick = function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   moveDown()
   Reset1()
+  CoinsUpdate()
 
   setTimeout (() => {
     RotatingImages();
@@ -802,7 +803,6 @@ spinButton.onclick = function() {
   setTimeout (() => {
     ExcecutePaylineCheck()
     // Payline1to3();
-    CoinsUpdate()
     TotalWin(winValue);
     }, AwaitSpeed)
   }
