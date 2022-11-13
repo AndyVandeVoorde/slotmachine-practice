@@ -15,6 +15,15 @@ let currentBetSizeNumber = parseFloat(document.getElementById('bet-size').innerH
 const delayMoveDown = 1000
 const delayOthers = 1000
 
+// rotating speed (in Miliseconds)
+let RotatingSpeed = 5000
+// Interval between columns (in Miliseconds)
+let RotatingInterval = 100
+// AnimationSpeed (For CSS)
+let AnimationSpeed = RotatingSpeed / 1000
+// AwaitSpeed (setting await function times)
+let AwaitSpeed = RotatingSpeed + (RotatingInterval*5)
+
 // create an array with each unique image
 const symbols = [];
 
@@ -27,26 +36,6 @@ const column2 = document.querySelectorAll('.column2');
 const column3 = document.querySelectorAll('.column3');
 const column4 = document.querySelectorAll('.column4');
 const column5 = document.querySelectorAll('.column5');
-
-// // only middle reels
-// const MiddleC1 = column1.slice(1, column1.length-1);
-// const MiddleC2 = column2.slice(1, column2.length-1);
-// const MiddleC3 = column3.slice(1, column3.length-1);
-// const MiddleC4 = column4.slice(1, column4.length-1);
-// const MiddleC5 = column5.slice(1, column5.length-1);
-
-// column Id's Reel1 and last Reel
-const column1R1 = document.getElementById('column1R1');
-const column2R1 = document.getElementById('column2R1');
-const column3R1 = document.getElementById('column3R1');
-const column4R1 = document.getElementById('column4R1');
-const column5R1 = document.getElementById('column5R1');
-
-const column1RL = document.getElementById('column1R'+NumDivs);
-const column2RL = document.getElementById('column2R'+NumDivs);
-const column3RL = document.getElementById('column3R'+NumDivs);
-const column4RL = document.getElementById('column4R'+NumDivs);
-const column5RL = document.getElementById('column5R'+NumDivs);
 
 // symbols
 symbols[0] = "url('images/icons/female cut.png')";
@@ -331,13 +320,6 @@ let VisibleArray3 = [document.getElementById('p3'),document.getElementById('p8')
 let VisibleArray4 = [document.getElementById('p4'),document.getElementById('p9'),document.getElementById('p14')];
 let VisibleArray5 = [document.getElementById('p5'),document.getElementById('p10'),document.getElementById('p15')];
 
-// create CloneArray1
-// let CloneArray1 = [VisibleArray1[0], VisibleArray1[1], VisibleArray1[2]]
-// let CloneArray2 = [VisibleArray2[0], VisibleArray2[1], VisibleArray2[2]]
-// let CloneArray3 = [VisibleArray3[0], VisibleArray3[1], VisibleArray3[2]]
-// let CloneArray4 = [VisibleArray4[0], VisibleArray4[1], VisibleArray4[2]]
-// let CloneArray5 = [VisibleArray5[0], VisibleArray5[1], VisibleArray5[2]]
-
 // get style
 let VisibleArray1Style = [window.getComputedStyle(p[0]),window.getComputedStyle(p[5]),window.getComputedStyle(p[10])];
 let VisibleArray2Style = [window.getComputedStyle(p[1]),window.getComputedStyle(p[6]),window.getComputedStyle(p[11])];
@@ -345,26 +327,12 @@ let VisibleArray3Style = [window.getComputedStyle(p[2]),window.getComputedStyle(
 let VisibleArray4Style = [window.getComputedStyle(p[3]),window.getComputedStyle(p[8]),window.getComputedStyle(p[13])];
 let VisibleArray5Style = [window.getComputedStyle(p[4]),window.getComputedStyle(p[9]),window.getComputedStyle(p[14])];
 
-// get style Clone
-// let CloneArray1Style = [VisibleArray1Style[0], VisibleArray1Style[1], VisibleArray1Style[2]]
-// let CloneArray2Style = [VisibleArray2Style[0], VisibleArray2Style[1], VisibleArray2Style[2]]
-// let CloneArray3Style = [VisibleArray3Style[0], VisibleArray3Style[1], VisibleArray3Style[2]]
-// let CloneArray4Style = [VisibleArray4Style[0], VisibleArray4Style[1], VisibleArray4Style[2]]
-// let CloneArray5Style = [VisibleArray5Style[0], VisibleArray5Style[1], VisibleArray5Style[2]]
-
 // get URL's
 let VisibleArray1Url = [VisibleArray1Style[0].backgroundImage, VisibleArray1Style[1].backgroundImage, VisibleArray1Style[2].backgroundImage]
 let VisibleArray2Url = [VisibleArray2Style[0].backgroundImage, VisibleArray2Style[1].backgroundImage, VisibleArray2Style[2].backgroundImage]
 let VisibleArray3Url = [VisibleArray3Style[0].backgroundImage, VisibleArray3Style[1].backgroundImage, VisibleArray3Style[2].backgroundImage]
 let VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
 let VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
-
-// get URL's Clone
-// let CloneArray1Url = [VisibleArray1Url[0], VisibleArray1Url[1], VisibleArray1Url[2]]
-// let CloneArray2Url = [VisibleArray2Url[0], VisibleArray2Url[1], VisibleArray2Url[2]]
-// let CloneArray3Url = [VisibleArray3Url[0], VisibleArray3Url[1], VisibleArray3Url[2]]
-// let CloneArray4Url = [VisibleArray4Url[0], VisibleArray4Url[1], VisibleArray4Url[2]]
-// let CloneArray5Url = [VisibleArray5Url[0], VisibleArray5Url[1], VisibleArray5Url[2]]
 
 // randomizer (This works while declaration is commented out?)
 let randomNum = 0
@@ -393,11 +361,6 @@ function symbolPlacement () {
     VisibleArray4[i].style.backgroundImage = randomNum4
     VisibleArray5[i].style.backgroundImage = randomNum5
 
-    // CloneArray1[i].style.backgroundImage = randomNum1
-    // CloneArray2[i].style.backgroundImage = randomNum2
-    // CloneArray3[i].style.backgroundImage = randomNum3
-    // CloneArray4[i].style.backgroundImage = randomNum4
-    // CloneArray5[i].style.backgroundImage = randomNum5
   }
   for (let i = 0; i < 3; ++i) {
     randomArrNum()
@@ -407,11 +370,6 @@ function symbolPlacement () {
     BatchArray4[i] = VisibleArray4[i]
     BatchArray5[i] = VisibleArray5[i]
 
-    // BatchArray1[i] = CloneArray1[i]
-    // BatchArray2[i] = CloneArray2[i]
-    // BatchArray3[i] = CloneArray3[i]
-    // BatchArray4[i] = CloneArray4[i]
-    // BatchArray5[i] = CloneArray5[i]
   }
   for (let i = 3; i < 5; ++i) {
     randomArrNum()
@@ -434,10 +392,6 @@ async function RotatingImages() {
   VisibleArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
   VisibleArray1[0].style.backgroundImage = BatchArray1[(arrayNum + 2) % 5]
 
-  // CloneArray1[2].style.backgroundImage = BatchArray1[arrayNum % 5]
-  // CloneArray1[1].style.backgroundImage = BatchArray1[(arrayNum + 1) % 5]
-  // CloneArray1[0].style.backgroundImage = BatchArray1[(arrayNum + 2) % 5]
-
   BatchArray1[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length - 1)]
 
   // Column 2
@@ -445,39 +399,26 @@ async function RotatingImages() {
   VisibleArray2[1].style.backgroundImage = BatchArray2[(arrayNum + 1) % 5]
   VisibleArray2[0].style.backgroundImage = BatchArray2[(arrayNum + 2) % 5]
 
-  // CloneArray2[2].style.backgroundImage = BatchArray2[arrayNum % 5]
-  // CloneArray2[1].style.backgroundImage = BatchArray2[(arrayNum + 1) % 5]
-  // CloneArray2[0].style.backgroundImage = BatchArray2[(arrayNum + 2) % 5]
-
   BatchArray2[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
   // Column 3
   VisibleArray3[2].style.backgroundImage = BatchArray3[arrayNum % 5]
   VisibleArray3[1].style.backgroundImage = BatchArray3[(arrayNum + 1) % 5]
   VisibleArray3[0].style.backgroundImage = BatchArray3[(arrayNum + 2) % 5]
 
-  // CloneArray3[2].style.backgroundImage = BatchArray3[arrayNum % 5]
-  // CloneArray3[1].style.backgroundImage = BatchArray3[(arrayNum + 1) % 5]
-  // CloneArray3[0].style.backgroundImage = BatchArray3[(arrayNum + 2) % 5]
-
   BatchArray3[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
   // Column 4
   VisibleArray4[2].style.backgroundImage = BatchArray4[arrayNum % 5]
   VisibleArray4[1].style.backgroundImage = BatchArray4[(arrayNum + 1) % 5]
   VisibleArray4[0].style.backgroundImage = BatchArray4[(arrayNum + 2) % 5]
 
-  // CloneArray4[2].style.backgroundImage = BatchArray4[arrayNum % 5]
-  // CloneArray4[1].style.backgroundImage = BatchArray4[(arrayNum + 1) % 5]
-  // CloneArray4[0].style.backgroundImage = BatchArray4[(arrayNum + 2) % 5]
-
   BatchArray4[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
+
   // Column 5
   VisibleArray5[2].style.backgroundImage = BatchArray5[arrayNum % 5]
   VisibleArray5[1].style.backgroundImage = BatchArray5[(arrayNum + 1) % 5]
   VisibleArray5[0].style.backgroundImage = BatchArray5[(arrayNum + 2) % 5]
-
-  // CloneArray5[2].style.backgroundImage = BatchArray5[arrayNum % 5]
-  // CloneArray5[1].style.backgroundImage = BatchArray5[(arrayNum + 1) % 5]
-  // CloneArray5[0].style.backgroundImage = BatchArray5[(arrayNum + 2) % 5]
 
   BatchArray5[arrayNum % 5] = symbols[Math.floor(Math.random() * symbols.length)]
 
@@ -488,13 +429,6 @@ async function RotatingImages() {
   VisibleArray4Style = [window.getComputedStyle(p[3]),window.getComputedStyle(p[8]),window.getComputedStyle(p[13])];
   VisibleArray5Style = [window.getComputedStyle(p[4]),window.getComputedStyle(p[9]),window.getComputedStyle(p[14])];
 
-  // get style Clone
-  // CloneArray1Style = [VisibleArray1Style[0], VisibleArray1Style[1], VisibleArray1Style[2]]
-  // CloneArray2Style = [VisibleArray2Style[0], VisibleArray2Style[1], VisibleArray2Style[2]]
-  // CloneArray3Style = [VisibleArray3Style[0], VisibleArray3Style[1], VisibleArray3Style[2]]
-  // CloneArray4Style = [VisibleArray4Style[0], VisibleArray4Style[1], VisibleArray4Style[2]]
-  // CloneArray5Style = [VisibleArray5Style[0], VisibleArray5Style[1], VisibleArray5Style[2]]
-
   // get URL's
   VisibleArray1Url = [VisibleArray1Style[0].backgroundImage, VisibleArray1Style[1].backgroundImage, VisibleArray1Style[2].backgroundImage]
   VisibleArray2Url = [VisibleArray2Style[0].backgroundImage, VisibleArray2Style[1].backgroundImage, VisibleArray2Style[2].backgroundImage]
@@ -502,42 +436,10 @@ async function RotatingImages() {
   VisibleArray4Url = [VisibleArray4Style[0].backgroundImage, VisibleArray4Style[1].backgroundImage, VisibleArray4Style[2].backgroundImage]
   VisibleArray5Url = [VisibleArray5Style[0].backgroundImage, VisibleArray5Style[1].backgroundImage, VisibleArray5Style[2].backgroundImage]
 
-  // // get URL's Clone
-  // CloneArray1Url = [VisibleArray1Url[0], VisibleArray1Url[1], VisibleArray1Url[2]]
-  // CloneArray2Url = [VisibleArray2Url[0], VisibleArray2Url[1], VisibleArray2Url[2]]
-  // CloneArray3Url = [VisibleArray3Url[0], VisibleArray3Url[1], VisibleArray3Url[2]]
-  // CloneArray4Url = [VisibleArray4Url[0], VisibleArray4Url[1], VisibleArray4Url[2]]
-  // CloneArray5Url = [VisibleArray5Url[0], VisibleArray5Url[1], VisibleArray5Url[2]]
-
-  // Update CloneArray URL's
-  // for(let i = 0; i < VisibleArray1Url.length; i++){
-  //   CloneArray1Url[i] = VisibleArray1Url[i]
-  //   CloneArray2Url[i] = VisibleArray2Url[i]
-  //   CloneArray3Url[i] = VisibleArray3Url[i]
-  //   CloneArray4Url[i] = VisibleArray4Url[i]
-  //   CloneArray5Url[i] = VisibleArray5Url[i]
-  //   }
-
-
-  // document.getElementById("r"+NumDivs+"p1").backgroundImage = CloneArray1Url[0]
   addCloneBg();
   arrayNum += 1
   console.log('rotatingImages function finished')
 }
-
-
-// add class for slide-down animation on button click
-// function slideDown() {
-//   for(let a = 0; a < p.length; a++) {
-//   p[a].classList.add('slideDown');
-//   }
-// }
-
-// function resetSlideDown() {
-//   for(let a = 0; a < p.length; a++) {
-//     p[a].classList.remove('slideDown');
-//     }
-// }
 
 // Check for win per Payline || uncluding wilds
 // Check Payline 1 to 3
@@ -798,8 +700,7 @@ function drawline(l1, l2, l3, l4, l5) {
 
 
 
-function moveDown() {
-
+async function moveDown() {
   const column1 = document.querySelectorAll('.column1');
   const column2 = document.querySelectorAll('.column2');
   const column3 = document.querySelectorAll('.column3');
@@ -807,272 +708,91 @@ function moveDown() {
   const column5 = document.querySelectorAll('.column5');
 
   column1.forEach(column => {
-    column.style.transition = "all 2s"
+    column.style.transition = "all "+ AnimationSpeed +"s"
+    column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
   })
-
-  column2.forEach(column => {
-    column.style.transition = "all 2s"
-  })
-
-  column3.forEach(column => {
-    column.style.transition = "all 2s"
-  })
-
-  column4.forEach(column => {
-    column.style.transition = "all 2s"
-  })
-
-  column5.forEach(column => {
-    column.style.transition = "all 2s"
-  })
-
-  // for(let i = 0; i < NumDivs; i++){
-  document.getElementById('reels1').style.transform = "translate(0, -"+ (NumDivs-1)*100 + "%)"
-  // document.getElementById('column1').style.transition  = "all 1s";
-  // document.getElementById('column2').style.transition  = "all 1s";
-  // document.getElementById('column3').style.transition  = "all 1s";
-  // document.getElementById('column4').style.transition  = "all 1s";
-  // document.getElementById('column5').style.transition  = "all 1s";
-  // }
-  console.log('moveDown function completed');
-}
-
-function ResetPosition() {
-setTimeout(() => {
-  document.getElementById('reels2').style.transition = "none";
-  // document.getElementById('reels2').style.transform = "translate(-100%, 0)";
-  // }, 1000)
-  // setTimeout(() => {
-  //   document.getElementById('reels2').style.transform = "translate(-100%, -200%)";
-  // }, 1200)
-  // setTimeout(() => {
-    document.getElementById('reels2').style.transform = "translate(0 , -200%)";
-  }, 1000)
-}
-
-function moveDown2() {
-  // document.getElementById('reels1').style.transition  = "all 1s linear";
-  // document.getElementById('reels2').style.transition = "all 1s linear";
-
-  for(i = 0; i < NumDivs; i++){
-  document.getElementById('reels'+i).style.transform  = "translate(0, 0)";
-  }
-  setTimeout(() => {
-    document.getElementById('reels1').style.transition  = "none";
-    document.getElementById('reels1').style.transform  = "translate(0, -100%)";
-  }, 1000)
-  setTimeout(() => {
-  document.getElementById('reels1').style.transition  = "all 1s linear";
-  document.getElementById('reels2').style.transition = "all 1s linear";
-  document.getElementById('reels1').style.transform  = "translate(0, 0)";
-  document.getElementById('reels2').style.transform = "translate(0, 0)";
-}, 1001)
-}
-
-// function moveDown2() {
-
-//   const column1 = document.querySelectorAll('.column1');
-//   const column2 = document.querySelectorAll('.column2');
-//   const column3 = document.querySelectorAll('.column3');
-//   const column4 = document.querySelectorAll('.column4');
-//   const column5 = document.querySelectorAll('.column5');
-
-
-//   column1.forEach(column => {
-//     column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//   })
-
-//   setTimeout(() => {
-//     column2.forEach(column => {
-//       column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//     })
-//   }, 100)
-
-//   setTimeout(() => {
-//     column3.forEach(column => {
-//       column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//     })
-//   }, 200)
-
-//   setTimeout(() => {
-//     column4.forEach(column => {
-//       column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//     })
-//   }, 300)
-
-//   setTimeout(() => {
-//     column5.forEach(column => {
-//       column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//     })
-//   }, 400)
-
-
-// }
-
-// let spinCounter = 0
-// function spin() {
-
-// }
-
-// if(spinCounter === 0) {
-//   function spin1() {
-//     column1.forEach(column => {
-//       column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//     })
-  
-//     setTimeout(() => {
-//       column2.forEach(column => {
-//         column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//       })
-//     }, 100)
-  
-//     setTimeout(() => {
-//       column3.forEach(column => {
-//         column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//       })
-//     }, 200)
-  
-//     setTimeout(() => {
-//       column4.forEach(column => {
-//         column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//       })
-//     }, 300)
-  
-//     setTimeout(() => {
-//       column5.forEach(column => {
-//         column.style.transform ="translate(0, "+ (NumDivs-1)*100 + "%)";
-//       })
-//     }, 400)
-//   }
-
-
-//   function Reset1() {
-//      column1.forEach(column => {
-//       column.style.transition = "none"
-//     })
-  
-//     column2.forEach(column => {
-//       column.style.transition = "none"
-//     })
-  
-//     column3.forEach(column => {
-//       column.style.transition = "none"
-//     })
-  
-//     column4.forEach(column => {
-//       column.style.transition = "none"
-//     })
-  
-//     column5.forEach(column => {
-//       column.style.transition = "none"
-//     })
-
-//     column1R1.style.translate = "translate(0, -"+ ((NumDivs-1)*100)*2 + "%)"
-//     column2R1.style.translate = "translate(0, -"+ ((NumDivs-1)*100)*2 + "%)"
-//     column3R1.style.translate = "translate(0, -"+ ((NumDivs-1)*100)*2 + "%)"
-//     column4R1.style.translate = "translate(0, -"+ ((NumDivs-1)*100)*2 + "%)"
-//     column5R1.style.translate = "translate(0, -"+ ((NumDivs-1)*100)*2 + "%)"
-
-//     MiddleC1.style.translate = "translate(0, -"+ (NumDivs-1)*100 + "%)"
-//     MiddleC2.style.translate = "translate(0, -"+ (NumDivs-1)*100 + "%)"
-//     MiddleC3.style.translate = "translate(0, -"+ (NumDivs-1)*100 + "%)"
-//     MiddleC4.style.translate = "translate(0, -"+ (NumDivs-1)*100 + "%)"
-//     MiddleC5.style.translate = "translate(0, -"+ (NumDivs-1)*100 + "%)"
-
-//     column1.forEach(column => {
-//       column.style.transition = "all 2s"
-//     })
-  
-//     column2.forEach(column => {
-//       column.style.transition = "all 2s"
-//     })
-  
-//     column3.forEach(column => {
-//       column.style.transition = "all 2s"
-//     })
-  
-//     column4.forEach(column => {
-//       column.style.transition = "all 2s"
-//     })
-
-//     column5.forEach(column => {
-//       column.style.transition = "all 2s"
-//     })
-
-//     spinCounter = 1;
-//   }
-// } else if(spinCounter === 1) {
-
-//   function spin2() {
-
-//     MiddleC1.forEach
-
-//   }
-
-
-// }
-
-// on click spin button
-// spinButton.onclick = function() {
-//   CreateDivs();
-//   ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   // moveDown()
-//   RotatingImages();
-//   // ResetPosition();
-
-//   setTimeout (() => {
-//     ExcecutePaylineCheck()
-//     Payline1to3();
-//     CoinsUpdate()
-//     TotalWin(winValue);
-//     }, 1500)
-//   }
-  // for (let i = 0; i < 10; i++) {
-    // setTimeout(function() {
  
-    // }, delay * i);
-  // }
+  setTimeout(() => {
+    column2.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval)
 
-  // ExcecutePaylineCheck()
-  // Payline1to3();
-  // // ExcecutePaylineCheck()
-  // // Payline1to3();
-  // CoinsUpdate()
-  // TotalWin(winValue);  
-// }
+  setTimeout(() => {
+    column3.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval*2)
+
+  setTimeout(() => {
+    column4.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval*3)
+
+  setTimeout(() => {
+    column5.forEach(column => {
+      column.style.transition = "all "+ AnimationSpeed +"s"
+      column.style.transform = "translate(0, "+ (NumDivs-1)*100 + "%)"
+    })
+  }, RotatingInterval*4)
+
+  console.log('moveDown function completed');
+
+  const result = await Reset1();
+}
+
+function Reset1() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const column1 = document.querySelectorAll('.column1');
+      const column2 = document.querySelectorAll('.column2');
+      const column3 = document.querySelectorAll('.column3');
+      const column4 = document.querySelectorAll('.column4');
+      const column5 = document.querySelectorAll('.column5');
+    
+      column1.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+     
+      column2.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+  
+      column3.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+  
+      column4.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+  
+      column5.forEach(column => {
+        column.style.transition = "none"
+        column.style.transform = "translate(0, 0)"
+      })
+    
+      console.log('Reset1 function completed');
+      resolve('resolved')
+
+    }, AwaitSpeed);
+  })
+}
 
 let start = 0;
 
 // click spin second
 spinButton.onclick = function() {
-    if(start === 0) {
-      FirstStage();
-    } else {
-      SecondStage();
-    } 
-    start = 1;
-  }
-
-function FirstStage(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // CreateDivs();
-  setTimeout (() => {
   moveDown()
-  RotatingImages();
-  // ResetPosition();
-
-  setTimeout (() => {
-    ExcecutePaylineCheck()
-    Payline1to3();
-    CoinsUpdate()
-    TotalWin(winValue);
-    }, 1500)
-  },10)
-}
-
-function SecondStage(){
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  moveDown2()
+  Reset1()
 
   setTimeout (() => {
     RotatingImages();
@@ -1084,8 +804,8 @@ function SecondStage(){
     // Payline1to3();
     CoinsUpdate()
     TotalWin(winValue);
-    }, 2000)
-}
+    }, AwaitSpeed)
+  }
 
 // translate positions
 let posV = "translate(0, 0)"
@@ -1099,128 +819,9 @@ let pos7 = "translate(0, -700%)"
 let pos8 = "translate(0, -800%)"
 let pos9 = "translate(0, -900%)"
 let pos10 = "translate(0, -1000%)"
-// let pos11 = "translate(0, -1100%)"
-// let pos12 = "translate(0, -1200%)"
 
 // Getting Varea
 const Varea = document.getElementById('Varea');
-
-// // creating a reel
-// const ReelPH = document.createElement('div');
-// ReelPH.setAttribute("id", "reels2")
-// ReelPH.setAttribute("class", "reels2")
-// ReelPH.style.display = "grid";
-// ReelPH.style.gridTemplateColumns = "7px auto 7px auto 7px auto 7px auto 7px auto 7px";
-// ReelPH.style.alignSelf = "center";
-// ReelPH.style.width = "100%";
-// ReelPH.style.height = "100%";
-
-// // creating filling divs (add to for loop)
-// const F1 = document.createElement('div');
-// const F2 = document.createElement('div');
-// const F3 = document.createElement('div');
-// const F4 = document.createElement('div');
-// const F5 = document.createElement('div');
-// const F6 = document.createElement('div');
-
-// // setting filling class to filling divs (add to for loop)
-// F1.setAttribute("class", "filling")
-// F2.setAttribute("class", "filling")
-// F3.setAttribute("class", "filling")
-// F4.setAttribute("class", "filling")
-// F5.setAttribute("class", "filling")
-// F6.setAttribute("class", "filling")
-
-// // creating columns divs (add to for loop)
-// const C1 = document.createElement('div');
-// const C2 = document.createElement('div');
-// const C3 = document.createElement('div');
-// const C4 = document.createElement('div');
-// const C5 = document.createElement('div');
-
-// // setting ID and Class for columns divs (add to for loop)
-// C1.setAttribute("id", "column1");
-// C1.setAttribute("class", "column-container");
-// C2.setAttribute("id", "column2");
-// C2.setAttribute("class", "column-container");
-// C3.setAttribute("id", "column3");
-// C3.setAttribute("class", "column-container");
-// C4.setAttribute("id", "column4");
-// C4.setAttribute("class", "column-container");
-// C5.setAttribute("id", "column5");
-// C5.setAttribute("class", "column-container");
-
-// // creating image contianers (3 per columns) (ad to for loop)
-// const R2P1 = document.createElement("div");
-// const R2P2 = document.createElement("div");
-// const R2P3 = document.createElement("div");
-// const R2P4 = document.createElement("div");
-// const R2P5 = document.createElement("div");
-// const R2P6 = document.createElement("div");
-// const R2P7 = document.createElement("div");
-// const R2P8 = document.createElement("div");
-// const R2P9 = document.createElement("div");
-// const R2P10 = document.createElement("div");
-// const R2P11 = document.createElement("div");
-// const R2P12 = document.createElement("div");
-// const R2P13 = document.createElement("div");
-// const R2P14 = document.createElement("div");
-// const R2P15 = document.createElement("div");
-
-// // setting Id's for image containers (ad to for loop)
-// R2P1.setAttribute("id", "r2p1");
-// R2P2.setAttribute("id", "r2p2");
-// R2P3.setAttribute("id", "r2p3");
-// R2P4.setAttribute("id", "r2p4");
-// R2P5.setAttribute("id", "r2p5");
-// R2P6.setAttribute("id", "r2p6");
-// R2P7.setAttribute("id", "r2p7");
-// R2P8.setAttribute("id", "r2p8");
-// R2P9.setAttribute("id", "r2p9");
-// R2P10.setAttribute("id", "r2p10");
-// R2P11.setAttribute("id", "r2p11");
-// R2P12.setAttribute("id", "r2p12");
-// R2P13.setAttribute("id", "r2p13");
-// R2P14.setAttribute("id", "r2p14");
-// R2P15.setAttribute("id", "r2p15");
-
-// // positioning
-// ReelPH.style.transform = pos1;
-
-// // appending everything
-// Varea.insertBefore(ReelPH, reels);
-// ReelPH.appendChild(F1)
-// ReelPH.appendChild(C1)
-// ReelPH.appendChild(F2)
-// ReelPH.appendChild(C2)
-// ReelPH.appendChild(F3)
-// ReelPH.appendChild(C3)
-// ReelPH.appendChild(F4)
-// ReelPH.appendChild(C4)
-// ReelPH.appendChild(F5)
-// ReelPH.appendChild(C5)
-// ReelPH.appendChild(F6)
-// C1.appendChild(R2P1)
-// C1.appendChild(R2P6)
-// C1.appendChild(R2P11)
-
-// C2.appendChild(R2P2)
-// C2.appendChild(R2P7)
-// C2.appendChild(R2P12)
-
-// C3.appendChild(R2P3)
-// C3.appendChild(R2P8)
-// C3.appendChild(R2P13)
-
-// C4.appendChild(R2P4)
-// C4.appendChild(R2P9)
-// C4.appendChild(R2P14)
-
-// C5.appendChild(R2P5)
-// C5.appendChild(R2P10)
-// C5.appendChild(R2P15)
-
-
 
 // creating 10 divs with for loop
 function CreateDivs(){
@@ -1338,52 +939,35 @@ function CreateDivs(){
     C5.appendChild(R2P10)
     C5.appendChild(R2P15)
 
+    FillBg(i)
     // document.getElementById('reels1').style.transform = "translate(0, -"+ (NumDivs-1)*100 + "%)"
-    setTimeout(addCloneBg, 10);
+    setTimeout(addCloneBg, 11);
   }
 
   console.log('cloning done')
 }
 
-// function addCloneBg(){
-//       // setting last reel to VisibleArray images same.
-//       if (i = NumDivs){
-//         document.getElementById('r'+NumDivs+"p1").style.backgroundImage = VisibleArray1Url[0];
-//         document.getElementById('r'+NumDivs+"p2").style.backgroundImage = VisibleArray2Url[0];
-//         document.getElementById('r'+NumDivs+"p3").style.backgroundImage = VisibleArray3Url[0];
-//         document.getElementById('r'+NumDivs+"p4").style.backgroundImage = VisibleArray4Url[0];
-//         document.getElementById('r'+NumDivs+"p5").style.backgroundImage = VisibleArray5Url[0];
-//         document.getElementById('r'+NumDivs+"p6").style.backgroundImage = VisibleArray1Url[1];
-//         document.getElementById('r'+NumDivs+"p7").style.backgroundImage = VisibleArray2Url[1];
-//         document.getElementById('r'+NumDivs+"p8").style.backgroundImage = VisibleArray3Url[1];
-//         document.getElementById('r'+NumDivs+"p9").style.backgroundImage = VisibleArray4Url[1];
-//         document.getElementById('r'+NumDivs+"p10").style.backgroundImage = VisibleArray5Url[1];
-//         document.getElementById('r'+NumDivs+"p11").style.backgroundImage = VisibleArray1Url[2];
-//         document.getElementById('r'+NumDivs+"p12").style.backgroundImage = VisibleArray2Url[2];
-//         document.getElementById('r'+NumDivs+"p13").style.backgroundImage = VisibleArray3Url[2];
-//         document.getElementById('r'+NumDivs+"p14").style.backgroundImage = VisibleArray4Url[2];
-//         document.getElementById('r'+NumDivs+"p15").style.backgroundImage = VisibleArray5Url[2];
-//       } else {
-//         randomArrNum()
-//         document.getElementById('r'+NumDivs+"p1").style.backgroundImage = randomNum1
-//         document.getElementById('r'+NumDivs+"p2").style.backgroundImage = randomNum2
-//         document.getElementById('r'+NumDivs+"p3").style.backgroundImage = randomNum3
-//         document.getElementById('r'+NumDivs+"p4").style.backgroundImage = randomNum4
-//         document.getElementById('r'+NumDivs+"p5").style.backgroundImage = randomNum5
-//         randomArrNum()
-//         document.getElementById('r'+NumDivs+"p6").style.backgroundImage = randomNum1
-//         document.getElementById('r'+NumDivs+"p7").style.backgroundImage = randomNum2
-//         document.getElementById('r'+NumDivs+"p8").style.backgroundImage = randomNum3
-//         document.getElementById('r'+NumDivs+"p9").style.backgroundImage = randomNum4
-//         document.getElementById('r'+NumDivs+"p10").style.backgroundImage = randomNum5
-//         randomArrNum()
-//         document.getElementById('r'+NumDivs+"p11").style.backgroundImage = randomNum1
-//         document.getElementById('r'+NumDivs+"p12").style.backgroundImage = randomNum2
-//         document.getElementById('r'+NumDivs+"p13").style.backgroundImage = randomNum3
-//         document.getElementById('r'+NumDivs+"p14").style.backgroundImage = randomNum4
-//         document.getElementById('r'+NumDivs+"p15").style.backgroundImage = randomNum5
-//       }
-// }
+function FillBg(i){
+  // setting last reel to VisibleArray images same.
+  randomArrNum()
+  document.getElementById('r'+i+"p1").style.backgroundImage = randomNum1
+  document.getElementById('r'+i+"p2").style.backgroundImage = randomNum2
+  document.getElementById('r'+i+"p3").style.backgroundImage = randomNum3
+  document.getElementById('r'+i+"p4").style.backgroundImage = randomNum4
+  document.getElementById('r'+i+"p5").style.backgroundImage = randomNum5
+  randomArrNum()
+  document.getElementById('r'+i+"p6").style.backgroundImage = randomNum1
+  document.getElementById('r'+i+"p7").style.backgroundImage = randomNum2
+  document.getElementById('r'+i+"p8").style.backgroundImage = randomNum3
+  document.getElementById('r'+i+"p9").style.backgroundImage = randomNum4
+  document.getElementById('r'+i+"p10").style.backgroundImage = randomNum5
+  randomArrNum()
+  document.getElementById('r'+i+"p11").style.backgroundImage = randomNum1
+  document.getElementById('r'+i+"p12").style.backgroundImage = randomNum2
+  document.getElementById('r'+i+"p13").style.backgroundImage = randomNum3
+  document.getElementById('r'+i+"p14").style.backgroundImage = randomNum4
+  document.getElementById('r'+i+"p15").style.backgroundImage = randomNum5
+}
 
 function addCloneBg(){
   // setting last reel to VisibleArray images same.
